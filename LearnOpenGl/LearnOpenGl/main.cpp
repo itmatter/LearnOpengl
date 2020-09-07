@@ -8,9 +8,10 @@
 
 #include <iostream>
 #include "ConfigAndRun.hpp"
+#include "MyOpenglWindow.hpp"
 
 
 
 int main(int argc, const char * argv[]) {
-    return runConfigDemo();
+    return runMyOpenGlWindow();
 }

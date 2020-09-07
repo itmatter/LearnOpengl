@@ -12,6 +12,8 @@
 		BD63C6262504D30200DB43B4 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */; };
 		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
+		BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */; };
+		BDFD3C25250685AE0059A0CD /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C24250685AD0059A0CD /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +50,9 @@
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyOpenglWindow.cpp; sourceTree = "<group>"; };
+		BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyOpenglWindow.hpp; sourceTree = "<group>"; };
+		BDFD3C24250685AD0059A0CD /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +176,9 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
+				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
 				BD63C6272504DA0100DB43B4 /* chapter1 */,
+				BDFD3C1F25067D390059A0CD /* chapter2 */,
 				BDA85EC82504BE60003F7D84 /* main.cpp */,
 			);
 			path = LearnOpenGl;
@@ -186,6 +193,23 @@
 				BDA85ED02504BEB6003F7D84 /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDFD3C1F25067D390059A0CD /* chapter2 */ = {
+			isa = PBXGroup;
+			children = (
+				BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */,
+				BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */,
+			);
+			path = chapter2;
+			sourceTree = "<group>";
+		};
+		BDFD3C23250685940059A0CD /* GLAD_SOURCE */ = {
+			isa = PBXGroup;
+			children = (
+				BDFD3C24250685AD0059A0CD /* glad.c */,
+			);
+			path = GLAD_SOURCE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA85EC92504BE60003F7D84 /* main.cpp in Sources */,
+				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
+				BDFD3C25250685AE0059A0CD /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +413,7 @@
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/include,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -412,6 +439,7 @@
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/include,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/include,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
