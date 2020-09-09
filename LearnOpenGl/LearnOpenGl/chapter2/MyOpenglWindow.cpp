@@ -14,6 +14,57 @@
 #include "MyShader.hpp"
 #include "MyProgram.hpp"
 
+#define STRINGIZE(x) #x
+#define SHADER(shader) STRINGIZE(shader)
+
+
+// 模拟顶点数据
+GLfloat vertices[] = {
+    -0.5f, -0.5f, 0.0f,  //左下
+    0.5f, -0.5f, 0.0f,  //右下
+    0.0f,  0.5f, 0.0f   //中上
+};
+  
+  
+GLuint indices[] = { // 注意索引从0开始!
+    0, 1, 3, // 第一个三角形
+    1, 2, 3  // 第二个三角形
+};
+
+
+//顶点着色器程序
+char *vertexShaderStr = SHADER(
+    \#version 330 core\n
+                               layout (location = 0) in vec3 position;
+                               void main()
+                               {
+    gl_Position = vec4(position.x, position.y, position.z, 1.0);
+    }
+);
+
+
+//片元着色器程序
+char *fragmentShaderSrc = SHADER(
+            \#version 330 core\n
+                                 out vec4 color;
+                                 void main()
+                                 {
+    color = vec4(1.0f, 0.5f, 0.2f, 1.0f);
+    }
+);
+
+
+
+
+
+void useProgrom() {
+   
+}
+
+
+
+
+
 
 int runMyOpenGlWindow() {
         
@@ -37,10 +88,7 @@ int runMyOpenGlWindow() {
 
     }
     
-    
-    //Makes the context of the specified window current for the calling thread.
     //opengl运行模式 -- 单线程, 理解为跟当前的Window做一次绑定操作.
-    //多个线程同时调用不被允许
     glfwMakeContextCurrent(window);
     
     //任何的OpenGL接口调用都必须在初始化GLAD库后才可以正常访问。如果成功的话，该接口将返回GL_TRUE，否则就会返回GL_FALSE。
@@ -48,23 +96,107 @@ int runMyOpenGlWindow() {
     
     
     
+    
+     //----------------------------------------------------------------------
+    //先创建我们的Program对象, 加载顶点着色器程序和片元着色器程序
+    MyProgram myProgram = MyProgram(vertexShaderStr, fragmentShaderSrc);
+    
+    //程序有了, 接着处理数据
+
+    /*
+     VBO
+     ------------------------
+     | -------------------- |
+     | |VAO               | |
+     | -------------------- |
+     | -------------------- |
+     | |VAO               | |
+     | -------------------- |
+     | -------------------- |
+     | |VAO               | |
+     | -------------------- |
+     | -------------------- |
+     | |VAO               | |
+     | -------------------- |
+     |  ....                |
+     |  ....                |
+     |                      |
+     | -------------------- |
+     | |EBO               | |
+     | -------------------- |
+     ------------------------
+     */
+    
+    
+    
+    //创建VBO
+    GLuint VBO;
+    
+    //这个缓冲有一个独一无二的ID，所以我们可以使用glGenBuffers函数和一个缓冲ID生成一个VBO对象：
+    glGenBuffers(1, &VBO);
+    //OpenGL有很多缓冲对象类型，顶点缓冲对象的缓冲类型是GL_ARRAY_BUFFER。
+    //OpenGL允许我们同时绑定多个缓冲，只要它们是不同的缓冲类型。
+    //我们可以使用glBindBuffer函数把新创建的缓冲绑定到GL_ARRAY_BUFFER目标上：
+    //从这一刻起，我们使用的任何（在GL_ARRAY_BUFFER目标上的）缓冲调用都会用来配置当前绑定的缓冲(VBO)。
+    //然后我们可以调用glBufferData函数，它会把之前定义的顶点数据复制到缓冲的内存中：
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    
+    //glBufferData是一个专门用来把用户定义的数据复制到当前绑定缓冲的函数。
+    //它的第一个参数是目标缓冲的类型：顶点缓冲对象当前绑定到GL_ARRAY_BUFFER目标上。
+    //第二个参数指定传输数据的大小(以字节为单位)；用一个简单的sizeof计算出顶点数据大小就行。
+    //第三个参数是我们希望发送的实际数据。
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    
+    //创建VAO
+    //要想使用VAO，要做的只是使用glBindVertexArray绑定VAO。
+    //从绑定之后起，我们应该绑定和配置对应的VBO和属性指针，之后解绑VAO供之后使用。
+    //当我们打算绘制一个物体的时候，我们只要在绘制物体前简单地把VAO绑定到希望使用的设定上就行了。这段代码应该看起来像这样：
+    GLuint VAO;
+    glGenVertexArrays(1, &VAO);
+    //绑定VAO, 这里的VAO的值肯定不是为0的.
+    glBindVertexArray(VAO);
+    //把顶点数组复制到缓冲中供OpenGL使用
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    //先创建一个VBO, 然后创建(glGenBuffers)VAO和VEBO, 数据复制到缓冲区之后, 激活
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    //解绑VAO
+    glBindVertexArray(0);
+    
+    
+    
+    //这里的索引是为了效率,其实这里不需要也是能运行
+    //创建EBO, 这里的EBO相当于索引的作用
+    GLuint EBO;
+    glGenBuffers(1, &EBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     //----------------------------------------------------------------------
-    // 创建和编辑顶点着色器在这里面
-    
-    
-    
-    
-    
-    
-    
-    //----------------------------------------------------------------------
+ 
 
 
     
     //进行绘制
     while(!glfwWindowShouldClose(window)){
-        glfwSwapBuffers(window);
+       //检查事件
         glfwPollEvents();
+        
+        
+        //渲染指令
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glUseProgram(myProgram.program);
+        glBindVertexArray(VAO);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
+        //主要渲染函数
+        glBindVertexArray(0);
+        
+        
+        
+        //交换缓冲
+        glfwSwapBuffers(window);
     }
     
     
@@ -73,3 +205,4 @@ int runMyOpenGlWindow() {
     
     return 1;
 }
+
