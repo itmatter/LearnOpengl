@@ -11,6 +11,8 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "MyShader.hpp"
+#include "MyProgram.hpp"
 
 
 int runMyOpenGlWindow() {
@@ -20,7 +22,6 @@ int runMyOpenGlWindow() {
         printf("glfwInit 初始化失败");
         return -1;
     }
-    
     
     //这里的宏不好提示出来, 根据LearnOpenGL的文档提示, 用这三个
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -41,6 +42,23 @@ int runMyOpenGlWindow() {
     //opengl运行模式 -- 单线程, 理解为跟当前的Window做一次绑定操作.
     //多个线程同时调用不被允许
     glfwMakeContextCurrent(window);
+    
+    //任何的OpenGL接口调用都必须在初始化GLAD库后才可以正常访问。如果成功的话，该接口将返回GL_TRUE，否则就会返回GL_FALSE。
+    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    
+    
+    
+    //----------------------------------------------------------------------
+    // 创建和编辑顶点着色器在这里面
+    
+    
+    
+    
+    
+    
+    
+    //----------------------------------------------------------------------
+
 
     
     //进行绘制

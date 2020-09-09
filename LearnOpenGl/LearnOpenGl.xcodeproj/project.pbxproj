@@ -14,6 +14,10 @@
 		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
 		BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */; };
 		BDFD3C25250685AE0059A0CD /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C24250685AD0059A0CD /* glad.c */; };
+		BDFD3C3825091F110059A0CD /* MyShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C3625091F110059A0CD /* MyShader.cpp */; };
+		BDFD3C3925091F110059A0CD /* MyShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDFD3C3725091F110059A0CD /* MyShader.hpp */; };
+		BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C3A25091F240059A0CD /* MyProgram.cpp */; };
+		BDFD3C3D25091F240059A0CD /* MyProgram.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDFD3C3B25091F240059A0CD /* MyProgram.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +57,10 @@
 		BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyOpenglWindow.cpp; sourceTree = "<group>"; };
 		BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyOpenglWindow.hpp; sourceTree = "<group>"; };
 		BDFD3C24250685AD0059A0CD /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		BDFD3C3625091F110059A0CD /* MyShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MyShader.cpp; path = LearnOpenGl/chapter2/Shader/MyShader.cpp; sourceTree = SOURCE_ROOT; };
+		BDFD3C3725091F110059A0CD /* MyShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = MyShader.hpp; path = LearnOpenGl/chapter2/Shader/MyShader.hpp; sourceTree = SOURCE_ROOT; };
+		BDFD3C3A25091F240059A0CD /* MyProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyProgram.cpp; sourceTree = "<group>"; };
+		BDFD3C3B25091F240059A0CD /* MyProgram.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyProgram.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +206,9 @@
 		BDFD3C1F25067D390059A0CD /* chapter2 */ = {
 			isa = PBXGroup;
 			children = (
+				BDFD3C3E250921CE0059A0CD /* Source */,
+				BDFD3C3525091EF00059A0CD /* Program */,
+				BDFD3C3425091EEB0059A0CD /* Shader */,
 				BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */,
 				BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */,
 			);
@@ -212,13 +223,51 @@
 			path = GLAD_SOURCE;
 			sourceTree = "<group>";
 		};
+		BDFD3C3425091EEB0059A0CD /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				BDFD3C3725091F110059A0CD /* MyShader.hpp */,
+				BDFD3C3625091F110059A0CD /* MyShader.cpp */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
+		BDFD3C3525091EF00059A0CD /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				BDFD3C3B25091F240059A0CD /* MyProgram.hpp */,
+				BDFD3C3A25091F240059A0CD /* MyProgram.cpp */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		BDFD3C3E250921CE0059A0CD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BDFD3C312506977E0059A0CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDFD3C3D25091F240059A0CD /* MyProgram.hpp in Headers */,
+				BDFD3C3925091F110059A0CD /* MyShader.hpp in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		BDA85EC42504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDA85ECC2504BE60003F7D84 /* Build configuration list for PBXNativeTarget "LearnOpenGl" */;
 			buildPhases = (
+				BDFD3C312506977E0059A0CD /* Headers */,
 				BDA85EC12504BE60003F7D84 /* Sources */,
 				BDA85EC22504BE60003F7D84 /* Frameworks */,
 				BDA85EC32504BE60003F7D84 /* CopyFiles */,
@@ -273,6 +322,8 @@
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				BDFD3C25250685AE0059A0CD /* glad.c in Sources */,
+				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,
+				BDFD3C3825091F110059A0CD /* MyShader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
