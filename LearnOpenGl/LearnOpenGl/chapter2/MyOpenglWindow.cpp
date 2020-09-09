@@ -57,15 +57,6 @@ char *fragmentShaderSrc = SHADER(
 
 
 
-void useProgrom() {
-   
-}
-
-
-
-
-
-
 int runMyOpenGlWindow() {
         
     int result = glfwInit();
@@ -156,13 +147,15 @@ int runMyOpenGlWindow() {
     glGenVertexArrays(1, &VAO);
     //绑定VAO, 这里的VAO的值肯定不是为0的.
     glBindVertexArray(VAO);
-    //把顶点数组复制到缓冲中供OpenGL使用
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    //先创建一个VBO, 然后创建(glGenBuffers)VAO和VEBO, 数据复制到缓冲区之后, 激活
+    //通过glVertexAttribPointer 设置的顶点属性配置。
+    //通过glVertexAttribPointer 调用进行的顶点缓冲对象与顶点属性链接。
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
     //解绑VAO
     glBindVertexArray(0);
+    
+    
+    
     
     
     
@@ -172,6 +165,12 @@ int runMyOpenGlWindow() {
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    
+    
+    //在glUseProgram函数调用之后，每个着色器调用和渲染调用都会使用这个程序对象（也就是之前写的着色器)了。
+    //对了，在把着色器对象链接到程序对象以后，记得删除着色器对象，我们不再需要它们了：
+    glUseProgram(myProgram.program);
+
     //----------------------------------------------------------------------
  
 
@@ -182,12 +181,11 @@ int runMyOpenGlWindow() {
        //检查事件
         glfwPollEvents();
         
-        
         //渲染指令
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(myProgram.program);
+        //这里VAO也行, VBO也行
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         //主要渲染函数
@@ -205,4 +203,5 @@ int runMyOpenGlWindow() {
     
     return 1;
 }
+
 
