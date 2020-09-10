@@ -10,8 +10,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-    
-
 MyShader::MyShader(char* shaderStr, MyGLShaderType type)
 {
     

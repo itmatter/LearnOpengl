@@ -19,16 +19,26 @@
 
 
 // 模拟顶点数据
-GLfloat vertices[] = {
+//三角形
+GLfloat triangleVertices[] = {
     -0.5f, -0.5f, 0.0f,  //左下
-    0.5f, -0.5f, 0.0f,  //右下
-    0.0f,  0.5f, 0.0f   //中上
+     0.5f, -0.5f, 0.0f,  //右下
+     0.0f,  0.5f, 0.0f,   //中上
+};
+  
+
+//正方形
+GLfloat squareVertices[] = {
+    -0.5f, -0.5f, 0.0f,  //左下
+     0.5f, -0.5f, 0.0f,  //右下
+     0.5f,  0.5f, 0.0f,   //右上
+    -0.5f,  0.5f, 0.0f,   //左上
 };
   
   
-GLuint indices[] = { // 注意索引从0开始!
-    0, 1, 3, // 第一个三角形
-    1, 2, 3  // 第二个三角形
+unsigned int  squareIndices[] = { // 注意索引从0开始!
+    0, 1, 2, // 第一个三角形
+    0, 3, 2  // 第二个三角形
 };
 
 
@@ -42,7 +52,6 @@ char *vertexShaderStr = SHADER(
     }
 );
 
-
 //片元着色器程序
 char *fragmentShaderSrc = SHADER(
             \#version 330 core\n
@@ -55,6 +64,7 @@ char *fragmentShaderSrc = SHADER(
 
 
 
+bool showTriangle = false;
 
 
 int runMyOpenGlWindow() {
@@ -92,6 +102,9 @@ int runMyOpenGlWindow() {
     //先创建我们的Program对象, 加载顶点着色器程序和片元着色器程序
     MyProgram myProgram = MyProgram(vertexShaderStr, fragmentShaderSrc);
     
+    
+    
+    
     //程序有了, 接着处理数据
 
     /*
@@ -117,59 +130,61 @@ int runMyOpenGlWindow() {
      | -------------------- |
      ------------------------
      */
-    
-    
-    
-    //创建VBO
-    GLuint VBO;
-    
-    //这个缓冲有一个独一无二的ID，所以我们可以使用glGenBuffers函数和一个缓冲ID生成一个VBO对象：
-    glGenBuffers(1, &VBO);
-    //OpenGL有很多缓冲对象类型，顶点缓冲对象的缓冲类型是GL_ARRAY_BUFFER。
-    //OpenGL允许我们同时绑定多个缓冲，只要它们是不同的缓冲类型。
-    //我们可以使用glBindBuffer函数把新创建的缓冲绑定到GL_ARRAY_BUFFER目标上：
-    //从这一刻起，我们使用的任何（在GL_ARRAY_BUFFER目标上的）缓冲调用都会用来配置当前绑定的缓冲(VBO)。
-    //然后我们可以调用glBufferData函数，它会把之前定义的顶点数据复制到缓冲的内存中：
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    
-    //glBufferData是一个专门用来把用户定义的数据复制到当前绑定缓冲的函数。
-    //它的第一个参数是目标缓冲的类型：顶点缓冲对象当前绑定到GL_ARRAY_BUFFER目标上。
-    //第二个参数指定传输数据的大小(以字节为单位)；用一个简单的sizeof计算出顶点数据大小就行。
-    //第三个参数是我们希望发送的实际数据。
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    GLuint VBO , VAO , EBO;
+    unsigned int squareIndicesCount = 0;
+    showTriangle = false;
+    if (showTriangle) {
+        //创建VBO
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(triangleVertices), triangleVertices, GL_STATIC_DRAW);
 
+       
+       //创建VAO
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+        glEnableVertexAttribArray(0);
+        //解绑VAO
+        glBindVertexArray(0);
+        
+        
+    } else {
+        //创建VBO
+        glGenBuffers(1, &VBO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(squareVertices), squareVertices, GL_STATIC_DRAW);
+
+        
+        //创建VAO
+        glGenVertexArrays(1, &VAO);
+        glBindVertexArray(VAO);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+        glEnableVertexAttribArray(0);
+        
+        //创建EBO, 这里的EBO相当于索引的作用
+        glGenBuffers(1, &EBO);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(squareIndices), squareIndices, GL_STATIC_DRAW);
+
+        //解绑VAO
+        glBindVertexArray(0);
+        
+        //计算索引个数
+        squareIndicesCount = sizeof(squareIndices)/sizeof(squareIndices[0]);
+
+
+        
+    }
     
-    //创建VAO
-    //要想使用VAO，要做的只是使用glBindVertexArray绑定VAO。
-    //从绑定之后起，我们应该绑定和配置对应的VBO和属性指针，之后解绑VAO供之后使用。
-    //当我们打算绘制一个物体的时候，我们只要在绘制物体前简单地把VAO绑定到希望使用的设定上就行了。这段代码应该看起来像这样：
-    GLuint VAO;
-    glGenVertexArrays(1, &VAO);
-    //绑定VAO, 这里的VAO的值肯定不是为0的.
-    glBindVertexArray(VAO);
-    //通过glVertexAttribPointer 设置的顶点属性配置。
-    //通过glVertexAttribPointer 调用进行的顶点缓冲对象与顶点属性链接。
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-    glEnableVertexAttribArray(0);
-    //解绑VAO
-    glBindVertexArray(0);
-    
-    
-    
-    
-    
-    
-    //这里的索引是为了效率,其实这里不需要也是能运行
-    //创建EBO, 这里的EBO相当于索引的作用
-    GLuint EBO;
-    glGenBuffers(1, &EBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+   
     
     
     //在glUseProgram函数调用之后，每个着色器调用和渲染调用都会使用这个程序对象（也就是之前写的着色器)了。
-    //对了，在把着色器对象链接到程序对象以后，记得删除着色器对象，我们不再需要它们了：
     glUseProgram(myProgram.program);
+    
+    //线框模式
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     //----------------------------------------------------------------------
  
@@ -186,8 +201,26 @@ int runMyOpenGlWindow() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         //这里VAO也行, VBO也行
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glBindVertexArray(VBO);
+        
+        if (showTriangle) {
+            glDrawArrays(GL_TRIANGLES, 0, 3);
+            
+        } else {
+            //使用EBO
+            //glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
+            
+            //不使用EBO
+            glDrawArrays(GL_TRIANGLE_FAN, 0, 6);
+            /*
+            v参数1：有三种取值
+            1.GL_TRIANGLES：每三个顶之间绘制三角形，之间不连接
+            2.GL_TRIANGLE_FAN：以V0V1V2,V0V2V3,V0V3V4，……的形式绘制三角形
+            3.GL_TRIANGLE_STRIP：顺序在每三个顶点之间均绘制三角形。
+             这个方法可以保证从相同的方向上所有三角形均被绘制。以V0V1V2,V1V2V3,V2V3V4……的形式绘制三角形
+            */
+        }
+        
         //主要渲染函数
         glBindVertexArray(0);
         

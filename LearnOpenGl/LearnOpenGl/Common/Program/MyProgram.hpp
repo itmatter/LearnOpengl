@@ -23,6 +23,4 @@ class MyProgram {
 };
 
 
-
-
 #endif /* MyProgram_hpp */
