@@ -164,20 +164,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BD4AD953250A7DBB00C7984C /* chapter3 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = chapter3;
-			sourceTree = "<group>";
-		};
-		BD63C6272504DA0100DB43B4 /* chapter1 */ = {
+		BD63C6272504DA0100DB43B4 /* TestDemo */ = {
 			isa = PBXGroup;
 			children = (
 				BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */,
 				BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */,
 			);
-			path = chapter1;
+			path = TestDemo;
 			sourceTree = "<group>";
 		};
 		BDA85EBC2504BE60003F7D84 = {
@@ -200,11 +193,10 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
+				BD63C6272504DA0100DB43B4 /* TestDemo */,
 				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
 				BD4AD947250A76EE00C7984C /* Common */,
-				BD63C6272504DA0100DB43B4 /* chapter1 */,
-				BDFD3C1F25067D390059A0CD /* chapter2 */,
-				BD4AD953250A7DBB00C7984C /* chapter3 */,
+				BDFD3C1F25067D390059A0CD /* Window */,
 				BDA85EC82504BE60003F7D84 /* main.cpp */,
 			);
 			path = LearnOpenGl;
@@ -221,13 +213,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BDFD3C1F25067D390059A0CD /* chapter2 */ = {
+		BDFD3C1F25067D390059A0CD /* Window */ = {
 			isa = PBXGroup;
 			children = (
 				BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */,
 				BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */,
 			);
-			path = chapter2;
+			path = Window;
 			sourceTree = "<group>";
 		};
 		BDFD3C23250685940059A0CD /* GLAD_SOURCE */ = {
