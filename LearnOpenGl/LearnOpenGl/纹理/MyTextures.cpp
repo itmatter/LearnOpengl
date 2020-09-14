@@ -10,6 +10,26 @@
 #include "MyTextures.hpp"
 #include "MyProgram.hpp"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+
+
+void createTexture() {
+    
+    
+
+    
+    
+
+
+}
+
+
+
+
+
+
 int runMyTextureOpenGlWindow() {
     int result = glfwInit();
     if (result == GL_FALSE) {
@@ -30,15 +50,12 @@ int runMyTextureOpenGlWindow() {
 
     }
 
-    //opengl运行模式 -- 单线程, 理解为跟当前的Window做一次绑定操作.
     glfwMakeContextCurrent(window);
-    //任何的OpenGL接口调用都必须在初始化GLAD库后才可以正常访问。如果成功的话，该接口将返回GL_TRUE，否则就会返回GL_FALSE。
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
 
      //----------------------------------------------------------------------
-    //先创建我们的Program对象, 加载顶点着色器程序和片元着色器程序
-    MyProgram myProgram = MyProgram(vertexShaderStr, fragmentShaderSrc);
+    MyProgram myProgram = MyProgram(MyTextureVertexShaderStr, MyTextureFragmentShaderSrc);
 
 
 
@@ -49,27 +66,60 @@ int runMyTextureOpenGlWindow() {
     //创建VBO
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(squareVertices), squareVertices, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(MyTextureVertices), MyTextureVertices, GL_STATIC_DRAW);
 
     //创建VAO
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
-
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
     glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
+    
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
 
     //创建EBO, 这里的EBO相当于索引的作用
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(squareIndices), squareIndices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(MyTextureVerticesIndices), MyTextureVerticesIndices, GL_STATIC_DRAW);
 
     //解绑VAO
     glBindVertexArray(0);
-    squareIndicesCount = sizeof(squareIndices)/sizeof(squareIndices[0]);
+    squareIndicesCount = sizeof(MyTextureVerticesIndices)/sizeof(MyTextureVerticesIndices[0]);
  
+    
+    
+ 
+
+
+    //生成纹理
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    // 为当前绑定的纹理对象设置环绕、过滤方式
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // 加载并生成纹理
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Common/Sources/dizhuan.jpg", &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+    
+
+//    GLint vertexColorLocation = glGetUniformLocation(myProgram.program, "myTexture");
+//    glad_glSamplerParameteri()
+    
     //进行绘制
     while(!glfwWindowShouldClose(window)){
        //检查事件
@@ -79,17 +129,12 @@ int runMyTextureOpenGlWindow() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        //在glUseProgram函数调用之后，每个着色器调用和渲染调用都会使用这个程序对象（也就是之前写的着色器)了。
+        
+       
         glUseProgram(myProgram.program);
-
-
+        glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
-
-        //使用EBO
         glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
-
-
-        //主要渲染函数
         glBindVertexArray(0);
 
         //交换缓冲

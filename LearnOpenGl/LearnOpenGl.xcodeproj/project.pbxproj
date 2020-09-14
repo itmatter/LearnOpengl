@@ -18,6 +18,30 @@
 		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
 		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
 		BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD963250FAC9200C7984C /* ShaderSources.hpp */; };
+		BDE5B42B250FCD73002DBC07 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B415250FCD72002DBC07 /* stb_truetype.h */; };
+		BDE5B42C250FCD73002DBC07 /* stb_dxt.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B416250FCD72002DBC07 /* stb_dxt.h */; };
+		BDE5B42D250FCD73002DBC07 /* stb_sprintf.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B417250FCD72002DBC07 /* stb_sprintf.h */; };
+		BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */ = {isa = PBXBuildFile; fileRef = BDE5B418250FCD72002DBC07 /* stb_vorbis.c */; };
+		BDE5B42F250FCD73002DBC07 /* stb_image.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B419250FCD72002DBC07 /* stb_image.h */; };
+		BDE5B430250FCD73002DBC07 /* stb_include.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41A250FCD72002DBC07 /* stb_include.h */; };
+		BDE5B431250FCD73002DBC07 /* stb_image_resize.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41B250FCD72002DBC07 /* stb_image_resize.h */; };
+		BDE5B432250FCD73002DBC07 /* stb_perlin.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41C250FCD72002DBC07 /* stb_perlin.h */; };
+		BDE5B433250FCD73002DBC07 /* stb_herringbone_wang_tile.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41D250FCD72002DBC07 /* stb_herringbone_wang_tile.h */; };
+		BDE5B434250FCD73002DBC07 /* stretchy_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41E250FCD72002DBC07 /* stretchy_buffer.h */; };
+		BDE5B435250FCD73002DBC07 /* stb_c_lexer.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B41F250FCD72002DBC07 /* stb_c_lexer.h */; };
+		BDE5B436250FCD73002DBC07 /* stb_ds.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B420250FCD72002DBC07 /* stb_ds.h */; };
+		BDE5B437250FCD73002DBC07 /* stb_easy_font.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B421250FCD72002DBC07 /* stb_easy_font.h */; };
+		BDE5B438250FCD73002DBC07 /* stb_connected_components.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B422250FCD73002DBC07 /* stb_connected_components.h */; };
+		BDE5B439250FCD73002DBC07 /* stb_voxel_render.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B423250FCD73002DBC07 /* stb_voxel_render.h */; };
+		BDE5B43A250FCD73002DBC07 /* stb_divide.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B424250FCD73002DBC07 /* stb_divide.h */; };
+		BDE5B43B250FCD73002DBC07 /* stb_textedit.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B425250FCD73002DBC07 /* stb_textedit.h */; };
+		BDE5B43C250FCD73002DBC07 /* stb_image_write.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B426250FCD73002DBC07 /* stb_image_write.h */; };
+		BDE5B43D250FCD73002DBC07 /* stb_tilemap_editor.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B427250FCD73002DBC07 /* stb_tilemap_editor.h */; };
+		BDE5B43E250FCD73002DBC07 /* stb_leakcheck.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B428250FCD73002DBC07 /* stb_leakcheck.h */; };
+		BDE5B43F250FCD73002DBC07 /* stb.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B429250FCD73002DBC07 /* stb.h */; };
+		BDE5B440250FCD73002DBC07 /* stb_rect_pack.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B42A250FCD73002DBC07 /* stb_rect_pack.h */; };
+		BDE5B443250FD0D4002DBC07 /* MyTexturesVertices.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */; };
+		BDE5B445250FD0DB002DBC07 /* MyTexturesShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */; };
 		BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */; };
 		BDFD3C25250685AE0059A0CD /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C24250685AD0059A0CD /* glad.c */; };
 		BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C3A25091F240059A0CD /* MyProgram.cpp */; };
@@ -64,6 +88,31 @@
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dizhuan.jpg; sourceTree = "<group>"; };
+		BDE5B415250FCD72002DBC07 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		BDE5B416250FCD72002DBC07 /* stb_dxt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_dxt.h; sourceTree = "<group>"; };
+		BDE5B417250FCD72002DBC07 /* stb_sprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_sprintf.h; sourceTree = "<group>"; };
+		BDE5B418250FCD72002DBC07 /* stb_vorbis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stb_vorbis.c; sourceTree = "<group>"; };
+		BDE5B419250FCD72002DBC07 /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		BDE5B41A250FCD72002DBC07 /* stb_include.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_include.h; sourceTree = "<group>"; };
+		BDE5B41B250FCD72002DBC07 /* stb_image_resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_resize.h; sourceTree = "<group>"; };
+		BDE5B41C250FCD72002DBC07 /* stb_perlin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_perlin.h; sourceTree = "<group>"; };
+		BDE5B41D250FCD72002DBC07 /* stb_herringbone_wang_tile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_herringbone_wang_tile.h; sourceTree = "<group>"; };
+		BDE5B41E250FCD72002DBC07 /* stretchy_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stretchy_buffer.h; sourceTree = "<group>"; };
+		BDE5B41F250FCD72002DBC07 /* stb_c_lexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_c_lexer.h; sourceTree = "<group>"; };
+		BDE5B420250FCD72002DBC07 /* stb_ds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_ds.h; sourceTree = "<group>"; };
+		BDE5B421250FCD72002DBC07 /* stb_easy_font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_easy_font.h; sourceTree = "<group>"; };
+		BDE5B422250FCD73002DBC07 /* stb_connected_components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_connected_components.h; sourceTree = "<group>"; };
+		BDE5B423250FCD73002DBC07 /* stb_voxel_render.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_voxel_render.h; sourceTree = "<group>"; };
+		BDE5B424250FCD73002DBC07 /* stb_divide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_divide.h; sourceTree = "<group>"; };
+		BDE5B425250FCD73002DBC07 /* stb_textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_textedit.h; sourceTree = "<group>"; };
+		BDE5B426250FCD73002DBC07 /* stb_image_write.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_write.h; sourceTree = "<group>"; };
+		BDE5B427250FCD73002DBC07 /* stb_tilemap_editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_tilemap_editor.h; sourceTree = "<group>"; };
+		BDE5B428250FCD73002DBC07 /* stb_leakcheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_leakcheck.h; sourceTree = "<group>"; };
+		BDE5B429250FCD73002DBC07 /* stb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb.h; sourceTree = "<group>"; };
+		BDE5B42A250FCD73002DBC07 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
+		BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTexturesShader.hpp; sourceTree = "<group>"; };
+		BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTexturesVertices.hpp; sourceTree = "<group>"; };
 		BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyOpenglWindow.cpp; sourceTree = "<group>"; };
 		BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyOpenglWindow.hpp; sourceTree = "<group>"; };
 		BDFD3C24250685AD0059A0CD /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
@@ -185,6 +234,8 @@
 		BD4AD95B250FA9C600C7984C /* 纹理 */ = {
 			isa = PBXGroup;
 			children = (
+				BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */,
+				BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */,
 				BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */,
 				BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */,
 			);
@@ -227,6 +278,7 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
+				BDE5B414250FCD67002DBC07 /* SOIL */,
 				BD4AD95C250FA9E400C7984C /* 变换 */,
 				BD4AD95B250FA9C600C7984C /* 纹理 */,
 				BD4AD95A250FA9BD00C7984C /* 入门 */,
@@ -251,15 +303,45 @@
 		BDE5B412250FB5F8002DBC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				BD4AD961250FAC0B00C7984C /* VertexSources.hpp */,
-				BD4AD963250FAC9200C7984C /* ShaderSources.hpp */,
+				BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		BDE5B414250FCD67002DBC07 /* SOIL */ = {
+			isa = PBXGroup;
+			children = (
+				BDE5B41F250FCD72002DBC07 /* stb_c_lexer.h */,
+				BDE5B422250FCD73002DBC07 /* stb_connected_components.h */,
+				BDE5B424250FCD73002DBC07 /* stb_divide.h */,
+				BDE5B420250FCD72002DBC07 /* stb_ds.h */,
+				BDE5B416250FCD72002DBC07 /* stb_dxt.h */,
+				BDE5B421250FCD72002DBC07 /* stb_easy_font.h */,
+				BDE5B41D250FCD72002DBC07 /* stb_herringbone_wang_tile.h */,
+				BDE5B41B250FCD72002DBC07 /* stb_image_resize.h */,
+				BDE5B426250FCD73002DBC07 /* stb_image_write.h */,
+				BDE5B419250FCD72002DBC07 /* stb_image.h */,
+				BDE5B41A250FCD72002DBC07 /* stb_include.h */,
+				BDE5B428250FCD73002DBC07 /* stb_leakcheck.h */,
+				BDE5B41C250FCD72002DBC07 /* stb_perlin.h */,
+				BDE5B42A250FCD73002DBC07 /* stb_rect_pack.h */,
+				BDE5B417250FCD72002DBC07 /* stb_sprintf.h */,
+				BDE5B425250FCD73002DBC07 /* stb_textedit.h */,
+				BDE5B427250FCD73002DBC07 /* stb_tilemap_editor.h */,
+				BDE5B415250FCD72002DBC07 /* stb_truetype.h */,
+				BDE5B418250FCD72002DBC07 /* stb_vorbis.c */,
+				BDE5B423250FCD73002DBC07 /* stb_voxel_render.h */,
+				BDE5B429250FCD73002DBC07 /* stb.h */,
+				BDE5B41E250FCD72002DBC07 /* stretchy_buffer.h */,
+			);
+			path = SOIL;
 			sourceTree = "<group>";
 		};
 		BDFD3C1F25067D390059A0CD /* CreateWindow */ = {
 			isa = PBXGroup;
 			children = (
+				BD4AD961250FAC0B00C7984C /* VertexSources.hpp */,
+				BD4AD963250FAC9200C7984C /* ShaderSources.hpp */,
 				BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */,
 				BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */,
 			);
@@ -299,11 +381,34 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDE5B42C250FCD73002DBC07 /* stb_dxt.h in Headers */,
+				BDE5B431250FCD73002DBC07 /* stb_image_resize.h in Headers */,
+				BDE5B43C250FCD73002DBC07 /* stb_image_write.h in Headers */,
+				BDE5B42D250FCD73002DBC07 /* stb_sprintf.h in Headers */,
+				BDE5B43B250FCD73002DBC07 /* stb_textedit.h in Headers */,
+				BDE5B43A250FCD73002DBC07 /* stb_divide.h in Headers */,
+				BDE5B42F250FCD73002DBC07 /* stb_image.h in Headers */,
+				BDE5B42B250FCD73002DBC07 /* stb_truetype.h in Headers */,
+				BDE5B439250FCD73002DBC07 /* stb_voxel_render.h in Headers */,
 				BDFD3C3D25091F240059A0CD /* MyProgram.hpp in Headers */,
+				BDE5B43D250FCD73002DBC07 /* stb_tilemap_editor.h in Headers */,
+				BDE5B435250FCD73002DBC07 /* stb_c_lexer.h in Headers */,
+				BDE5B434250FCD73002DBC07 /* stretchy_buffer.h in Headers */,
 				BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */,
 				BD4AD952250A780A00C7984C /* MyShader.hpp in Headers */,
+				BDE5B432250FCD73002DBC07 /* stb_perlin.h in Headers */,
+				BDE5B43E250FCD73002DBC07 /* stb_leakcheck.h in Headers */,
+				BDE5B440250FCD73002DBC07 /* stb_rect_pack.h in Headers */,
+				BDE5B433250FCD73002DBC07 /* stb_herringbone_wang_tile.h in Headers */,
+				BDE5B437250FCD73002DBC07 /* stb_easy_font.h in Headers */,
 				BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */,
+				BDE5B438250FCD73002DBC07 /* stb_connected_components.h in Headers */,
+				BDE5B436250FCD73002DBC07 /* stb_ds.h in Headers */,
+				BDE5B443250FD0D4002DBC07 /* MyTexturesVertices.hpp in Headers */,
 				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
+				BDE5B43F250FCD73002DBC07 /* stb.h in Headers */,
+				BDE5B430250FCD73002DBC07 /* stb_include.h in Headers */,
+				BDE5B445250FD0DB002DBC07 /* MyTexturesShader.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +472,7 @@
 			files = (
 				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
 				BDA85EC92504BE60003F7D84 /* main.cpp in Sources */,
+				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,

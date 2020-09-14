@@ -9,8 +9,8 @@
 #ifndef MyTextures_hpp
 #define MyTextures_hpp
 
-#include "VertexSources.hpp"
-#include "ShaderSources.hpp"
+#include "MyTexturesVertices.hpp"
+#include "MyTexturesShader.hpp"
 
 
 int runMyTextureOpenGlWindow();
