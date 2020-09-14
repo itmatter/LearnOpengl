@@ -10,9 +10,8 @@
 #ifndef MyProgram_hpp
 #define MyProgram_hpp
 
-#include <stdio.h>
-#import <glad/glad.h>
-#import <GLFW/glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 class MyProgram {
     public:

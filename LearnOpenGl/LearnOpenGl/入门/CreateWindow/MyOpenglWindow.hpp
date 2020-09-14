@@ -10,7 +10,9 @@
 #ifndef MyOpenglWindow_hpp
 #define MyOpenglWindow_hpp
 
-#include <stdio.h>
+#include "VertexSources.hpp"
+#include "ShaderSources.hpp"
+
 
 int runMyOpenGlWindow();
 

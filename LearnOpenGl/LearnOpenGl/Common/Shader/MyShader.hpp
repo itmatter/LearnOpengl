@@ -9,10 +9,9 @@
 #ifndef MyShader_hpp
 #define MyShader_hpp
 
-#include <stdio.h>
 
-#import <glad/glad.h>
-#import <GLFW/glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 
 enum MyGLShaderType

@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD94F250A780A00C7984C /* MyShader.cpp */; };
 		BD4AD952250A780A00C7984C /* MyShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD950250A780A00C7984C /* MyShader.hpp */; };
+		BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */; };
+		BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */; };
 		BD63C6242504D09800DB43B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
 		BD63C6252504D2F200DB43B4 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
 		BD63C6262504D30200DB43B4 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */; };
 		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
+		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
+		BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD963250FAC9200C7984C /* ShaderSources.hpp */; };
 		BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */; };
 		BDFD3C25250685AE0059A0CD /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C24250685AD0059A0CD /* glad.c */; };
 		BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C3A25091F240059A0CD /* MyProgram.cpp */; };
@@ -51,6 +55,10 @@
 		BD43515F2504C2CA005F69E0 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.3.dylib; sourceTree = "<group>"; };
 		BD4AD94F250A780A00C7984C /* MyShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyShader.cpp; sourceTree = "<group>"; };
 		BD4AD950250A780A00C7984C /* MyShader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyShader.hpp; sourceTree = "<group>"; };
+		BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTextures.cpp; sourceTree = "<group>"; };
+		BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTextures.hpp; sourceTree = "<group>"; };
+		BD4AD961250FAC0B00C7984C /* VertexSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VertexSources.hpp; sourceTree = "<group>"; };
+		BD4AD963250FAC9200C7984C /* ShaderSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderSources.hpp; sourceTree = "<group>"; };
 		BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigAndRun.cpp; sourceTree = "<group>"; };
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,10 +166,36 @@
 		BD4AD947250A76EE00C7984C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BDE5B412250FB5F8002DBC07 /* Sources */,
 				BDFD3C3525091EF00059A0CD /* Program */,
 				BDFD3C3425091EEB0059A0CD /* Shader */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BD4AD95A250FA9BD00C7984C /* 入门 */ = {
+			isa = PBXGroup;
+			children = (
+				BD63C6272504DA0100DB43B4 /* TestDemo */,
+				BDFD3C1F25067D390059A0CD /* CreateWindow */,
+			);
+			path = "入门";
+			sourceTree = "<group>";
+		};
+		BD4AD95B250FA9C600C7984C /* 纹理 */ = {
+			isa = PBXGroup;
+			children = (
+				BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */,
+				BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */,
+			);
+			path = "纹理";
+			sourceTree = "<group>";
+		};
+		BD4AD95C250FA9E400C7984C /* 变换 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "变换";
 			sourceTree = "<group>";
 		};
 		BD63C6272504DA0100DB43B4 /* TestDemo */ = {
@@ -193,10 +227,11 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
-				BD63C6272504DA0100DB43B4 /* TestDemo */,
-				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
+				BD4AD95C250FA9E400C7984C /* 变换 */,
+				BD4AD95B250FA9C600C7984C /* 纹理 */,
+				BD4AD95A250FA9BD00C7984C /* 入门 */,
 				BD4AD947250A76EE00C7984C /* Common */,
-				BDFD3C1F25067D390059A0CD /* Window */,
+				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
 				BDA85EC82504BE60003F7D84 /* main.cpp */,
 			);
 			path = LearnOpenGl;
@@ -213,13 +248,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BDFD3C1F25067D390059A0CD /* Window */ = {
+		BDE5B412250FB5F8002DBC07 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BD4AD961250FAC0B00C7984C /* VertexSources.hpp */,
+				BD4AD963250FAC9200C7984C /* ShaderSources.hpp */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BDFD3C1F25067D390059A0CD /* CreateWindow */ = {
 			isa = PBXGroup;
 			children = (
 				BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */,
 				BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */,
 			);
-			path = Window;
+			path = CreateWindow;
 			sourceTree = "<group>";
 		};
 		BDFD3C23250685940059A0CD /* GLAD_SOURCE */ = {
@@ -256,7 +300,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDFD3C3D25091F240059A0CD /* MyProgram.hpp in Headers */,
+				BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */,
 				BD4AD952250A780A00C7984C /* MyShader.hpp in Headers */,
+				BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */,
+				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
 				BDA85EC92504BE60003F7D84 /* main.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */,
