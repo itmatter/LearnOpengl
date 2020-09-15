@@ -15,21 +15,6 @@
 
 
 
-void createTexture() {
-    
-    
-
-    
-    
-
-
-}
-
-
-
-
-
-
 int runMyTextureOpenGlWindow() {
     int result = glfwInit();
     if (result == GL_FALSE) {
@@ -75,7 +60,6 @@ int runMyTextureOpenGlWindow() {
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
-    
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
 
@@ -88,10 +72,6 @@ int runMyTextureOpenGlWindow() {
     glBindVertexArray(0);
     squareIndicesCount = sizeof(MyTextureVerticesIndices)/sizeof(MyTextureVerticesIndices[0]);
  
-    
-    
- 
-
 
     //生成纹理
     unsigned int texture;
@@ -102,6 +82,9 @@ int runMyTextureOpenGlWindow() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+
+    
     // 加载并生成纹理
     int width, height, nrChannels;
     unsigned char *data = stbi_load("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Common/Sources/dizhuan.jpg", &width, &height, &nrChannels, 0);
@@ -117,8 +100,9 @@ int runMyTextureOpenGlWindow() {
     stbi_image_free(data);
     
 
-//    GLint vertexColorLocation = glGetUniformLocation(myProgram.program, "myTexture");
-//    glad_glSamplerParameteri()
+    
+
+
     
     //进行绘制
     while(!glfwWindowShouldClose(window)){
@@ -128,12 +112,15 @@ int runMyTextureOpenGlWindow() {
         //渲染指令
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-
-        
        
         glUseProgram(myProgram.program);
-        glBindTexture(GL_TEXTURE_2D, texture);
         glBindVertexArray(VAO);
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glUniform2f(glGetUniformLocation(myProgram.program, "myTexture"), 1.0f,0.0f);
+        
+        
         glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 

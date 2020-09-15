@@ -278,7 +278,7 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
-				BDE5B414250FCD67002DBC07 /* SOIL */,
+				BDE5B414250FCD67002DBC07 /* STB */,
 				BD4AD95C250FA9E400C7984C /* 变换 */,
 				BD4AD95B250FA9C600C7984C /* 纹理 */,
 				BD4AD95A250FA9BD00C7984C /* 入门 */,
@@ -308,7 +308,7 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		BDE5B414250FCD67002DBC07 /* SOIL */ = {
+		BDE5B414250FCD67002DBC07 /* STB */ = {
 			isa = PBXGroup;
 			children = (
 				BDE5B41F250FCD72002DBC07 /* stb_c_lexer.h */,
@@ -334,7 +334,7 @@
 				BDE5B429250FCD73002DBC07 /* stb.h */,
 				BDE5B41E250FCD72002DBC07 /* stretchy_buffer.h */,
 			);
-			path = SOIL;
+			path = STB;
 			sourceTree = "<group>";
 		};
 		BDFD3C1F25067D390059A0CD /* CreateWindow */ = {
