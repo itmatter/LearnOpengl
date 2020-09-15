@@ -29,7 +29,7 @@ int runMyTextureOpenGlWindow() {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
     //创建一个Window
-    GLFWwindow *window = glfwCreateWindow(600, 400, "My Opengl Window", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(600, 600, "My Opengl Window", NULL, NULL);
     if(!window) {
         printf("window 创建失败");
 
@@ -73,31 +73,61 @@ int runMyTextureOpenGlWindow() {
     squareIndicesCount = sizeof(MyTextureVerticesIndices)/sizeof(MyTextureVerticesIndices[0]);
  
 
+   
+    
     //生成纹理
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    unsigned int texture0, texture1;
+    unsigned char *data0 ;
+    int width0, height0, nrChannels0;
+
+    glGenTextures(1, &texture0);
+    glBindTexture(GL_TEXTURE_2D, texture0);
     // 为当前绑定的纹理对象设置环绕、过滤方式
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    
-
-    
-    // 加载并生成纹理
-    int width, height, nrChannels;
-    unsigned char *data = stbi_load("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Common/Sources/dizhuan.jpg", &width, &height, &nrChannels, 0);
-    if (data)
+    data0 = stbi_load("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Common/Sources/dizhuan.jpg", &width0, &height0, &nrChannels0, 0);
+    if (data0)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width0, height0, 0, GL_RGB, GL_UNSIGNED_BYTE, data0);
         glGenerateMipmap(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
     }
     else
     {
         std::cout << "Failed to load texture" << std::endl;
     }
-    stbi_image_free(data);
+    stbi_image_free(data0);
+
+
+    unsigned char *data1 ;
+    int width1, height1, nrChannels1;
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    data1 = stbi_load("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Common/Sources/smile.png", &width1, &height1, &nrChannels1, 0);
+    if (data1)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width1, height1, 0, GL_RGBA, GL_UNSIGNED_BYTE, data1);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data1);
+
+    
+    
+    
+    
     
 
     
@@ -112,15 +142,21 @@ int runMyTextureOpenGlWindow() {
         //渲染指令
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture0);
+        glUniform1i(glGetUniformLocation(myProgram.program, "myTexture0"), 0);
+        
+        
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glUniform1i(glGetUniformLocation(myProgram.program, "myTexture1"), 1);
+        
+        
        
         glUseProgram(myProgram.program);
         glBindVertexArray(VAO);
-        
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, texture);
-        glUniform2f(glGetUniformLocation(myProgram.program, "myTexture"), 1.0f,0.0f);
-        
-        
         glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 

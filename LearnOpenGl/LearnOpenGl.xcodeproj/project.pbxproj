@@ -85,6 +85,7 @@
 		BD4AD963250FAC9200C7984C /* ShaderSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderSources.hpp; sourceTree = "<group>"; };
 		BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigAndRun.cpp; sourceTree = "<group>"; };
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
+		BD97D749251121520056AA58 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -303,6 +304,7 @@
 		BDE5B412250FB5F8002DBC07 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				BD97D749251121520056AA58 /* smile.png */,
 				BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */,
 			);
 			path = Sources;

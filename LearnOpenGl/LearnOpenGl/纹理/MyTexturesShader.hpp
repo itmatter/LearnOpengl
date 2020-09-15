@@ -40,17 +40,36 @@ static char *MyTextureFragmentShaderSrc = SHADER(
     in vec2 vertexTexCoords;//从顶点着色器中拿纹理的值
     in vec4 vertexColor;//从顶点着色器中拿color的值
                         
-    uniform sampler2D myTexture;//全局myTexture
+    uniform sampler2D myTexture0;//全局myTexture
+    uniform sampler2D myTexture1;//全局myTexture
 
     out vec4 color;
     out vec4 FragColor;
                                                  
     void main()
     {
-        color = vertexColor;//获取值
-        FragColor = texture(myTexture, vertexTexCoords);
+        FragColor = mix(texture(myTexture0, vertexTexCoords), texture(myTexture1, vertexTexCoords), 0.5);
     }
 );
+
+////片元着色器程序
+//static char *MyTextureFragmentShaderSrc = SHADER(
+//    \#version 330 core\n
+//
+//    in vec2 vertexTexCoords;//从顶点着色器中拿纹理的值
+//    in vec4 vertexColor;//从顶点着色器中拿color的值
+//
+//    uniform sampler2D myTexture;//全局myTexture
+//
+//    out vec4 color;
+//    out vec4 FragColor;
+//
+//    void main()
+//    {
+//        color = vertexColor;//获取值
+//        FragColor = texture(myTexture, vertexTexCoords) * color;
+//    }
+//);
 
 
 
