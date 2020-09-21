@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04C6C86D25189974003760D6 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C6C86C25189973003760D6 /* libglfw.3.2.dylib */; };
+		04D964402518887600594CFB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
+		04D966DA2518993D00594CFB /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD94F250A780A00C7984C /* MyShader.cpp */; };
 		BD4AD952250A780A00C7984C /* MyShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD950250A780A00C7984C /* MyShader.hpp */; };
 		BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */; };
 		BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */; };
-		BD63C6242504D09800DB43B4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
-		BD63C6252504D2F200DB43B4 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
-		BD63C6262504D30200DB43B4 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */; };
 		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
 		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
@@ -61,6 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04C6C86C25189973003760D6 /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
+		04D966D92518976500594CFB /* LearnOpenGl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LearnOpenGl.entitlements; sourceTree = "<group>"; };
 		BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
 		BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		BD43514B2504C2CA005F69E0 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
@@ -126,15 +128,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD63C6262504D30200DB43B4 /* libGLEW.2.1.0.dylib in Frameworks */,
-				BD63C6252504D2F200DB43B4 /* libglfw.3.3.dylib in Frameworks */,
-				BD63C6242504D09800DB43B4 /* OpenGL.framework in Frameworks */,
+				04C6C86D25189974003760D6 /* libglfw.3.2.dylib in Frameworks */,
+				04D966DA2518993D00594CFB /* libGLEW.2.1.0.dylib in Frameworks */,
+				04D964402518887600594CFB /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04C6C86E25189BA5003760D6 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				BD4AD95C250FA9E400C7984C /* TRANSFORM */,
+				BD4AD95B250FA9C600C7984C /* TEXTURE */,
+				BD4AD95A250FA9BD00C7984C /* GETSTART */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		04C6C86F25189BAE003760D6 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BD4AD947250A76EE00C7984C /* Common */,
+				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
+				BDE5B414250FCD67002DBC07 /* STB */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		BD43514A2504C2CA005F69E0 /* 3.3.2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,16 +245,16 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BD4AD95A250FA9BD00C7984C /* 入门 */ = {
+		BD4AD95A250FA9BD00C7984C /* GETSTART */ = {
 			isa = PBXGroup;
 			children = (
 				BD63C6272504DA0100DB43B4 /* TestDemo */,
 				BDFD3C1F25067D390059A0CD /* CreateWindow */,
 			);
-			path = "入门";
+			path = GETSTART;
 			sourceTree = "<group>";
 		};
-		BD4AD95B250FA9C600C7984C /* 纹理 */ = {
+		BD4AD95B250FA9C600C7984C /* TEXTURE */ = {
 			isa = PBXGroup;
 			children = (
 				BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */,
@@ -240,14 +262,15 @@
 				BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */,
 				BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */,
 			);
-			path = "纹理";
+			path = TEXTURE;
 			sourceTree = "<group>";
 		};
-		BD4AD95C250FA9E400C7984C /* 变换 */ = {
+		BD4AD95C250FA9E400C7984C /* TRANSFORM */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "变换";
+			name = TRANSFORM;
+			path = ../TRANSFORM;
 			sourceTree = "<group>";
 		};
 		BD63C6272504DA0100DB43B4 /* TestDemo */ = {
@@ -279,12 +302,9 @@
 		BDA85EC72504BE60003F7D84 /* LearnOpenGl */ = {
 			isa = PBXGroup;
 			children = (
-				BDE5B414250FCD67002DBC07 /* STB */,
-				BD4AD95C250FA9E400C7984C /* 变换 */,
-				BD4AD95B250FA9C600C7984C /* 纹理 */,
-				BD4AD95A250FA9BD00C7984C /* 入门 */,
-				BD4AD947250A76EE00C7984C /* Common */,
-				BDFD3C23250685940059A0CD /* GLAD_SOURCE */,
+				04D966D92518976500594CFB /* LearnOpenGl.entitlements */,
+				04C6C86F25189BAE003760D6 /* Sources */,
+				04C6C86E25189BA5003760D6 /* Demo */,
 				BDA85EC82504BE60003F7D84 /* main.cpp */,
 			);
 			path = LearnOpenGl;
@@ -293,6 +313,7 @@
 		BDA85ECF2504BEB5003F7D84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04C6C86C25189973003760D6 /* libglfw.3.2.dylib */,
 				BD43514A2504C2CA005F69E0 /* 3.3.2 */,
 				BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */,
 				BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */,
@@ -611,22 +632,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = LearnOpenGl/LearnOpenGl.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JKP4G35J39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/OpenGLLib/glew/2.0.0/include",
-					"$(SRCROOT)/OpenGLLib/glew/2.0.0/lib",
-					"$(SRCROOT)/OpenGLLib/glfw/3.2.1/include",
-					"$(SRCROOT)/OpenGLLib/glfw/3.2.1/lib",
-					"$(SRCROOT)/OpenGLLib/glad/include",
-					"$(SRCROOT)/OpenGLLib/glad/src",
+					"/usr/local/Cellar//glew/2.1.0_1/include",
+					"/usr/local/Cellar//glew/2.1.0_1/lib",
+					"/usr/local/Cellar//glad/include",
+					"/usr/local/Cellar//glad/src",
+					/usr/local/Cellar/glfw/3.2.1/include,
+					"/usr/local/Cellar//glfw/3.2.1/src",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					"$(PROJECT_DIR)/OpenGLLib/glew/2.0.0/lib",
+					"$(PROJECT_DIR)/OpenGLLib/glew/2.1.0_1/lib",
+					"$(PROJECT_DIR)/OpenGLLib/glfw/3.2.1/lib",
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -638,22 +664,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = NO;
+				CODE_SIGN_ENTITLEMENTS = LearnOpenGl/LearnOpenGl.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JKP4G35J39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/OpenGLLib/glew/2.0.0/include",
-					"$(SRCROOT)/OpenGLLib/glew/2.0.0/lib",
-					"$(SRCROOT)/OpenGLLib/glfw/3.2.1/include",
-					"$(SRCROOT)/OpenGLLib/glfw/3.2.1/lib",
-					"$(SRCROOT)/OpenGLLib/glad/include",
-					"$(SRCROOT)/OpenGLLib/glad/src",
+					"/usr/local/Cellar//glew/2.1.0_1/include",
+					"/usr/local/Cellar//glew/2.1.0_1/lib",
+					"/usr/local/Cellar//glad/include",
+					"/usr/local/Cellar//glad/src",
+					/usr/local/Cellar/glfw/3.2.1/include,
+					"/usr/local/Cellar//glfw/3.2.1/src",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					"$(PROJECT_DIR)/OpenGLLib/glew/2.0.0/lib",
+					"$(PROJECT_DIR)/OpenGLLib/glew/2.1.0_1/lib",
+					"$(PROJECT_DIR)/OpenGLLib/glfw/3.2.1/lib",
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
