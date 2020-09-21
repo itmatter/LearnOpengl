@@ -10,7 +10,7 @@
 #ifndef MyProgram_hpp
 #define MyProgram_hpp
 
-#include <glad/glad.h>
+#include "glad.h"
 #include <GLFW/glfw3.h>
 
 class MyProgram {
