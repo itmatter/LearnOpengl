@@ -85,9 +85,16 @@ int runMyTransform() {
         
         ///变换处理
         GLint transformLoc = glGetUniformLocation(myProgram.program,"myTransform");
-        glm::mat4 trans = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+        //单位矩阵
+        glm::mat4 trans = glm::mat4(1.0f);
+        //缩放,旋转,平移
         trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+//        trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
+        trans = glm::translate(trans, glm::vec3(1.0, 0.0, 0.0));
+        
+        trans = glm::rotate(trans,(GLfloat)glfwGetTime() * 1.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+
+        //矩阵赋值
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
         
         
