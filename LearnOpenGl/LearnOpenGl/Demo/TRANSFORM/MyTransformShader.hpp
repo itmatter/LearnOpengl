@@ -12,20 +12,6 @@
 #define STRINGIZE(x) #x
 #define SHADER(shader) STRINGIZE(shader)
 
-
-
-
-/// 平移/旋转/缩放
-/// 需要包含的文件GLM
-   
-   
-   
-   
-   
-   
-   
-   
-
 ///
 /// 着色器程序之间的数据传递
 static char *myTransformVertexShaderStr = SHADER(
@@ -35,10 +21,12 @@ static char *myTransformVertexShaderStr = SHADER(
     layout (location = 1) in vec3 color; //颜色数据源输入
                                
     out vec4 vertexColor;//把片元着色器的颜色从这里输出
+                                                 
+    uniform mat4 myTransform;//变换
                                
     void main()
     {
-        gl_Position = vec4(position, 1.0f);
+        gl_Position = myTransform * vec4(position, 1.0f);
         vertexColor = vec4(color, 1.0f); //输出给片元着色器
     }
 );

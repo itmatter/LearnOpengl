@@ -10,7 +10,9 @@
 #include "MyTransform.hpp"
 #include "MyProgram.hpp"
 
-
+#include "glm.hpp"
+#include "matrix_transform.hpp"
+#include "type_ptr.hpp"
 
 int runMyTransform() {
     int result = glfwInit();
@@ -68,7 +70,7 @@ int runMyTransform() {
     //计算索引个数
     squareIndicesCount = sizeof(myTransformVerticesIndices)/sizeof(myTransformVerticesIndices[0]);
    
- 
+    
     
     //进行绘制
     while(!glfwWindowShouldClose(window)){
@@ -79,6 +81,16 @@ int runMyTransform() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(myProgram.program);
+        
+        
+        ///变换处理
+        GLint transformLoc = glGetUniformLocation(myProgram.program,"myTransform");
+        glm::mat4 trans = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+        trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+        
+        
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
