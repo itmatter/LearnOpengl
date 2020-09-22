@@ -10,7 +10,8 @@
 #include "ConfigAndRun.hpp"
 #include "MyOpenglWindow.hpp"
 #include "MyTextures.hpp"
-#include "Transform.hpp"
+#include "MyTransform.hpp"
+
 
 
 
@@ -18,4 +19,5 @@ int main(int argc, const char * argv[]) {
 //    return runMyOpenGlWindow();
 //    return runMyTextureOpenGlWindow();
     return runMyTransform();
+//    return 0;
 }
