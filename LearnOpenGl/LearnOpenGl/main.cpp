@@ -11,6 +11,7 @@
 #include "MyOpenglWindow.hpp"
 #include "MyTextures.hpp"
 #include "MyTransform.hpp"
+#include "MyCoordinate.hpp"
 
 #include "glm.hpp"
 #include "matrix_transform.hpp"
@@ -19,6 +20,6 @@ int main(int argc, const char * argv[]) {
  
 //    return runMyOpenGlWindow();
 //    return runMyTextureOpenGlWindow();
-    return runMyTransform();
+    return runMyCoordinate();
     return 0;
 }
