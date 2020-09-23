@@ -10,10 +10,6 @@
 #ifndef MyTextures_hpp
 #define MyTextures_hpp
 
-#include "MyTexturesVertices.hpp"
-#include "MyTexturesShader.hpp"
-
-
 int runMyTextureOpenGlWindow();
 
 #endif /* MyTextures_hpp */

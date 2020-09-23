@@ -9,10 +9,6 @@
 #ifndef Transform_hpp
 #define Transform_hpp
 
-
-#include "MyTransformShader.hpp"
-#include "MyTransformVertices.hpp"
-
 int runMyTransform();
 
 #endif /* Transform_hpp */

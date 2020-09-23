@@ -26,4 +26,10 @@ static GLint myCoordinateVerticesIndices[] = { // 注意索引从0开始!
     0, 1, 2, // 第一个三角形
     0, 3, 2  // 第二个三角形
 };
+
+
+
+
+
+
 #endif /* MyCoordinateVertices_h */

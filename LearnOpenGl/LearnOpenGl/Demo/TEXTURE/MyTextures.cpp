@@ -9,11 +9,12 @@
 #include <iostream>
 #include "MyTextures.hpp"
 #include "MyProgram.hpp"
+#include "MyTexturesVertices.hpp"
+#include "MyTexturesShader.hpp"
+
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
-
 
 int runMyTextureOpenGlWindow() {
     int result = glfwInit();

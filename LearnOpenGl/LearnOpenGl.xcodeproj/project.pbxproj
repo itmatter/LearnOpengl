@@ -332,6 +332,8 @@
 		BDE5B440250FCD73002DBC07 /* stb_rect_pack.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B42A250FCD73002DBC07 /* stb_rect_pack.h */; };
 		BDE5B443250FD0D4002DBC07 /* MyTexturesVertices.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */; };
 		BDE5B445250FD0DB002DBC07 /* MyTexturesShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */; };
+		BDE877EE251BB34D006DE1E6 /* MyCoordinateCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDE877EC251BB34D006DE1E6 /* MyCoordinateCube.cpp */; };
+		BDE877EF251BB34D006DE1E6 /* MyCoordinateCube.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDE877ED251BB34D006DE1E6 /* MyCoordinateCube.hpp */; };
 		BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */; };
 		BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDFD3C3A25091F240059A0CD /* MyProgram.cpp */; };
 		BDFD3C3D25091F240059A0CD /* MyProgram.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDFD3C3B25091F240059A0CD /* MyProgram.hpp */; };
@@ -836,6 +838,10 @@
 		BDE5B42A250FCD73002DBC07 /* stb_rect_pack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_rect_pack.h; sourceTree = "<group>"; };
 		BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTexturesShader.hpp; sourceTree = "<group>"; };
 		BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTexturesVertices.hpp; sourceTree = "<group>"; };
+		BDE877E4251BB2A7006DE1E6 /* MyCoordinateCubeShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCoordinateCubeShader.hpp; sourceTree = "<group>"; };
+		BDE877E5251BB2B9006DE1E6 /* MyCoordinateCubeVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCoordinateCubeVertices.hpp; sourceTree = "<group>"; };
+		BDE877EC251BB34D006DE1E6 /* MyCoordinateCube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyCoordinateCube.cpp; sourceTree = "<group>"; };
+		BDE877ED251BB34D006DE1E6 /* MyCoordinateCube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCoordinateCube.hpp; sourceTree = "<group>"; };
 		BDFD3C2025067D820059A0CD /* MyOpenglWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyOpenglWindow.cpp; sourceTree = "<group>"; };
 		BDFD3C2125067D820059A0CD /* MyOpenglWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyOpenglWindow.hpp; sourceTree = "<group>"; };
 		BDFD3C3A25091F240059A0CD /* MyProgram.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyProgram.cpp; sourceTree = "<group>"; };
@@ -1377,10 +1383,8 @@
 		04D5F5AD251B48F3007E43ED /* COORDINATE */ = {
 			isa = PBXGroup;
 			children = (
-				04D5F5B3251B4962007E43ED /* MyCoordinateVertices.hpp */,
-				04D5F5B2251B4954007E43ED /* MyCoordinateShader.hpp */,
-				04D5F5AF251B4948007E43ED /* MyCoordinate.hpp */,
-				04D5F5AE251B4948007E43ED /* MyCoordinate.cpp */,
+				BDE877E6251BB2BE006DE1E6 /* PLANE */,
+				BDE877E7251BB2C7006DE1E6 /* CUBE */,
 			);
 			path = COORDINATE;
 			sourceTree = "<group>";
@@ -1580,6 +1584,28 @@
 			path = STB;
 			sourceTree = "<group>";
 		};
+		BDE877E6251BB2BE006DE1E6 /* PLANE */ = {
+			isa = PBXGroup;
+			children = (
+				04D5F5B2251B4954007E43ED /* MyCoordinateShader.hpp */,
+				04D5F5B3251B4962007E43ED /* MyCoordinateVertices.hpp */,
+				04D5F5AF251B4948007E43ED /* MyCoordinate.hpp */,
+				04D5F5AE251B4948007E43ED /* MyCoordinate.cpp */,
+			);
+			path = PLANE;
+			sourceTree = "<group>";
+		};
+		BDE877E7251BB2C7006DE1E6 /* CUBE */ = {
+			isa = PBXGroup;
+			children = (
+				BDE877E4251BB2A7006DE1E6 /* MyCoordinateCubeShader.hpp */,
+				BDE877E5251BB2B9006DE1E6 /* MyCoordinateCubeVertices.hpp */,
+				BDE877ED251BB34D006DE1E6 /* MyCoordinateCube.hpp */,
+				BDE877EC251BB34D006DE1E6 /* MyCoordinateCube.cpp */,
+			);
+			path = CUBE;
+			sourceTree = "<group>";
+		};
 		BDFD3C1F25067D390059A0CD /* CreateWindow */ = {
 			isa = PBXGroup;
 			children = (
@@ -1618,6 +1644,8 @@
 			files = (
 				04683B482519A60B00025F09 /* mat2x4.hpp in Headers */,
 				04683C402519A60C00025F09 /* normal.hpp in Headers */,
+				BDE877EF251BB34D006DE1E6 /* MyCoordinateCube.hpp in Headers */,
+				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
 				0468331E2518B2E600025F09 /* glad.h in Headers */,
 				04683BBB2519A60B00025F09 /* matrix_uint4x3_sized.hpp in Headers */,
 				04683C302519A60C00025F09 /* associated_min_max.hpp in Headers */,
@@ -1903,7 +1931,6 @@
 				04683BB22519A60B00025F09 /* quaternion_trigonometric.hpp in Headers */,
 				04683B572519A60B00025F09 /* vector_float1_precision.hpp in Headers */,
 				04683C452519A60C00025F09 /* intersect.hpp in Headers */,
-				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
 				04683BC52519A60B00025F09 /* matrix_int3x3.hpp in Headers */,
 				04683BC82519A60B00025F09 /* matrix_uint2x4.hpp in Headers */,
 				04683B4F2519A60B00025F09 /* quaternion_double_precision.hpp in Headers */,
@@ -1997,6 +2024,7 @@
 				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
+				BDE877EE251BB34D006DE1E6 /* MyCoordinateCube.cpp in Sources */,
 				BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,

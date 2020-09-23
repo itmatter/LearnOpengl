@@ -12,14 +12,15 @@
 #include "MyTextures.hpp"
 #include "MyTransform.hpp"
 #include "MyCoordinate.hpp"
+#include "MyCoordinateCube.hpp"
 
-#include "glm.hpp"
-#include "matrix_transform.hpp"
 
 int main(int argc, const char * argv[]) {
  
 //    return runMyOpenGlWindow();
 //    return runMyTextureOpenGlWindow();
-    return runMyCoordinate();
+//    return runMyTransform();
+//    return runMyCoordinate();
+    return runMyCoordinateCube();
     return 0;
 }

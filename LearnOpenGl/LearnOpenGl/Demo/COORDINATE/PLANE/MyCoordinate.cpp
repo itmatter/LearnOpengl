@@ -1,23 +1,22 @@
 //
-//  Transform.cpp
+//  MyCoordinate.cpp
 //  LearnOpenGl
 //
-//  Created by 李礼光 on 2020/9/21.
+//  Created by 李礼光 on 2020/9/23.
 //  Copyright © 2020 liguang. All rights reserved.
 //
 
 #include <iostream>
-#include "MyTransform.hpp"
+
+#include "MyCoordinate.hpp"
 #include "MyProgram.hpp"
-
-#include "MyTransformShader.hpp"
-#include "MyTransformVertices.hpp"
-
+#include "MyCoordinateShader.hpp"
+#include "MyCoordinateVertices.hpp"
 #include "glm.hpp"
 #include "matrix_transform.hpp"
 #include "type_ptr.hpp"
 
-int runMyTransform() {
+int runMyCoordinate() {
     int result = glfwInit();
     if (result == GL_FALSE) {
         printf("glfwInit 初始化失败");
@@ -45,15 +44,15 @@ int runMyTransform() {
     
      //----------------------------------------------------------------------
     //先创建我们的Program对象, 加载顶点着色器程序和片元着色器程序
-    MyProgram myProgram = MyProgram(myTransformVertexShaderStr, myTransformFragmentShaderSrc);
+    MyProgram myProgram = MyProgram(myCoordinateVertexShaderStr, myCoordinateFragmentShaderSrc);
     
     GLuint VBO , VAO , EBO;
     unsigned int squareIndicesCount = 0;
     //创建VBO
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(myTransformVertices), myTransformVertices, GL_STATIC_DRAW);
-
+    glBufferData(GL_ARRAY_BUFFER, sizeof(myCoordinateVertices), myCoordinateVertices, GL_STATIC_DRAW);
+ 
     //创建VAO
     glGenVertexArrays(1, &VAO);
     glBindVertexArray(VAO);
@@ -66,14 +65,13 @@ int runMyTransform() {
     //创建EBO, 这里的EBO相当于索引的作用
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(myTransformVerticesIndices), myTransformVerticesIndices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(myCoordinateVerticesIndices), myCoordinateVerticesIndices, GL_STATIC_DRAW);
 
     //解绑VAO
     glBindVertexArray(0);
-    //计算索引个数
-    squareIndicesCount = sizeof(myTransformVerticesIndices)/sizeof(myTransformVerticesIndices[0]);
-   
-    
+    squareIndicesCount = sizeof(myCoordinateVerticesIndices)/sizeof(myCoordinateVerticesIndices[0]);
+
+
     
     //进行绘制
     while(!glfwWindowShouldClose(window)){
@@ -84,22 +82,27 @@ int runMyTransform() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         glUseProgram(myProgram.program);
-        
-        
-        ///变换处理
-        GLint transformLoc = glGetUniformLocation(myProgram.program,"myTransform");
-        //单位矩阵
-        glm::mat4 trans = glm::mat4(1.0f);
-        //缩放,旋转,平移
-        trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
-//        trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0.0, 0.0, 1.0));
-        trans = glm::translate(trans, glm::vec3(1.0, 0.0, 0.0));
-        
-        trans = glm::rotate(trans,(GLfloat)glfwGetTime() * 1.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+//        glEnable(GL_DEPTH_TEST);
 
-        //矩阵赋值
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
+        ///变换处理
+        GLint myModelLoc = glGetUniformLocation(myProgram.program,"myModel");
+        GLint myViewLoc = glGetUniformLocation(myProgram.program,"myView");
+        GLint myProjectionLoc = glGetUniformLocation(myProgram.program,"myProjection");
+
+        //单位矩阵
+        glm::mat4 model = glm::mat4(1.0f);
+        glm::mat4 view = glm::mat4(1.0f);
+        glm::mat4 projection = glm::mat4(1.0f);
         
+        model = glm::rotate(model, glm::radians(-45.0f), glm::vec3(1.0f,0.0f,0.0f));//以x轴旋转45度
+        view = glm::translate(view, glm::vec3(0.0f,0.0f, -3.0f)); // 向Z轴的负方向移动
+        projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.01f, 100.f);//投影矩阵
+        
+        glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(myProjectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+
         
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
@@ -114,5 +117,3 @@ int runMyTransform() {
     
     return 1;
 }
-
-
