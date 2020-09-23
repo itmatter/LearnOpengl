@@ -802,20 +802,6 @@
 		BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigAndRun.cpp; sourceTree = "<group>"; };
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
 		BD97D749251121520056AA58 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
-		BD97D761251A508E0056AA58 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
-		BD97D762251A508E0056AA58 /* INSTALL_RECEIPT.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = INSTALL_RECEIPT.json; sourceTree = "<group>"; };
-		BD97D764251A508E0056AA58 /* glfw.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = glfw.rb; sourceTree = "<group>"; };
-		BD97D767251A508E0056AA58 /* glfw3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
-		BD97D768251A508E0056AA58 /* glfw3native.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
-		BD97D769251A508E0056AA58 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BD97D76C251A508E0056AA58 /* glfw3.pc */ = {isa = PBXFileReference; lastKnownFileType = text; path = glfw3.pc; sourceTree = "<group>"; };
-		BD97D76F251A508E0056AA58 /* glfw3ConfigVersion.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = glfw3ConfigVersion.cmake; sourceTree = "<group>"; };
-		BD97D770251A508E0056AA58 /* glfw3Targets-noconfig.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = "glfw3Targets-noconfig.cmake"; sourceTree = "<group>"; };
-		BD97D771251A508E0056AA58 /* glfw3Targets.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = glfw3Targets.cmake; sourceTree = "<group>"; };
-		BD97D772251A508E0056AA58 /* glfw3Config.cmake */ = {isa = PBXFileReference; lastKnownFileType = text; path = glfw3Config.cmake; sourceTree = "<group>"; };
-		BD97D773251A508E0056AA58 /* libglfw.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.dylib; sourceTree = "<group>"; };
-		BD97D774251A508E0056AA58 /* libglfw.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.dylib; sourceTree = "<group>"; };
-		BD97D775251A508E0056AA58 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libglfw.3.3.dylib; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -1363,7 +1349,6 @@
 		04C6C86F25189BAE003760D6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				BD97D75E251A50780056AA58 /* GLFW_Src */,
 				046833212518B4ED00025F09 /* GLM_Src */,
 				0468331A2518B25800025F09 /* Glad_Src */,
 				BDE5B414250FCD67002DBC07 /* STB */,
@@ -1497,99 +1482,6 @@
 				BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */,
 			);
 			path = TestDemo;
-			sourceTree = "<group>";
-		};
-		BD97D75E251A50780056AA58 /* GLFW_Src */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D75F251A508E0056AA58 /* glfw */,
-			);
-			path = GLFW_Src;
-			sourceTree = "<group>";
-		};
-		BD97D75F251A508E0056AA58 /* glfw */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D760251A508E0056AA58 /* 3.3.2 */,
-			);
-			path = glfw;
-			sourceTree = "<group>";
-		};
-		BD97D760251A508E0056AA58 /* 3.3.2 */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D761251A508E0056AA58 /* LICENSE.md */,
-				BD97D762251A508E0056AA58 /* INSTALL_RECEIPT.json */,
-				BD97D763251A508E0056AA58 /* .brew */,
-				BD97D765251A508E0056AA58 /* include */,
-				BD97D769251A508E0056AA58 /* README.md */,
-				BD97D76A251A508E0056AA58 /* lib */,
-			);
-			path = 3.3.2;
-			sourceTree = "<group>";
-		};
-		BD97D763251A508E0056AA58 /* .brew */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D764251A508E0056AA58 /* glfw.rb */,
-			);
-			path = .brew;
-			sourceTree = "<group>";
-		};
-		BD97D765251A508E0056AA58 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D766251A508E0056AA58 /* GLFW */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		BD97D766251A508E0056AA58 /* GLFW */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D767251A508E0056AA58 /* glfw3.h */,
-				BD97D768251A508E0056AA58 /* glfw3native.h */,
-			);
-			path = GLFW;
-			sourceTree = "<group>";
-		};
-		BD97D76A251A508E0056AA58 /* lib */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D76B251A508E0056AA58 /* pkgconfig */,
-				BD97D76D251A508E0056AA58 /* cmake */,
-				BD97D773251A508E0056AA58 /* libglfw.dylib */,
-				BD97D774251A508E0056AA58 /* libglfw.3.dylib */,
-				BD97D775251A508E0056AA58 /* libglfw.3.3.dylib */,
-			);
-			path = lib;
-			sourceTree = "<group>";
-		};
-		BD97D76B251A508E0056AA58 /* pkgconfig */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D76C251A508E0056AA58 /* glfw3.pc */,
-			);
-			path = pkgconfig;
-			sourceTree = "<group>";
-		};
-		BD97D76D251A508E0056AA58 /* cmake */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D76E251A508E0056AA58 /* glfw3 */,
-			);
-			path = cmake;
-			sourceTree = "<group>";
-		};
-		BD97D76E251A508E0056AA58 /* glfw3 */ = {
-			isa = PBXGroup;
-			children = (
-				BD97D76F251A508E0056AA58 /* glfw3ConfigVersion.cmake */,
-				BD97D770251A508E0056AA58 /* glfw3Targets-noconfig.cmake */,
-				BD97D771251A508E0056AA58 /* glfw3Targets.cmake */,
-				BD97D772251A508E0056AA58 /* glfw3Config.cmake */,
-			);
-			path = glfw3;
 			sourceTree = "<group>";
 		};
 		BDA85EBC2504BE60003F7D84 = {
