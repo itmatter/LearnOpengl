@@ -16,6 +16,9 @@
 #include "matrix_transform.hpp"
 #include "type_ptr.hpp"
 
+#define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_STATIC
+#include "stb_image.h"
 
 int runMyCoordinateCube() {
     int result = glfwInit();
@@ -35,7 +38,11 @@ int runMyCoordinateCube() {
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
     //----------------------------------------------------------------------
-    MyProgram myProgram = MyProgram(myCoordinateCubeVertexShaderStr, myCoordinateCubeFragmentShaderSrc);
+//    MyProgram myProgram = MyProgram(myCoordinateCubeVertexShaderStr, myCoordinateCubeFragmentShaderSrc);
+    
+    //切换为纹理着色器程序
+    MyProgram myProgram = MyProgram(myCoordinateCubeTextureVertexShaderStr, myCoordinateCubeTextureFragmentShaderSrc);
+
     
     GLuint VBO , VAO , EBO;
     unsigned int squareIndicesCount = 0;
@@ -51,6 +58,11 @@ int runMyCoordinateCube() {
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
     
+    //纹理坐标, 纹理坐标用的三角形坐标一致
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (GLvoid*)0);
+    glEnableVertexAttribArray(2);
+
+    
     //创建EBO, 这里的EBO相当于索引的作用
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -60,6 +72,32 @@ int runMyCoordinateCube() {
     glBindVertexArray(0);
     squareIndicesCount = sizeof(myCoordinateCubeVerticesIndices)/sizeof(myCoordinateCubeVerticesIndices[0]);
 
+
+    //生成纹理
+    unsigned int texture;
+    unsigned char *data;
+    int width, height, nrChannels;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    data = stbi_load( "/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/Common/ImgSources/dizhuan.jpg" , &width, &height, &nrChannels, 0);
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+    
+    glEnable(GL_DEPTH_TEST);
 
     
     //进行绘制
@@ -72,8 +110,13 @@ int runMyCoordinateCube() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(myProgram.program);
          
-        glEnable(GL_DEPTH_TEST);
 
+        
+        //加载纹理
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glUniform1i(glGetUniformLocation(myProgram.program, "myTexture"), 0);
+        
         ///变换处理
         GLint myModelLoc = glGetUniformLocation(myProgram.program,"myModel");
         GLint myViewLoc = glGetUniformLocation(myProgram.program,"myView");
@@ -83,7 +126,7 @@ int runMyCoordinateCube() {
         glm::mat4 model = glm::mat4(1.0f);
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection = glm::mat4(1.0f);
-        
+
         model = glm::rotate(model,(GLfloat)glfwGetTime() * 1.0f,  glm::vec3(1.0f,1.0f,0.0f));//以x,y轴旋转
         view = glm::translate(view, glm::vec3(0.0f,0.0f, -3.0f)); // 向Z轴的负方向移动
         projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.01f, 100.f);//投影矩阵

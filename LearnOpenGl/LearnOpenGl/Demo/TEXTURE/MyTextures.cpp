@@ -12,8 +12,8 @@
 #include "MyTexturesVertices.hpp"
 #include "MyTexturesShader.hpp"
 
-
 #define STB_IMAGE_IMPLEMENTATION
+#define STB_IMAGE_STATIC
 #include "stb_image.h"
 
 int runMyTextureOpenGlWindow() {
@@ -127,15 +127,7 @@ int runMyTextureOpenGlWindow() {
     }
     stbi_image_free(data1);
 
-    
-    
-    
-    
-    
-
-    
-
-
+ 
     
     //进行绘制
     while(!glfwWindowShouldClose(window)){

@@ -1470,7 +1470,7 @@
 		BD4AD947250A76EE00C7984C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BDE5B412250FB5F8002DBC07 /* Sources */,
+				BDE5B412250FB5F8002DBC07 /* ImgSources */,
 				BDFD3C3525091EF00059A0CD /* Program */,
 				BDFD3C3425091EEB0059A0CD /* Shader */,
 			);
@@ -1489,8 +1489,8 @@
 		BD4AD95B250FA9C600C7984C /* TEXTURE */ = {
 			isa = PBXGroup;
 			children = (
-				BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */,
 				BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */,
+				BDE5B442250FD0D4002DBC07 /* MyTexturesVertices.hpp */,
 				BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */,
 				BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */,
 			);
@@ -1546,13 +1546,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BDE5B412250FB5F8002DBC07 /* Sources */ = {
+		BDE5B412250FB5F8002DBC07 /* ImgSources */ = {
 			isa = PBXGroup;
 			children = (
 				BD97D749251121520056AA58 /* smile.png */,
 				BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */,
 			);
-			path = Sources;
+			path = ImgSources;
 			sourceTree = "<group>";
 		};
 		BDE5B414250FCD67002DBC07 /* STB */ = {
@@ -2185,6 +2185,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				WARNING_CFLAGS = "";
 			};
 			name = Debug;
 		};
@@ -2216,6 +2217,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				WARNING_CFLAGS = "";
 			};
 			name = Release;
 		};
