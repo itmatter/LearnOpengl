@@ -99,7 +99,13 @@ int runMyCoordinateCube() {
     
     glEnable(GL_DEPTH_TEST);
 
-    
+    glm::vec3 cubePositions[10];
+    for (int i = 0; i<10; i++) {
+        float xRandomNum = arc4random_uniform(10.0) - 5.0f;
+        float yRandomNum = arc4random_uniform(10.0) - 5.0f;
+        cubePositions[i] =glm::vec3( xRandomNum,  yRandomNum,  0.0f);
+    }
+
     //进行绘制
     while(!glfwWindowShouldClose(window)){
        //检查事件
@@ -110,40 +116,45 @@ int runMyCoordinateCube() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(myProgram.program);
          
-
-        
         //加载纹理
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture);
         glUniform1i(glGetUniformLocation(myProgram.program, "myTexture"), 0);
         
-        ///变换处理
-        GLint myModelLoc = glGetUniformLocation(myProgram.program,"myModel");
-        GLint myViewLoc = glGetUniformLocation(myProgram.program,"myView");
-        GLint myProjectionLoc = glGetUniformLocation(myProgram.program,"myProjection");
-
         //单位矩阵
         glm::mat4 model = glm::mat4(1.0f);
         glm::mat4 view = glm::mat4(1.0f);
         glm::mat4 projection = glm::mat4(1.0f);
-
-        model = glm::rotate(model,(GLfloat)glfwGetTime() * 1.0f,  glm::vec3(1.0f,1.0f,0.0f));//以x,y轴旋转
-        view = glm::translate(view, glm::vec3(0.0f,0.0f, -3.0f)); // 向Z轴的负方向移动
-        projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.01f, 100.f);//投影矩阵
         
-        glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
-        glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
+        ///变换处理
+        GLint myModelLoc = glGetUniformLocation(myProgram.program,"myModel");
+        GLint myViewLoc = glGetUniformLocation(myProgram.program,"myView");
+        GLint myProjectionLoc = glGetUniformLocation(myProgram.program,"myProjection");
+              
+        projection = glm::perspective(glm::radians(120.0f), 1.0f, 0.01f, 100.f);//投影矩阵
         glUniformMatrix4fv(myProjectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
-
         
         glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);
-        
+        for(unsigned int i = 0; i < 10; i++)
+        {
+            //改变模型数据的位置
+            model = glm::mat4(1.0f);
+            model = glm::translate(model,glm::vec3(cubePositions[i].x,cubePositions[i].y,0.0f));//x,y平移
+            glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+            view = glm::mat4(1.0f);
+            view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f)); // 向Z轴的负方向移动
+            view = glm::rotate(view,(GLfloat)glfwGetTime() * 1.0f,  glm::vec3(cubePositions[i].x,cubePositions[i].y,0.0f));//以x,y轴旋转
+            glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
+
+            glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
+        }
+
         //交换缓冲
         glfwSwapBuffers(window);
     }
-    
+    glBindVertexArray(0);
+
     //程序销毁
     glfwTerminate();
     
