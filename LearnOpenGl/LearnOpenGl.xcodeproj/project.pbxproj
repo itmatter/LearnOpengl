@@ -310,6 +310,8 @@
 		BDBB7C072520E09D009AC0EA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C052520E09D009AC0EA /* FileManager.m */; };
 		BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */; };
 		BDBB7C162520EFEC009AC0EA /* FileManager_CPlus.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C142520EFEC009AC0EA /* FileManager_CPlus.hpp */; };
+		BDBB7C1E2520F3B2009AC0EA /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */; };
+		BDBB7C1F2520F3B2009AC0EA /* MyCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */; };
 		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
 		BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD963250FAC9200C7984C /* ShaderSources.hpp */; };
 		BDE5B42B250FCD73002DBC07 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B415250FCD72002DBC07 /* stb_truetype.h */; };
@@ -823,6 +825,10 @@
 		BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileManager_CPlus.cpp; sourceTree = "<group>"; };
 		BDBB7C142520EFEC009AC0EA /* FileManager_CPlus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileManager_CPlus.hpp; sourceTree = "<group>"; };
 		BDBB7C182520F304009AC0EA /* dizhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dizhuan.jpg; sourceTree = "<group>"; };
+		BDBB7C1A2520F399009AC0EA /* MyCameraShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCameraShader.hpp; sourceTree = "<group>"; };
+		BDBB7C1B2520F3A7009AC0EA /* MyCameraVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCameraVertices.hpp; sourceTree = "<group>"; };
+		BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyCamera.cpp; sourceTree = "<group>"; };
+		BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCamera.hpp; sourceTree = "<group>"; };
 		BDE5B415250FCD72002DBC07 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		BDE5B416250FCD72002DBC07 /* stb_dxt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_dxt.h; sourceTree = "<group>"; };
 		BDE5B417250FCD72002DBC07 /* stb_sprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_sprintf.h; sourceTree = "<group>"; };
@@ -1360,6 +1366,7 @@
 			isa = PBXGroup;
 			children = (
 				BD4AD947250A76EE00C7984C /* Common */,
+				BDBB7C192520F355009AC0EA /* CAMERA */,
 				04D5F5AD251B48F3007E43ED /* COORDINATE */,
 				04C6C8702518AA32003760D6 /* TRANSFORM */,
 				BD4AD95B250FA9C600C7984C /* TEXTURE */,
@@ -1584,6 +1591,17 @@
 			path = "FileManagerC++";
 			sourceTree = "<group>";
 		};
+		BDBB7C192520F355009AC0EA /* CAMERA */ = {
+			isa = PBXGroup;
+			children = (
+				BDBB7C1A2520F399009AC0EA /* MyCameraShader.hpp */,
+				BDBB7C1B2520F3A7009AC0EA /* MyCameraVertices.hpp */,
+				BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */,
+				BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */,
+			);
+			path = CAMERA;
+			sourceTree = "<group>";
+		};
 		BDE5B412250FB5F8002DBC07 /* ImgSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1785,6 +1803,7 @@
 				046833202518B3C800025F09 /* khrplatform.h in Headers */,
 				04683C1E2519A60C00025F09 /* string_cast.hpp in Headers */,
 				04683BA12519A60B00025F09 /* scalar_uint_sized.hpp in Headers */,
+				BDBB7C1F2520F3B2009AC0EA /* MyCamera.hpp in Headers */,
 				04683C012519A60C00025F09 /* type_vec4.hpp in Headers */,
 				04683C292519A60C00025F09 /* euler_angles.hpp in Headers */,
 				04683C152519A60C00025F09 /* reciprocal.hpp in Headers */,
@@ -2069,6 +2088,7 @@
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,
 				04683BF32519A60C00025F09 /* glm.cpp in Sources */,
+				BDBB7C1E2520F3B2009AC0EA /* MyCamera.cpp in Sources */,
 				BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */,
 				0468331C2518B26A00025F09 /* glad.c in Sources */,
 				BDBB7C072520E09D009AC0EA /* FileManager.m in Sources */,

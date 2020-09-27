@@ -16,6 +16,7 @@
 #include "MyTransform.hpp"
 #include "MyCoordinate.hpp"
 #include "MyCoordinateCube.hpp"
+#include "MyCamera.hpp"
 
 
 int main(int argc, const char * argv[]) {
@@ -31,6 +32,6 @@ int main(int argc, const char * argv[]) {
 //    return runMyTextureOpenGlWindow();
 //    return runMyTransform();
 //    return runMyCoordinate();
-    return runMyCoordinateCube();
+    return runMyCameraCube();
     return 0;
 }
