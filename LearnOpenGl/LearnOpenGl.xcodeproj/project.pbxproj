@@ -297,15 +297,19 @@
 		04C6C8762518AA8B003760D6 /* MyTransform.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 04C6C8742518AA8B003760D6 /* MyTransform.hpp */; };
 		04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F5AE251B4948007E43ED /* MyCoordinate.cpp */; };
 		04D5F5B1251B4948007E43ED /* MyCoordinate.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 04D5F5AF251B4948007E43ED /* MyCoordinate.hpp */; };
-		04D964402518887600594CFB /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
-		04D966DA2518993D00594CFB /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD94F250A780A00C7984C /* MyShader.cpp */; };
 		BD4AD952250A780A00C7984C /* MyShader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD950250A780A00C7984C /* MyShader.hpp */; };
 		BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */; };
 		BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */; };
 		BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */; };
-		BD97D75D251A504E0056AA58 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
-		BDA85EC92504BE60003F7D84 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.cpp */; };
+		BDA85EC92504BE60003F7D84 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.mm */; };
+		BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
+		BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
+		BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
+		BDBB7C062520E09D009AC0EA /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C042520E09D009AC0EA /* FileManager.h */; };
+		BDBB7C072520E09D009AC0EA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C052520E09D009AC0EA /* FileManager.m */; };
+		BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */; };
+		BDBB7C162520EFEC009AC0EA /* FileManager_CPlus.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C142520EFEC009AC0EA /* FileManager_CPlus.hpp */; };
 		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
 		BDE5B403250FB2DC002DBC07 /* ShaderSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD963250FAC9200C7984C /* ShaderSources.hpp */; };
 		BDE5B42B250FCD73002DBC07 /* stb_truetype.h in Headers */ = {isa = PBXBuildFile; fileRef = BDE5B415250FCD72002DBC07 /* stb_truetype.h */; };
@@ -811,9 +815,14 @@
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
 		BD97D749251121520056AA58 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDA85EC82504BE60003F7D84 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		BDA85EC82504BE60003F7D84 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dizhuan.jpg; sourceTree = "<group>"; };
+		BDBB7C042520E09D009AC0EA /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		BDBB7C052520E09D009AC0EA /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		BDBB7C0C2520E448009AC0EA /* ObjectInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectInterface.h; sourceTree = "<group>"; };
+		BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FileManager_CPlus.cpp; sourceTree = "<group>"; };
+		BDBB7C142520EFEC009AC0EA /* FileManager_CPlus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FileManager_CPlus.hpp; sourceTree = "<group>"; };
+		BDBB7C182520F304009AC0EA /* dizhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dizhuan.jpg; sourceTree = "<group>"; };
 		BDE5B415250FCD72002DBC07 /* stb_truetype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
 		BDE5B416250FCD72002DBC07 /* stb_dxt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_dxt.h; sourceTree = "<group>"; };
 		BDE5B417250FCD72002DBC07 /* stb_sprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_sprintf.h; sourceTree = "<group>"; };
@@ -853,9 +862,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD97D75D251A504E0056AA58 /* libglfw.3.3.dylib in Frameworks */,
-				04D966DA2518993D00594CFB /* libGLEW.2.1.0.dylib in Frameworks */,
-				04D964402518887600594CFB /* OpenGL.framework in Frameworks */,
+				BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */,
+				BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */,
+				BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1470,6 +1479,7 @@
 		BD4AD947250A76EE00C7984C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BDBB7C0D2520E4BD009AC0EA /* FileManagerC++ */,
 				BDE5B412250FB5F8002DBC07 /* ImgSources */,
 				BDFD3C3525091EF00059A0CD /* Program */,
 				BDFD3C3425091EEB0059A0CD /* Shader */,
@@ -1527,9 +1537,10 @@
 			isa = PBXGroup;
 			children = (
 				04D966D92518976500594CFB /* LearnOpenGl.entitlements */,
+				BDBB7C002520DF91009AC0EA /* Util */,
 				04C6C86F25189BAE003760D6 /* Sources */,
 				04C6C86E25189BA5003760D6 /* Demo */,
-				BDA85EC82504BE60003F7D84 /* main.cpp */,
+				BDA85EC82504BE60003F7D84 /* main.mm */,
 			);
 			path = LearnOpenGl;
 			sourceTree = "<group>";
@@ -1546,11 +1557,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BDBB7C002520DF91009AC0EA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BDBB7C032520E088009AC0EA /* FileManager */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BDBB7C032520E088009AC0EA /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				BDBB7C0C2520E448009AC0EA /* ObjectInterface.h */,
+				BDBB7C042520E09D009AC0EA /* FileManager.h */,
+				BDBB7C052520E09D009AC0EA /* FileManager.m */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		BDBB7C0D2520E4BD009AC0EA /* FileManagerC++ */ = {
+			isa = PBXGroup;
+			children = (
+				BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */,
+				BDBB7C142520EFEC009AC0EA /* FileManager_CPlus.hpp */,
+			);
+			path = "FileManagerC++";
+			sourceTree = "<group>";
+		};
 		BDE5B412250FB5F8002DBC07 /* ImgSources */ = {
 			isa = PBXGroup;
 			children = (
+				BDBB7C182520F304009AC0EA /* dizhuan.jpg */,
 				BD97D749251121520056AA58 /* smile.png */,
-				BDE5B413250FB6CD002DBC07 /* dizhuan.jpg */,
 			);
 			path = ImgSources;
 			sourceTree = "<group>";
@@ -1668,6 +1706,7 @@
 				BDE5B431250FCD73002DBC07 /* stb_image_resize.h in Headers */,
 				04683B922519A60B00025F09 /* vector_bool2_precision.hpp in Headers */,
 				04683BEC2519A60C00025F09 /* _vectorize.hpp in Headers */,
+				BDBB7C162520EFEC009AC0EA /* FileManager_CPlus.hpp in Headers */,
 				04683B502519A60B00025F09 /* matrix_float4x2.hpp in Headers */,
 				04683C122519A60C00025F09 /* noise.hpp in Headers */,
 				04683BAF2519A60B00025F09 /* matrix_uint3x4.hpp in Headers */,
@@ -1740,6 +1779,7 @@
 				04683B5A2519A60B00025F09 /* matrix_float2x2.hpp in Headers */,
 				04683BE92519A60C00025F09 /* _noise.hpp in Headers */,
 				04683B7A2519A60B00025F09 /* quaternion_float.hpp in Headers */,
+				BDBB7C062520E09D009AC0EA /* FileManager.h in Headers */,
 				04683BBD2519A60B00025F09 /* scalar_constants.hpp in Headers */,
 				04683B6B2519A60B00025F09 /* matrix_float4x3_precision.hpp in Headers */,
 				046833202518B3C800025F09 /* khrplatform.h in Headers */,
@@ -2020,7 +2060,7 @@
 			files = (
 				04C6C8752518AA8B003760D6 /* MyTransform.cpp in Sources */,
 				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
-				BDA85EC92504BE60003F7D84 /* main.cpp in Sources */,
+				BDA85EC92504BE60003F7D84 /* main.mm in Sources */,
 				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
@@ -2029,7 +2069,9 @@
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,
 				04683BF32519A60C00025F09 /* glm.cpp in Sources */,
+				BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */,
 				0468331C2518B26A00025F09 /* glad.c in Sources */,
+				BDBB7C072520E09D009AC0EA /* FileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
