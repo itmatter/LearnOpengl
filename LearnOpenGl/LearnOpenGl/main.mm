@@ -7,20 +7,31 @@
 //
 
 #include <iostream>
+#import "FileManager.h"
+#include "FileManager_CPlus.hpp"
+
 #include "ConfigAndRun.hpp"
 #include "MyOpenglWindow.hpp"
 #include "MyTextures.hpp"
 #include "MyTransform.hpp"
 #include "MyCoordinate.hpp"
 #include "MyCoordinateCube.hpp"
+#include "MyCamera.hpp"
 
 
 int main(int argc, const char * argv[]) {
- 
+//    //初始化一个OC对象
+//    FileManager * oc = [FileManager shareInstance];
+//    void* point = (__bridge void*)oc;
+//    //创建C++对象
+//    FileManager_CPlus* cpp = new FileManager_CPlus(point,  oc.imagePathWithNameApi);
+//    NSLog(@"-----%s",cpp->imageUrl((__bridge void*)@"image url"));
+    
+    
 //    return runMyOpenGlWindow();
 //    return runMyTextureOpenGlWindow();
 //    return runMyTransform();
 //    return runMyCoordinate();
-    return runMyCoordinateCube();
+    return runMyCameraCube();
     return 0;
 }
