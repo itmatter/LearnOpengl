@@ -43,35 +43,67 @@ int runMyCoordinateCube() {
     //切换为纹理着色器程序
     MyProgram myProgram = MyProgram(myCoordinateCubeTextureVertexShaderStr, myCoordinateCubeTextureFragmentShaderSrc);
 
+//
+//    GLuint VBO , VAO , EBO;
+//    unsigned int squareIndicesCount = 0;
+//    glGenBuffers(1, &VBO);
+//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//    glBufferData(GL_ARRAY_BUFFER, sizeof(myCoordinateCubeVertices), myCoordinateCubeVertices, GL_STATIC_DRAW);
+//    glGenVertexArrays(1, &VAO);
+//    glBindVertexArray(VAO);
+//
+//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+//    glEnableVertexAttribArray(0);
+//
+//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+//    glEnableVertexAttribArray(1);
+//
+//    //纹理坐标, 纹理坐标用的三角形坐标一致
+//    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (GLvoid*)0);
+//    glEnableVertexAttribArray(2);
+//
+//
+//    //创建EBO, 这里的EBO相当于索引的作用
+//    glGenBuffers(1, &EBO);
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+//    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(myCoordinateCubeVerticesIndices), myCoordinateCubeVerticesIndices, GL_STATIC_DRAW);
+//
+//    //解绑VAO
+//    glBindVertexArray(0);
+//    squareIndicesCount = sizeof(myCoordinateCubeVerticesIndices)/sizeof(myCoordinateCubeVerticesIndices[0]);
+//
+//
     
-    GLuint VBO , VAO , EBO;
+    
+    ///
+    
+    ///
+    GLuint VBO , VAO ;
     unsigned int squareIndicesCount = 0;
-    glGenBuffers(1, &VBO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(myCoordinateCubeVertices), myCoordinateCubeVertices, GL_STATIC_DRAW);
     glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
     glBindVertexArray(VAO);
-    
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
-    glEnableVertexAttribArray(0);
-    
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-    glEnableVertexAttribArray(1);
-    
-    //纹理坐标, 纹理坐标用的三角形坐标一致
-    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (GLvoid*)0);
-    glEnableVertexAttribArray(2);
 
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
-    //创建EBO, 这里的EBO相当于索引的作用
-    glGenBuffers(1, &EBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(myCoordinateCubeVerticesIndices), myCoordinateCubeVerticesIndices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(0 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(0);
+
+
+    //纹理坐标, 纹理坐标用的三角形坐标一致
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(2);
 
     //解绑VAO
     glBindVertexArray(0);
-    squareIndicesCount = sizeof(myCoordinateCubeVerticesIndices)/sizeof(myCoordinateCubeVerticesIndices[0]);
-
+    squareIndicesCount = sizeof(vertices)/(sizeof(vertices[0]) * 5);
+    
+    
+    
+    
+    
+    
 
     //生成纹理
     unsigned int texture;
@@ -115,11 +147,12 @@ int runMyCoordinateCube() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glUseProgram(myProgram.program);
-         
+
         //加载纹理
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, texture);
         glUniform1i(glGetUniformLocation(myProgram.program, "myTexture"), 0);
+        
         
         //单位矩阵
         glm::mat4 model = glm::mat4(1.0f);
@@ -143,17 +176,16 @@ int runMyCoordinateCube() {
             glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
             view = glm::mat4(1.0f);
-            view = glm::translate(view, glm::vec3(0.0f, 0.0f, -5.0f)); // 向Z轴的负方向移动
+            view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // 向Z轴的负方向移动
             view = glm::rotate(view,(GLfloat)glfwGetTime() * 1.0f,  glm::vec3(cubePositions[i].x,cubePositions[i].y,0.0f));//以x,y轴旋转
             glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
+            glDrawArrays(GL_TRIANGLES, 0, squareIndicesCount);
 
-            glDrawElements(GL_TRIANGLES, squareIndicesCount, GL_UNSIGNED_INT, 0);
         }
-
+        glBindVertexArray(0);
         //交换缓冲
         glfwSwapBuffers(window);
     }
-    glBindVertexArray(0);
 
     //程序销毁
     glfwTerminate();
