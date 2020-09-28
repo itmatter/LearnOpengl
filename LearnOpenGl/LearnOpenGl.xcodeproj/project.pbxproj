@@ -1366,10 +1366,6 @@
 			isa = PBXGroup;
 			children = (
 				BD4AD947250A76EE00C7984C /* Common */,
-				BDBB7C192520F355009AC0EA /* CAMERA */,
-				04D5F5AD251B48F3007E43ED /* COORDINATE */,
-				04C6C8702518AA32003760D6 /* TRANSFORM */,
-				BD4AD95B250FA9C600C7984C /* TEXTURE */,
 				BD4AD95A250FA9BD00C7984C /* GETSTART */,
 			);
 			path = Demo;
@@ -1497,8 +1493,12 @@
 		BD4AD95A250FA9BD00C7984C /* GETSTART */ = {
 			isa = PBXGroup;
 			children = (
-				BD63C6272504DA0100DB43B4 /* TestDemo */,
+				BDBB7C192520F355009AC0EA /* CAMERA */,
+				04D5F5AD251B48F3007E43ED /* COORDINATE */,
+				04C6C8702518AA32003760D6 /* TRANSFORM */,
+				BD4AD95B250FA9C600C7984C /* TEXTURE */,
 				BDFD3C1F25067D390059A0CD /* CreateWindow */,
+				BD63C6272504DA0100DB43B4 /* ConfigDemo */,
 			);
 			path = GETSTART;
 			sourceTree = "<group>";
@@ -1514,13 +1514,13 @@
 			path = TEXTURE;
 			sourceTree = "<group>";
 		};
-		BD63C6272504DA0100DB43B4 /* TestDemo */ = {
+		BD63C6272504DA0100DB43B4 /* ConfigDemo */ = {
 			isa = PBXGroup;
 			children = (
 				BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */,
 				BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */,
 			);
-			path = TestDemo;
+			path = ConfigDemo;
 			sourceTree = "<group>";
 		};
 		BDA85EBC2504BE60003F7D84 = {
