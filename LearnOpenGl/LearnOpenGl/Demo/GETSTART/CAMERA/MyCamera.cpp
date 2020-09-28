@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-
+#include "MyCamera.h"
 #include "MyCamera.hpp"
 #include "MyProgram.hpp"
 #include "MyCameraShader.hpp"
@@ -20,6 +20,22 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_STATIC
 #include "stb_image.h"
+
+// Function prototypes
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+void Do_Movement();
+
+// Camera
+Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+bool keys[1024];
+GLfloat lastX = 400, lastY = 300;
+bool firstMouse = true;
+
+GLfloat deltaTime = 0.0f;
+GLfloat lastFrame = 0.0f;
+
 
 int runMyCameraCube() {
     int result = glfwInit();
@@ -38,6 +54,17 @@ int runMyCameraCube() {
     }
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    
+    
+    //设置(键盘鼠标)输入事件
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    
+    
+    
+    
   
     //切换为纹理着色器程序
     MyProgram myProgram = MyProgram(myCameraVertexShaderStr, myCameraFragmentShaderSrc);
@@ -136,13 +163,26 @@ int runMyCameraCube() {
             model = glm::translate(model,glm::vec3(cubePositions[i].x,cubePositions[i].y,0.0f));//x,y平移
             glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
+            
+            
             // 观察矩阵用视摄像机视角,也就是旋转摄像机
+            /**
+             glm::LookAt函数需要一个位置、目标和上向量。它可以创建一个和前面所说的同样的观察矩阵。
+             在开始做用户输入之前，我们来做些有意思的事，把我们的摄像机在场景中旋转。我们的注视点保持在(0, 0, 0)。
+             我们在每一帧都创建x和z坐标，这要使用一点三角学知识。x和z表示一个在一个圆圈上的一点，我们会使用它作为摄像机的位置。
+             通过重复计算x和y坐标，遍历所有圆圈上的点，这样摄像机就会绕着场景旋转了。
+             我们预先定义这个圆圈的半径，使用glfwGetTime函数不断增加它的值，在每次渲染迭代创建一个新的观察矩阵。
+             */
             GLfloat radius = 10.0f;
-            GLfloat camX = sin(glfwGetTime()) * radius;
-            GLfloat camZ = cos(glfwGetTime()) * radius;
-            view = glm::lookAt(glm::vec3(camX, 0.0f, camZ),
-                               glm::vec3(0.0f, 0.0f, 0.0f),
-                               glm::vec3(0.0f, 1.0f, 0.0f));
+//            GLfloat camX = sin(glfwGetTime()) * radius;
+//            GLfloat camZ = cos(glfwGetTime()) * radius;
+            glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f, 3.0f);
+            glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 0.0f);
+            glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
+            
+            view = glm::lookAt(cameraPos, //摄像机位置
+                               cameraFront, //目标
+                               cameraUp);//上向量
             
             glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
 
@@ -158,4 +198,61 @@ int runMyCameraCube() {
     glfwTerminate();
     
     return 1;
+}
+
+
+
+
+
+// Moves/alters the camera positions based on user input
+void Do_Movement()
+{
+    // Camera controls
+    if(keys[GLFW_KEY_W])
+        camera.ProcessKeyboard(FORWARD, deltaTime);
+    if(keys[GLFW_KEY_S])
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if(keys[GLFW_KEY_A])
+        camera.ProcessKeyboard(LEFT, deltaTime);
+    if(keys[GLFW_KEY_D])
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+}
+
+// Is called whenever a key is pressed/released via GLFW
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
+{
+    //cout << key << endl;
+    if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, GL_TRUE);
+    if (key >= 0 && key < 1024)
+    {
+        if(action == GLFW_PRESS)
+            keys[key] = true;
+        else if(action == GLFW_RELEASE)
+            keys[key] = false;
+    }
+}
+
+void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+{
+    if(firstMouse)
+    {
+        lastX = xpos;
+        lastY = ypos;
+        firstMouse = false;
+    }
+
+    GLfloat xoffset = xpos - lastX;
+    GLfloat yoffset = lastY - ypos;  // Reversed since y-coordinates go from bottom to left
+    
+    lastX = xpos;
+    lastY = ypos;
+
+    camera.ProcessMouseMovement(xoffset, yoffset);
+}
+
+
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+{
+    camera.ProcessMouseScroll(yoffset);
 }

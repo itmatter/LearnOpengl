@@ -358,6 +358,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		0468331F2518B3C800025F09 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
@@ -1596,6 +1597,7 @@
 			children = (
 				BDBB7C1A2520F399009AC0EA /* MyCameraShader.hpp */,
 				BDBB7C1B2520F3A7009AC0EA /* MyCameraVertices.hpp */,
+				043DD51F2521EC8300CB490C /* MyCamera.h */,
 				BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */,
 				BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */,
 			);
