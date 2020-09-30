@@ -21,9 +21,9 @@ static char *myCameraVertexShaderStr = SHADER(
                                               
     out vec2 vertexTexCoords;//把片元着色器的颜色从这里输出
                                                  
-    uniform mat4 myProjection;//
-    uniform mat4 myView;//
-    uniform mat4 myModel;//
+    uniform mat4 myProjection;//投影矩阵
+    uniform mat4 myView;//观察矩阵
+    uniform mat4 myModel;//模型矩阵
                                
     void main()
     {

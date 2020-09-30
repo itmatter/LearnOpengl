@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include "MyCamera.h"
+//#include "MyCamera.h" //方法封装
 #include "MyCamera.hpp"
 #include "MyProgram.hpp"
 #include "MyCameraShader.hpp"
@@ -28,8 +28,8 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void do_movement();
 
 // Camera
-glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f,  3.0f);
-glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+glm::vec3 cameraEye   = glm::vec3(0.0f, 0.0f,  3.0f);
+glm::vec3 cameraCenter = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
 
 GLfloat yaw    = -90.0f;    // Yaw is initialized to -90.0 degrees since a yaw of 0.0 results in a direction vector pointing to the right (due to how Eular angles work) so we initially rotate a bit to the left.
@@ -60,17 +60,15 @@ int runMyCameraCube() {
     glfwMakeContextCurrent(window);
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
     
-    
     //设置(键盘鼠标)输入事件
-    
     //此函数设置指定窗口的按键回调，当按下，重复或释放按键时调用该回调。
     glfwSetKeyCallback(window, key_callback);
     
-//    //此函数设置指定窗口的光标位置回调，在移动光标时调用该回调。 回调提供了相对于窗口内容区域左上角的屏幕坐标位置。
-//    glfwSetCursorPosCallback(window, mouse_callback);
-//
-//    //此函数设置指定窗口的滚动回调，在使用滚动设备（例如鼠标滚轮或触摸板的滚动区域）时调用此回调。
-//    //滚动回调接收所有滚动输入，例如来自鼠标滚轮或触摸板滚动区域的滚动输入。
+    //此函数设置指定窗口的光标位置回调，在移动光标时调用该回调。 回调提供了相对于窗口内容区域左上角的屏幕坐标位置。
+    glfwSetCursorPosCallback(window, mouse_callback);
+
+    //此函数设置指定窗口的滚动回调，在使用滚动设备（例如鼠标滚轮或触摸板的滚动区域）时调用此回调。
+    //滚动回调接收所有滚动输入，例如来自鼠标滚轮或触摸板滚动区域的滚动输入。
     glfwSetScrollCallback(window, scroll_callback);
 
     //glfwSetInputMode
@@ -80,7 +78,6 @@ int runMyCameraCube() {
     //光标模式 : GLFW_CURSOR
     //光标模式值 : GLFW_CURSOR_DISABLED
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-    
   
     //切换为纹理着色器程序
     MyProgram myProgram = MyProgram(myCameraVertexShaderStr, myCameraFragmentShaderSrc);
@@ -164,25 +161,9 @@ int runMyCameraCube() {
 
         
         glBindVertexArray(VAO);
-          
-                    // 观察矩阵用视摄像机视角,也就是旋转摄像机
-                    /**
-                     glm::LookAt函数需要一个位置、目标和上向量。它可以创建一个和前面所说的同样的观察矩阵。
-                     在开始做用户输入之前，我们来做些有意思的事，把我们的摄像机在场景中旋转。我们的注视点保持在(0, 0, 0)。
-                     我们在每一帧都创建x和z坐标，这要使用一点三角学知识。x和z表示一个在一个圆圈上的一点，我们会使用它作为摄像机的位置。
-                     通过重复计算x和y坐标，遍历所有圆圈上的点，这样摄像机就会绕着场景旋转了。
-                     我们预先定义这个圆圈的半径，使用glfwGetTime函数不断增加它的值，在每次渲染迭代创建一个新的观察矩阵。
-                     */
-        //            GLfloat radius = 10.0f;
-        ////            GLfloat camX = sin(glfwGetTime()) * radius;
-        ////            GLfloat camZ = cos(glfwGetTime()) * radius;
-        //            glm::vec3 cameraPos   = glm::vec3(0.0f, 0.0f, 3.0f);
-        //            glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, 0.0f);
-        //            glm::vec3 cameraUp    = glm::vec3(0.0f, 1.0f,  0.0f);
-                    
-        view = glm::lookAt(cameraPos, //摄像机位置
-                           cameraFront, //目标
-                           cameraUp);//上向量
+        view = glm::lookAt(cameraEye,       //摄像机位置
+                           cameraCenter,    //目标
+                           cameraUp);       //上向量
                     
         glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
         glDrawArrays(GL_TRIANGLES, 0, squareIndicesCount);
@@ -221,13 +202,13 @@ void do_movement()
     // Camera controls
     GLfloat cameraSpeed = 0.05f;
     if (keys[GLFW_KEY_W])//后
-        cameraPos += cameraSpeed * cameraFront;
+        cameraEye += cameraSpeed * cameraCenter;
     if (keys[GLFW_KEY_S])//前
-        cameraPos -= cameraSpeed * cameraFront;
+        cameraEye -= cameraSpeed * cameraCenter;
     if (keys[GLFW_KEY_A])//左
-        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        cameraEye -= glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
     if (keys[GLFW_KEY_D])//右
-        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+        cameraEye += glm::normalize(glm::cross(cameraCenter, cameraUp)) * cameraSpeed;
     
 }
 
@@ -263,7 +244,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
     front.y = sin(glm::radians(pitch));
     front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
-    cameraFront = glm::normalize(front);
+    cameraCenter = glm::normalize(front);
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
