@@ -878,6 +878,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0439C75125271A18006E9280 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
 		0468331A2518B25800025F09 /* Glad_Src */ = {
 			isa = PBXGroup;
 			children = (
@@ -1367,7 +1374,8 @@
 			isa = PBXGroup;
 			children = (
 				BD4AD947250A76EE00C7984C /* Common */,
-				BD4AD95A250FA9BD00C7984C /* GETSTART */,
+				0439C75125271A18006E9280 /* Light */,
+				BD4AD95A250FA9BD00C7984C /* GetStart */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1382,7 +1390,7 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		04C6C8702518AA32003760D6 /* TRANSFORM */ = {
+		04C6C8702518AA32003760D6 /* Transform */ = {
 			isa = PBXGroup;
 			children = (
 				04C6C8722518AA69003760D6 /* MyTransformVertices.hpp */,
@@ -1390,16 +1398,16 @@
 				04C6C8742518AA8B003760D6 /* MyTransform.hpp */,
 				04C6C8732518AA8B003760D6 /* MyTransform.cpp */,
 			);
-			path = TRANSFORM;
+			path = Transform;
 			sourceTree = "<group>";
 		};
-		04D5F5AD251B48F3007E43ED /* COORDINATE */ = {
+		04D5F5AD251B48F3007E43ED /* Coordinate */ = {
 			isa = PBXGroup;
 			children = (
-				BDE877E6251BB2BE006DE1E6 /* PLANE */,
-				BDE877E7251BB2C7006DE1E6 /* CUBE */,
+				BDE877E6251BB2BE006DE1E6 /* Plane */,
+				BDE877E7251BB2C7006DE1E6 /* Cube */,
 			);
-			path = COORDINATE;
+			path = Coordinate;
 			sourceTree = "<group>";
 		};
 		BD43514A2504C2CA005F69E0 /* 3.3.2 */ = {
@@ -1491,20 +1499,20 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BD4AD95A250FA9BD00C7984C /* GETSTART */ = {
+		BD4AD95A250FA9BD00C7984C /* GetStart */ = {
 			isa = PBXGroup;
 			children = (
-				BDBB7C192520F355009AC0EA /* CAMERA */,
-				04D5F5AD251B48F3007E43ED /* COORDINATE */,
-				04C6C8702518AA32003760D6 /* TRANSFORM */,
-				BD4AD95B250FA9C600C7984C /* TEXTURE */,
+				BDBB7C192520F355009AC0EA /* Camera */,
+				04D5F5AD251B48F3007E43ED /* Coordinate */,
+				04C6C8702518AA32003760D6 /* Transform */,
+				BD4AD95B250FA9C600C7984C /* Texture */,
 				BDFD3C1F25067D390059A0CD /* CreateWindow */,
 				BD63C6272504DA0100DB43B4 /* ConfigDemo */,
 			);
-			path = GETSTART;
+			path = GetStart;
 			sourceTree = "<group>";
 		};
-		BD4AD95B250FA9C600C7984C /* TEXTURE */ = {
+		BD4AD95B250FA9C600C7984C /* Texture */ = {
 			isa = PBXGroup;
 			children = (
 				BDE5B441250FD0B1002DBC07 /* MyTexturesShader.hpp */,
@@ -1512,7 +1520,7 @@
 				BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */,
 				BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */,
 			);
-			path = TEXTURE;
+			path = Texture;
 			sourceTree = "<group>";
 		};
 		BD63C6272504DA0100DB43B4 /* ConfigDemo */ = {
@@ -1592,7 +1600,7 @@
 			path = "FileManagerC++";
 			sourceTree = "<group>";
 		};
-		BDBB7C192520F355009AC0EA /* CAMERA */ = {
+		BDBB7C192520F355009AC0EA /* Camera */ = {
 			isa = PBXGroup;
 			children = (
 				BDBB7C1A2520F399009AC0EA /* MyCameraShader.hpp */,
@@ -1601,7 +1609,7 @@
 				BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */,
 				BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */,
 			);
-			path = CAMERA;
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		BDE5B412250FB5F8002DBC07 /* ImgSources */ = {
@@ -1642,7 +1650,7 @@
 			path = STB;
 			sourceTree = "<group>";
 		};
-		BDE877E6251BB2BE006DE1E6 /* PLANE */ = {
+		BDE877E6251BB2BE006DE1E6 /* Plane */ = {
 			isa = PBXGroup;
 			children = (
 				04D5F5B2251B4954007E43ED /* MyCoordinateShader.hpp */,
@@ -1650,10 +1658,10 @@
 				04D5F5AF251B4948007E43ED /* MyCoordinate.hpp */,
 				04D5F5AE251B4948007E43ED /* MyCoordinate.cpp */,
 			);
-			path = PLANE;
+			path = Plane;
 			sourceTree = "<group>";
 		};
-		BDE877E7251BB2C7006DE1E6 /* CUBE */ = {
+		BDE877E7251BB2C7006DE1E6 /* Cube */ = {
 			isa = PBXGroup;
 			children = (
 				BDE877E4251BB2A7006DE1E6 /* MyCoordinateCubeShader.hpp */,
@@ -1661,7 +1669,7 @@
 				BDE877ED251BB34D006DE1E6 /* MyCoordinateCube.hpp */,
 				BDE877EC251BB34D006DE1E6 /* MyCoordinateCube.cpp */,
 			);
-			path = CUBE;
+			path = Cube;
 			sourceTree = "<group>";
 		};
 		BDFD3C1F25067D390059A0CD /* CreateWindow */ = {
