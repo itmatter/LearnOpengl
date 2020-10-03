@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0439C75425287A16006E9280 /* MyLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C75225287A16006E9280 /* MyLight.cpp */; };
+		0439C75525287A16006E9280 /* MyLight.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C75325287A16006E9280 /* MyLight.hpp */; };
 		0468331C2518B26A00025F09 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0468331B2518B26A00025F09 /* glad.c */; };
 		0468331E2518B2E600025F09 /* glad.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331D2518B2E600025F09 /* glad.h */; };
 		046833202518B3C800025F09 /* khrplatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331F2518B3C800025F09 /* khrplatform.h */; };
@@ -358,6 +360,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0439C75225287A16006E9280 /* MyLight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyLight.cpp; sourceTree = "<group>"; };
+		0439C75325287A16006E9280 /* MyLight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyLight.hpp; sourceTree = "<group>"; };
+		0439C75625287A24006E9280 /* MyLightShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightShader.h; sourceTree = "<group>"; };
+		0439C75725287A2F006E9280 /* MyLightVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightVertices.h; sourceTree = "<group>"; };
 		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
@@ -881,6 +887,10 @@
 		0439C75125271A18006E9280 /* Light */ = {
 			isa = PBXGroup;
 			children = (
+				0439C75625287A24006E9280 /* MyLightShader.h */,
+				0439C75725287A2F006E9280 /* MyLightVertices.h */,
+				0439C75325287A16006E9280 /* MyLight.hpp */,
+				0439C75225287A16006E9280 /* MyLight.cpp */,
 			);
 			path = Light;
 			sourceTree = "<group>";
@@ -1743,6 +1753,7 @@
 				04683BE62519A60C00025F09 /* geometric.hpp in Headers */,
 				04683BBF2519A60B00025F09 /* matrix_double4x3_precision.hpp in Headers */,
 				04683B8F2519A60B00025F09 /* matrix_double2x3_precision.hpp in Headers */,
+				0439C75525287A16006E9280 /* MyLight.hpp in Headers */,
 				04683C0D2519A60C00025F09 /* matrix_inverse.hpp in Headers */,
 				04683B722519A60B00025F09 /* vector_int3_sized.hpp in Headers */,
 				04683C422519A60C00025F09 /* matrix_decompose.hpp in Headers */,
@@ -2097,6 +2108,7 @@
 				BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,
+				0439C75425287A16006E9280 /* MyLight.cpp in Sources */,
 				04683BF32519A60C00025F09 /* glm.cpp in Sources */,
 				BDBB7C1E2520F3B2009AC0EA /* MyCamera.cpp in Sources */,
 				BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */,

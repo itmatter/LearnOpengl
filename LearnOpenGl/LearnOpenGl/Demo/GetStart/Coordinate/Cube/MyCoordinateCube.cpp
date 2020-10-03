@@ -92,7 +92,7 @@ int runMyCoordinateCube() {
     glEnableVertexAttribArray(0);
 
 
-    //纹理坐标, 纹理坐标用的三角形坐标一致
+    //纹理坐标
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(2);
 
