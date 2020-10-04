@@ -13,6 +13,8 @@
 		0439C75C252996DF006E9280 /* MyMathDemo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C75A252996DF006E9280 /* MyMathDemo.hpp */; };
 		0439C7612529D431006E9280 /* MyMaterial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C75F2529D431006E9280 /* MyMaterial.cpp */; };
 		0439C7622529D431006E9280 /* MyMaterial.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C7602529D431006E9280 /* MyMaterial.hpp */; };
+		0439C76E252A2D72006E9280 /* MyLightMaps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C76C252A2D72006E9280 /* MyLightMaps.cpp */; };
+		0439C76F252A2D72006E9280 /* MyLightMaps.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C76D252A2D72006E9280 /* MyLightMaps.hpp */; };
 		0468331C2518B26A00025F09 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0468331B2518B26A00025F09 /* glad.c */; };
 		0468331E2518B2E600025F09 /* glad.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331D2518B2E600025F09 /* glad.h */; };
 		046833202518B3C800025F09 /* khrplatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331F2518B3C800025F09 /* khrplatform.h */; };
@@ -374,6 +376,10 @@
 		0439C7602529D431006E9280 /* MyMaterial.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMaterial.hpp; sourceTree = "<group>"; };
 		0439C7632529D43F006E9280 /* MyMaterialShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMaterialShader.h; sourceTree = "<group>"; };
 		0439C7642529D44E006E9280 /* MyMaterialVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMaterialVertices.h; sourceTree = "<group>"; };
+		0439C76C252A2D72006E9280 /* MyLightMaps.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyLightMaps.cpp; sourceTree = "<group>"; };
+		0439C76D252A2D72006E9280 /* MyLightMaps.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyLightMaps.hpp; sourceTree = "<group>"; };
+		0439C770252A2D78006E9280 /* MyLightMapsShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightMapsShader.h; sourceTree = "<group>"; };
+		0439C771252A2D85006E9280 /* MyLightMapsVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightMapsVertices.h; sourceTree = "<group>"; };
 		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
@@ -897,6 +903,7 @@
 		0439C75125271A18006E9280 /* Light(光照) */ = {
 			isa = PBXGroup;
 			children = (
+				0439C765252A2CFA006E9280 /* LightMaps */,
 				0439C75E2529D34F006E9280 /* Material */,
 				0439C75D2529D33F006E9280 /* LightModel */,
 			);
@@ -932,6 +939,17 @@
 				0439C75F2529D431006E9280 /* MyMaterial.cpp */,
 			);
 			path = Material;
+			sourceTree = "<group>";
+		};
+		0439C765252A2CFA006E9280 /* LightMaps */ = {
+			isa = PBXGroup;
+			children = (
+				0439C771252A2D85006E9280 /* MyLightMapsVertices.h */,
+				0439C770252A2D78006E9280 /* MyLightMapsShader.h */,
+				0439C76D252A2D72006E9280 /* MyLightMaps.hpp */,
+				0439C76C252A2D72006E9280 /* MyLightMaps.cpp */,
+			);
+			path = LightMaps;
 			sourceTree = "<group>";
 		};
 		0468331A2518B25800025F09 /* Glad_Src */ = {
@@ -1764,6 +1782,7 @@
 				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
 				0468331E2518B2E600025F09 /* glad.h in Headers */,
 				04683BBB2519A60B00025F09 /* matrix_uint4x3_sized.hpp in Headers */,
+				0439C76F252A2D72006E9280 /* MyLightMaps.hpp in Headers */,
 				04683C302519A60C00025F09 /* associated_min_max.hpp in Headers */,
 				04683C362519A60C00025F09 /* quaternion.hpp in Headers */,
 				04683B8B2519A60B00025F09 /* scalar_ulp.hpp in Headers */,
@@ -2143,6 +2162,7 @@
 				04C6C8752518AA8B003760D6 /* MyTransform.cpp in Sources */,
 				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
 				BDA85EC92504BE60003F7D84 /* main.mm in Sources */,
+				0439C76E252A2D72006E9280 /* MyLightMaps.cpp in Sources */,
 				0439C75B252996DF006E9280 /* MyMathDemo.cpp in Sources */,
 				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,

@@ -20,6 +20,7 @@
 #include "MyLight.hpp"
 #include "MyMathDemo.hpp"
 #include "MyMaterial.hpp"
+#include "MyLightMaps.hpp"
 int main(int argc, const char * argv[]) {
 //    //初始化一个OC对象
 //    FileManager * oc = [FileManager shareInstance];
@@ -38,7 +39,8 @@ int main(int argc, const char * argv[]) {
 //    mathDemo();
     
     
-    return runMyMaterialCube();
+//    return runMyMaterialCube();
+    return runMyLightMapsCube();
     
     return 0;
 }

@@ -9,7 +9,6 @@
 #ifndef MyMaterial_hpp
 #define MyMaterial_hpp
 
-#include <stdio.h>
 int runMyMaterialCube();
 
 #endif /* MyMaterial_hpp */
