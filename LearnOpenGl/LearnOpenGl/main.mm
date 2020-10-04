@@ -19,7 +19,7 @@
 #include "MyCamera.hpp"
 #include "MyLight.hpp"
 #include "MyMathDemo.hpp"
-
+#include "MyMaterial.hpp"
 int main(int argc, const char * argv[]) {
 //    //初始化一个OC对象
 //    FileManager * oc = [FileManager shareInstance];
@@ -34,7 +34,11 @@ int main(int argc, const char * argv[]) {
 //    return runMyTransform();
 //    return runMyCoordinate();
 //    return runMyCameraCube();
-    return runMyLightCube();
+//    return runMyLightCube();
 //    mathDemo();
+    
+    
+    return runMyMaterialCube();
+    
     return 0;
 }
