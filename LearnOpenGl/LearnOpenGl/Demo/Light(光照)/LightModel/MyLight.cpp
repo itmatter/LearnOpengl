@@ -62,7 +62,7 @@ int runMyLightCube() {
 
     //解绑VAO
     glBindVertexArray(0);
-    squareIndicesCount = sizeof(myLightVertices)/(sizeof(myLightVertices[0]) * 5);
+    squareIndicesCount = sizeof(myLightVertices)/(sizeof(myLightVertices[0]) * 6);
 
     glEnable(GL_DEPTH_TEST);
 

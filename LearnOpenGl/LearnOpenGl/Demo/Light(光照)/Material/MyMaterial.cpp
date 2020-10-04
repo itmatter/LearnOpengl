@@ -62,7 +62,7 @@ int runMyMaterialCube() {
 
     //解绑VAO
     glBindVertexArray(0);
-    squareIndicesCount = sizeof(myMaterialVertices)/(sizeof(myMaterialVertices[0]) * 5);
+    squareIndicesCount = sizeof(myMaterialVertices)/(sizeof(myMaterialVertices[0]) * 6);
 
     glEnable(GL_DEPTH_TEST);
 
@@ -148,7 +148,7 @@ int runMyMaterialCube() {
 //        lightColor.x = sin(glfwGetTime() * 2.0f);
 //        lightColor.y = sin(glfwGetTime() * 0.7f);
 //        lightColor.z = sin(glfwGetTime() * 1.3f);
-//        
+//
 //        glm::vec3 ambientColor = lightColor * glm::vec3(0.5f);
 //        glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
 //

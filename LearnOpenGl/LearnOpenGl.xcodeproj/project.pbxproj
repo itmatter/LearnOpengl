@@ -380,6 +380,8 @@
 		0439C76D252A2D72006E9280 /* MyLightMaps.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyLightMaps.hpp; sourceTree = "<group>"; };
 		0439C770252A2D78006E9280 /* MyLightMapsShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightMapsShader.h; sourceTree = "<group>"; };
 		0439C771252A2D85006E9280 /* MyLightMapsVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightMapsVertices.h; sourceTree = "<group>"; };
+		0439C772252A2FEF006E9280 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		0439C773252A40B1006E9280 /* box_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_specular.png; sourceTree = "<group>"; };
 		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
@@ -1683,6 +1685,8 @@
 		BDE5B412250FB5F8002DBC07 /* ImgSources */ = {
 			isa = PBXGroup;
 			children = (
+				0439C772252A2FEF006E9280 /* box.png */,
+				0439C773252A40B1006E9280 /* box_specular.png */,
 				BDBB7C182520F304009AC0EA /* dizhuan.jpg */,
 				BD97D749251121520056AA58 /* smile.png */,
 			);
