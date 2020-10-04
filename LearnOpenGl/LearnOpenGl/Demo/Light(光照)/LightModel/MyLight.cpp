@@ -5,6 +5,7 @@
 //  Created by 李礼光 on 2020/10/3.
 //  Copyright © 2020 liguang. All rights reserved.
 //
+//  冯氏光照模型
 
 #include <iostream>
 
@@ -114,7 +115,7 @@ int runMyLightCube() {
         GLint myLightPosLoc = glGetUniformLocation(myProgram.program,"lightPos");
         glUniform3f(myLightPosLoc,1.0,1.3,3.0f); //
         
-        //光源位置
+        //镜面反射
         GLint myViewPosLoc = glGetUniformLocation(myProgram.program,"viewPos");
         glUniform3f(myViewPosLoc,0.0,0.0f,3.0f); //
         

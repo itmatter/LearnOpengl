@@ -51,29 +51,26 @@ static char *myLightFragmentShaderSrc = SHADER(
                                                                
     void main()
     {
-        //环境光
-        float ambientStrength = 0.5f;
-        vec3 ambient = ambientStrength * lightColor;
+        //环境光ambient
+        float ambientStrength = 0.5f;//环境强度
+        vec3 ambient = ambientStrength * lightColor;//环境强度 * 白光
     
         //漫反射diffuse
         vec3 norm = normalize(Normal);//归一化法向量
         vec3 lightDir = normalize(lightPos - FragPos);//光源位置-片元位置
-        float diff = max(dot(norm, lightDir),0.0);
-        vec3 diffuse = diff * lightColor;//漫反射计算
-    
-    
-        //镜面光照
+        float diff = max(dot(norm, lightDir),0.0);//点乘取最大值,
+        vec3 diffuse = diff * lightColor;//漫反射
+        
+        //镜面反射specular
         float specularStrength = 1.0f;
         vec3 viewDir = normalize(viewPos - FragPos);//归一化法向量
-        vec3 reflectDir = reflect(-lightDir , norm);
-        float spec = pow(max(dot(viewDir, reflectDir),0.0),32);
-        vec3 specular = specularStrength * spec * lightColor;//漫反射计算
+        vec3 reflectDir = reflect(-lightDir , norm);//返回入射光线i对表面法线n的反射光线。
+        float spec = pow(max(dot(viewDir, reflectDir),0.0),64);//最大值32次幂
+        vec3 specular = specularStrength * spec * lightColor;//镜面反射
 
-    
     
         vec3 result = (ambient + diffuse + specular) * objectColor;
         color = vec4(result , 1.0f);
-
     }
 );
 

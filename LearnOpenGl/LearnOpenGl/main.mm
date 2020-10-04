@@ -18,6 +18,7 @@
 #include "MyCoordinateCube.hpp"
 #include "MyCamera.hpp"
 #include "MyLight.hpp"
+#include "MyMathDemo.hpp"
 
 int main(int argc, const char * argv[]) {
 //    //初始化一个OC对象
@@ -34,5 +35,6 @@ int main(int argc, const char * argv[]) {
 //    return runMyCoordinate();
 //    return runMyCameraCube();
     return runMyLightCube();
+//    mathDemo();
     return 0;
 }

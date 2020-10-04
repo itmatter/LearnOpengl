@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0439C75425287A16006E9280 /* MyLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C75225287A16006E9280 /* MyLight.cpp */; };
 		0439C75525287A16006E9280 /* MyLight.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C75325287A16006E9280 /* MyLight.hpp */; };
+		0439C75B252996DF006E9280 /* MyMathDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C759252996DF006E9280 /* MyMathDemo.cpp */; };
+		0439C75C252996DF006E9280 /* MyMathDemo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C75A252996DF006E9280 /* MyMathDemo.hpp */; };
 		0468331C2518B26A00025F09 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0468331B2518B26A00025F09 /* glad.c */; };
 		0468331E2518B2E600025F09 /* glad.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331D2518B2E600025F09 /* glad.h */; };
 		046833202518B3C800025F09 /* khrplatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331F2518B3C800025F09 /* khrplatform.h */; };
@@ -364,6 +366,8 @@
 		0439C75325287A16006E9280 /* MyLight.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyLight.hpp; sourceTree = "<group>"; };
 		0439C75625287A24006E9280 /* MyLightShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightShader.h; sourceTree = "<group>"; };
 		0439C75725287A2F006E9280 /* MyLightVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightVertices.h; sourceTree = "<group>"; };
+		0439C759252996DF006E9280 /* MyMathDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMathDemo.cpp; sourceTree = "<group>"; };
+		0439C75A252996DF006E9280 /* MyMathDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMathDemo.hpp; sourceTree = "<group>"; };
 		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
@@ -884,7 +888,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0439C75125271A18006E9280 /* Light */ = {
+		0439C75125271A18006E9280 /* Light(光照) */ = {
+			isa = PBXGroup;
+			children = (
+				0439C75E2529D34F006E9280 /* Material */,
+				0439C75D2529D33F006E9280 /* LightModel */,
+			);
+			path = "Light(光照)";
+			sourceTree = "<group>";
+		};
+		0439C758252996C4006E9280 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				0439C75A252996DF006E9280 /* MyMathDemo.hpp */,
+				0439C759252996DF006E9280 /* MyMathDemo.cpp */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
+		0439C75D2529D33F006E9280 /* LightModel */ = {
 			isa = PBXGroup;
 			children = (
 				0439C75625287A24006E9280 /* MyLightShader.h */,
@@ -892,7 +914,14 @@
 				0439C75325287A16006E9280 /* MyLight.hpp */,
 				0439C75225287A16006E9280 /* MyLight.cpp */,
 			);
-			path = Light;
+			path = LightModel;
+			sourceTree = "<group>";
+		};
+		0439C75E2529D34F006E9280 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Material;
 			sourceTree = "<group>";
 		};
 		0468331A2518B25800025F09 /* Glad_Src */ = {
@@ -1384,8 +1413,9 @@
 			isa = PBXGroup;
 			children = (
 				BD4AD947250A76EE00C7984C /* Common */,
-				0439C75125271A18006E9280 /* Light */,
-				BD4AD95A250FA9BD00C7984C /* GetStart */,
+				0439C758252996C4006E9280 /* Math */,
+				0439C75125271A18006E9280 /* Light(光照) */,
+				BD4AD95A250FA9BD00C7984C /* GetStart(入门) */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -1509,7 +1539,7 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		BD4AD95A250FA9BD00C7984C /* GetStart */ = {
+		BD4AD95A250FA9BD00C7984C /* GetStart(入门) */ = {
 			isa = PBXGroup;
 			children = (
 				BDBB7C192520F355009AC0EA /* Camera */,
@@ -1519,7 +1549,7 @@
 				BDFD3C1F25067D390059A0CD /* CreateWindow */,
 				BD63C6272504DA0100DB43B4 /* ConfigDemo */,
 			);
-			path = GetStart;
+			path = "GetStart(入门)";
 			sourceTree = "<group>";
 		};
 		BD4AD95B250FA9C600C7984C /* Texture */ = {
@@ -1743,6 +1773,7 @@
 				04683BF22519A60C00025F09 /* setup.hpp in Headers */,
 				BDE5B431250FCD73002DBC07 /* stb_image_resize.h in Headers */,
 				04683B922519A60B00025F09 /* vector_bool2_precision.hpp in Headers */,
+				0439C75C252996DF006E9280 /* MyMathDemo.hpp in Headers */,
 				04683BEC2519A60C00025F09 /* _vectorize.hpp in Headers */,
 				BDBB7C162520EFEC009AC0EA /* FileManager_CPlus.hpp in Headers */,
 				04683B502519A60B00025F09 /* matrix_float4x2.hpp in Headers */,
@@ -2101,6 +2132,7 @@
 				04C6C8752518AA8B003760D6 /* MyTransform.cpp in Sources */,
 				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
 				BDA85EC92504BE60003F7D84 /* main.mm in Sources */,
+				0439C75B252996DF006E9280 /* MyMathDemo.cpp in Sources */,
 				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
