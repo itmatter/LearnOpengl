@@ -34,42 +34,65 @@ static char *myMaterialVertexShaderStr = SHADER(
     }
 );
 
+
+
 //片元着色器程序
 static char *myMaterialFragmentShaderSrc = SHADER(
     \#version 330 core\n
+    //材质
+    struct Material {
+        vec3 ambient;//材质向量定义了在环境光照下这个物体反射的是什么颜色,通常和物体颜色相同.
+        vec3 diffuse;//材质向量定义了在漫反射光照t下物体的颜色,漫反射颜色被设置为我们需要的物体颜色.
+        vec3 specular;//材质向量设置的是物体受到的镜面光照的影响的颜色.
+        float shininess;//镜面反射散射因子(半径).
+    };
+    uniform Material material;//材质
+
+    //光照强度
+    struct Light {
+        vec3 position;
+        vec3 ambientStrength;//环境光照强度
+        vec3 diffuseStrength;//漫反射光照强度
+        vec3 specularStrength;//镜面反射光照强度
+    };
+    uniform Light light;
+
 
     in vec3 Normal;
     in vec3 FragPos;
 
-    uniform vec3 objectColor;//物体颜色
-    uniform vec3 MaterialColor;//光照颜色
-    uniform vec3 MaterialPos;//光源位置
-                                               
+    uniform vec3 lightColor;//光照颜色
+    uniform vec3 lightPos;//光源位置
     uniform vec3 viewPos;//镜面反射
+
 
     out vec4 color;
                                                                
     void main()
     {
         //环境光ambient
-        float ambientStrength = 0.5f;//环境强度
-        vec3 ambient = ambientStrength * MaterialColor;//环境强度 * 白光
+        //环境颜色 = 光源颜色 × 物体的环境材质颜色
+        vec3 ambient = lightColor * material.ambient * light.ambientStrength;
     
         //漫反射diffuse
-        vec3 norm = normalize(Normal);//归一化法向量
-        vec3 MaterialDir = normalize(MaterialPos - FragPos);//光源位置-片元位置
-        float diff = max(dot(norm, MaterialDir),0.0);//点乘取最大值,
-        vec3 diffuse = diff * MaterialColor;//漫反射
+        //DiffuseFactor = max(0, dot(N, L))
+        //漫反射颜色 = 光源颜色 × 物体的漫反射材质颜色 × 漫反射因子(diffuseFactor)
+        vec3 norm = normalize(Normal);
+        vec3 lightDir = normalize(lightPos - FragPos);
+        float diffuseFactor = max(dot(norm, lightDir),0.0);
+        vec3 diffuse = lightColor * material.ambient * diffuseFactor * light.diffuseStrength;
         
         //镜面反射specular
-        float specularStrength = 1.0f;
-        vec3 viewDir = normalize(viewPos - FragPos);//归一化法向量
-        vec3 reflectDir = reflect(-MaterialDir , norm);//返回入射光线i对表面法线n的反射光线。
-        float spec = pow(max(dot(viewDir, reflectDir),0.0),64);//最大值32次幂
-        vec3 specular = specularStrength * spec * MaterialColor;//镜面反射
+        //R=reflect(L, N)
+        //SpecularFactor = pow(max(dot(R,V),0.0), shininess)
+        //镜面反射颜色 = 光源颜色 × 物体的镜面材质颜色 × 镜面反射因子(SpecularFactor)
+        vec3 viewDir = normalize(viewPos - FragPos);
+        vec3 reflectDir = reflect(-lightDir , norm);
+        float specularFactor = pow(max(dot(viewDir, reflectDir),0.0),material.shininess);
+        vec3 specular = lightColor * material.ambient * specularFactor * light.specularStrength;
 
-    
-        vec3 result = (ambient + diffuse + specular) * objectColor;
+        //最终片段颜色：环境颜色+漫反射颜色+镜面反射颜色
+        vec3 result = ambient + diffuse + specular;
         color = vec4(result , 1.0f);
     }
 );

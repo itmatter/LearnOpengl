@@ -102,8 +102,6 @@ int runMyMaterialCube() {
                            MaterialCenter,    //目标
                            MaterialUp);       //上向量
         
-        //旋转
-        
         //================================================
 
         
@@ -111,23 +109,53 @@ int runMyMaterialCube() {
         
         
         //================================================
+        
+        //材质
+        GLint matAmbientLoc = glGetUniformLocation(myProgram.program, "material.ambient");
+        GLint matDiffuseLoc = glGetUniformLocation(myProgram.program, "material.diffuse");
+        GLint matSpecularLoc = glGetUniformLocation(myProgram.program, "material.specular");
+        GLint matShineLoc = glGetUniformLocation(myProgram.program, "material.shininess");
+
+        glUniform3f(matAmbientLoc, 1.0f, 0.5f, 0.31f);
+        glUniform3f(matDiffuseLoc, 1.0f, 0.5f, 0.31f);
+        glUniform3f(matSpecularLoc, 0.5f, 0.5f, 0.5f);
+        glUniform1f(matShineLoc, 64.0f);
+        
+
+        //光照强度
+        GLint lightAmbientStrengthLoc = glGetUniformLocation(myProgram.program, "light.ambientStrength");
+        GLint lightDiffuseStrengthLoc = glGetUniformLocation(myProgram.program, "light.diffuseStrength");
+        GLint lightSpecularStrengthLoc = glGetUniformLocation(myProgram.program, "light.specularStrength");
+
+        glUniform3f(lightAmbientStrengthLoc, 0.4f, 0.4f, 0.4f);
+        glUniform3f(lightDiffuseStrengthLoc, 0.7f, 0.7f, 0.7f);
+        glUniform3f(lightSpecularStrengthLoc, 1.0f, 1.0f, 1.0f);
+
         //光源位置
-        GLint myMaterialPosLoc = glGetUniformLocation(myProgram.program,"MaterialPos");
-        glUniform3f(myMaterialPosLoc,1.0,1.3,3.0f); //
+        GLint myLightPosLoc = glGetUniformLocation(myProgram.program,"lightPos");
+        glUniform3f(myLightPosLoc,1.0f,0.0f,4.0f); //
         
         //镜面反射
         GLint myViewPosLoc = glGetUniformLocation(myProgram.program,"viewPos");
         glUniform3f(myViewPosLoc,0.0,0.0f,3.0f); //
         
-        //物体颜色, 光照颜色
-        GLint objectColorLoc = glGetUniformLocation(myProgram.program,"objectColor");
-        GLint MaterialColorLoc = glGetUniformLocation(myProgram.program,"MaterialColor");
-
-        glUniform3f(objectColorLoc,1.0f,0.5f,0.35f);
-        glUniform3f(MaterialColorLoc,1.0f,1.0f,1.0f); //白光
+        //光照颜色
+        GLint lightColorLoc = glGetUniformLocation(myProgram.program,"lightColor");
+        glUniform3f(lightColorLoc,1.0f,1.0f,1.0f); //白光
+        
+//        //动态改变环境光和漫反射光颜色
+//        glm::vec3 lightColor = glm::vec3(1.0f,1.0f,1.0f);
+//        lightColor.x = sin(glfwGetTime() * 2.0f);
+//        lightColor.y = sin(glfwGetTime() * 0.7f);
+//        lightColor.z = sin(glfwGetTime() * 1.3f);
+//        
+//        glm::vec3 ambientColor = lightColor * glm::vec3(0.5f);
+//        glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);
+//
+//        glUniform3f(matAmbientLoc,ambientColor.x,ambientColor.y,ambientColor.z);
+//        glUniform3f(matDiffuseLoc,diffuseColor.x,diffuseColor.y,diffuseColor.z);
         //================================================
 
-        
                     
         glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
         glDrawArrays(GL_TRIANGLES, 0, squareIndicesCount);
