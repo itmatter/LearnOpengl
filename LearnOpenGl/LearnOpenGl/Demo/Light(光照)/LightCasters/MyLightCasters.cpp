@@ -68,7 +68,6 @@ int runMyLightCastersCube() {
     glEnable(GL_DEPTH_TEST);
     
     
-    
 
     //加载纹理
     unsigned int diffuseCasters_texture;
@@ -130,6 +129,23 @@ int runMyLightCastersCube() {
     glBindTexture(GL_TEXTURE_2D, specularCasters_texture);
     glUniform1i(glGetUniformLocation(myProgram.program, "material.specular"), 1);//环境贴图
     
+    
+   
+
+    
+    glm::vec3 cubePositions[] = {
+         glm::vec3( 0.0f,  0.0f,  0.0f),
+         glm::vec3( 2.0f, -1.0f, -1.0f),
+         glm::vec3(-1.5f, -2.2f, -2.5f),
+         glm::vec3(-3.8f, -2.0f, -2.3f),
+         glm::vec3( 2.4f, -0.4f, -3.5f),
+         glm::vec3(-1.7f,  3.0f,  1.5f),
+         glm::vec3( 1.3f, -2.0f, -2.5f),
+         glm::vec3( 1.5f,  2.0f, -2.5f),
+         glm::vec3( 1.5f,  0.2f, -1.5f),
+         glm::vec3(-1.3f,  1.0f, -1.5f)
+     };
+    
     //进行绘制
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
@@ -147,13 +163,12 @@ int runMyLightCastersCube() {
         GLint myViewLoc = glGetUniformLocation(myProgram.program,"myView");
         GLint myProjectionLoc = glGetUniformLocation(myProgram.program,"myProjection");
         
-        projection = glm::perspective(glm::radians(60.0f), 1.0f, 0.01f, 100.f);//投影矩阵
+        projection = glm::perspective(glm::radians(90.0f), 1.0f, 0.01f, 100.f);//投影矩阵
         glUniformMatrix4fv(myProjectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
-        glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
         // Material
-        glm::vec3 MaterialEye   = glm::vec3(2.0f, 2.0f,  2.0f);
-        glm::vec3 MaterialCenter = glm::vec3(0.0f, 0.0f, 0.0f);
+        glm::vec3 MaterialEye   = glm::vec3(3.0f, 3.0f,  2.0f);
+        glm::vec3 MaterialCenter = glm::vec3(1.5f, 1.5f, 0.0f);
         glm::vec3 MaterialUp    = glm::vec3(0.0f, 1.0f,  0.0f);
         
         glBindVertexArray(VAO);
@@ -170,7 +185,6 @@ int runMyLightCastersCube() {
         //镜面反射半径
         GLint matShineLoc = glGetUniformLocation(myProgram.program, "material.shininess");
         glUniform1f(matShineLoc, 64.0f);
-        
 
         //光照强度
         GLint lightAmbientStrengthLoc = glGetUniformLocation(myProgram.program, "light.ambientStrength");
@@ -192,9 +206,19 @@ int runMyLightCastersCube() {
         //光照颜色
         GLint lightColorLoc = glGetUniformLocation(myProgram.program,"lightColor");
         glUniform3f(lightColorLoc,1.0f,1.0f,1.0f); //白光
-                    
-        glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
-        glDrawArrays(GL_TRIANGLES, 0, squareIndicesCount);
+        
+        
+        for(GLuint i = 0; i < 10; i++)
+        {
+            model = glm::translate(model, cubePositions[i]);
+            GLfloat angle = 20.0f * i;
+            model = glm::rotate(model, angle, glm::vec3(1.0f, 0.3f, 0.5f));
+            glUniformMatrix4fv(myModelLoc, 1, GL_FALSE, glm::value_ptr(model));
+            glUniformMatrix4fv(myViewLoc, 1, GL_FALSE, glm::value_ptr(view));
+            glDrawArrays(GL_TRIANGLES, 0, squareIndicesCount);
+        }
+        
+       
         glBindVertexArray(0);
 
         glfwSwapBuffers(window);
