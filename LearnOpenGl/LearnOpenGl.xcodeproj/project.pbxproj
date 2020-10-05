@@ -15,6 +15,8 @@
 		0439C7622529D431006E9280 /* MyMaterial.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C7602529D431006E9280 /* MyMaterial.hpp */; };
 		0439C76E252A2D72006E9280 /* MyLightMaps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C76C252A2D72006E9280 /* MyLightMaps.cpp */; };
 		0439C76F252A2D72006E9280 /* MyLightMaps.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C76D252A2D72006E9280 /* MyLightMaps.hpp */; };
+		0439C777252B0426006E9280 /* MyLightCasters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0439C775252B0426006E9280 /* MyLightCasters.cpp */; };
+		0439C778252B0426006E9280 /* MyLightCasters.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0439C776252B0426006E9280 /* MyLightCasters.hpp */; };
 		0468331C2518B26A00025F09 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0468331B2518B26A00025F09 /* glad.c */; };
 		0468331E2518B2E600025F09 /* glad.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331D2518B2E600025F09 /* glad.h */; };
 		046833202518B3C800025F09 /* khrplatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 0468331F2518B3C800025F09 /* khrplatform.h */; };
@@ -382,6 +384,10 @@
 		0439C771252A2D85006E9280 /* MyLightMapsVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightMapsVertices.h; sourceTree = "<group>"; };
 		0439C772252A2FEF006E9280 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
 		0439C773252A40B1006E9280 /* box_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box_specular.png; sourceTree = "<group>"; };
+		0439C775252B0426006E9280 /* MyLightCasters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyLightCasters.cpp; sourceTree = "<group>"; };
+		0439C776252B0426006E9280 /* MyLightCasters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyLightCasters.hpp; sourceTree = "<group>"; };
+		0439C779252B042B006E9280 /* MyLightCastersShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightCastersShader.h; sourceTree = "<group>"; };
+		0439C77A252B0432006E9280 /* MyLightCastersVertices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLightCastersVertices.h; sourceTree = "<group>"; };
 		043DD51F2521EC8300CB490C /* MyCamera.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCamera.h; sourceTree = "<group>"; };
 		0468331B2518B26A00025F09 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		0468331D2518B2E600025F09 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
@@ -905,6 +911,7 @@
 		0439C75125271A18006E9280 /* Light(光照) */ = {
 			isa = PBXGroup;
 			children = (
+				0439C774252B03FC006E9280 /* LightCasters */,
 				0439C765252A2CFA006E9280 /* LightMaps */,
 				0439C75E2529D34F006E9280 /* Material */,
 				0439C75D2529D33F006E9280 /* LightModel */,
@@ -952,6 +959,17 @@
 				0439C76C252A2D72006E9280 /* MyLightMaps.cpp */,
 			);
 			path = LightMaps;
+			sourceTree = "<group>";
+		};
+		0439C774252B03FC006E9280 /* LightCasters */ = {
+			isa = PBXGroup;
+			children = (
+				0439C775252B0426006E9280 /* MyLightCasters.cpp */,
+				0439C776252B0426006E9280 /* MyLightCasters.hpp */,
+				0439C779252B042B006E9280 /* MyLightCastersShader.h */,
+				0439C77A252B0432006E9280 /* MyLightCastersVertices.h */,
+			);
+			path = LightCasters;
 			sourceTree = "<group>";
 		};
 		0468331A2518B25800025F09 /* Glad_Src */ = {
@@ -2050,6 +2068,7 @@
 				04683B562519A60B00025F09 /* matrix_int3x2_sized.hpp in Headers */,
 				04683BCA2519A60B00025F09 /* matrix_int4x2_sized.hpp in Headers */,
 				BDE5B436250FCD73002DBC07 /* stb_ds.h in Headers */,
+				0439C778252B0426006E9280 /* MyLightCasters.hpp in Headers */,
 				04683B632519A60B00025F09 /* matrix_int3x4_sized.hpp in Headers */,
 				04683C312519A60C00025F09 /* matrix_transform_2d.hpp in Headers */,
 				04683B882519A60B00025F09 /* matrix_int4x4.hpp in Headers */,
@@ -2173,6 +2192,7 @@
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				BDE877EE251BB34D006DE1E6 /* MyCoordinateCube.cpp in Sources */,
 				BD4AD951250A780A00C7984C /* MyShader.cpp in Sources */,
+				0439C777252B0426006E9280 /* MyLightCasters.cpp in Sources */,
 				BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */,
 				0439C7612529D431006E9280 /* MyMaterial.cpp in Sources */,
 				BDFD3C3C25091F240059A0CD /* MyProgram.cpp in Sources */,
