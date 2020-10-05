@@ -175,13 +175,13 @@ int runMyLightMapsCube() {
         
 
         //光照强度
-        GLint lightAmbientStrengthLoc = glGetUniformLocation(myProgram.program, "light.ambientStrength");
-        GLint lightDiffuseStrengthLoc = glGetUniformLocation(myProgram.program, "light.diffuseStrength");
-        GLint lightSpecularStrengthLoc = glGetUniformLocation(myProgram.program, "light.specularStrength");
+        GLint lightAmbientLoc = glGetUniformLocation(myProgram.program, "light.ambient");
+        GLint lightDiffuseLoc = glGetUniformLocation(myProgram.program, "light.diffuse");
+        GLint lightSpecularLoc = glGetUniformLocation(myProgram.program, "light.specular");
 
-        glUniform3f(lightAmbientStrengthLoc, 0.6f, 0.6f, 0.6f);
-        glUniform3f(lightDiffuseStrengthLoc, 0.9f, 0.9f, 0.9f);
-        glUniform3f(lightSpecularStrengthLoc, 1.0f, 1.0f, 1.0f);
+        glUniform3f(lightAmbientLoc, 0.6f, 0.6f, 0.6f);
+        glUniform3f(lightDiffuseLoc, 0.9f, 0.9f, 0.9f);
+        glUniform3f(lightSpecularLoc, 1.0f, 1.0f, 1.0f);
 
         //光源位置
         GLint myLightPosLoc = glGetUniformLocation(myProgram.program,"lightPos");

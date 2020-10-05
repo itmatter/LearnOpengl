@@ -129,23 +129,22 @@ int runMyLightCastersCube() {
     glBindTexture(GL_TEXTURE_2D, specularCasters_texture);
     glUniform1i(glGetUniformLocation(myProgram.program, "material.specular"), 1);//环境贴图
     
-    
-   
 
     
     glm::vec3 cubePositions[] = {
          glm::vec3( 0.0f,  0.0f,  0.0f),
          glm::vec3( 2.0f, -1.0f, -1.0f),
          glm::vec3(-1.5f, -2.2f, -2.5f),
-         glm::vec3(-3.8f, -2.0f, -2.3f),
+         glm::vec3(-2.8f, -1.0f, -2.3f),
          glm::vec3( 2.4f, -0.4f, -3.5f),
-         glm::vec3(-1.7f,  3.0f,  1.5f),
-         glm::vec3( 1.3f, -2.0f, -2.5f),
-         glm::vec3( 1.5f,  2.0f, -2.5f),
+         glm::vec3(-1.7f,  2.0f, -0.1f),
+         glm::vec3( 1.3f, -2.0f, -2.2f),
+         glm::vec3( 1.5f,  2.0f, -2.9f),
          glm::vec3( 1.5f,  0.2f, -1.5f),
-         glm::vec3(-1.3f,  1.0f, -1.5f)
+         glm::vec3(-1.3f,  1.0f, -1.2f)
      };
-    
+    int cubePositionsCount = sizeof(cubePositions)/(sizeof(cubePositions[0]));
+
     //进行绘制
     while(!glfwWindowShouldClose(window)){
         glfwPollEvents();
@@ -168,7 +167,7 @@ int runMyLightCastersCube() {
 
         // Material
         glm::vec3 MaterialEye   = glm::vec3(3.0f, 3.0f,  2.0f);
-        glm::vec3 MaterialCenter = glm::vec3(1.5f, 1.5f, 0.0f);
+        glm::vec3 MaterialCenter = glm::vec3(1.0f, 1.0f, 0.0f);
         glm::vec3 MaterialUp    = glm::vec3(0.0f, 1.0f,  0.0f);
         
         glBindVertexArray(VAO);
@@ -187,28 +186,24 @@ int runMyLightCastersCube() {
         glUniform1f(matShineLoc, 64.0f);
 
         //光照强度
-        GLint lightAmbientStrengthLoc = glGetUniformLocation(myProgram.program, "light.ambientStrength");
-        GLint lightDiffuseStrengthLoc = glGetUniformLocation(myProgram.program, "light.diffuseStrength");
-        GLint lightSpecularStrengthLoc = glGetUniformLocation(myProgram.program, "light.specularStrength");
+        GLint lightAmbientLoc = glGetUniformLocation(myProgram.program, "light.ambient");
+        GLint lightDiffuseLoc = glGetUniformLocation(myProgram.program, "light.diffuse");
+        GLint lightSpecularLoc = glGetUniformLocation(myProgram.program, "light.specular");
 
-        glUniform3f(lightAmbientStrengthLoc, 0.6f, 0.6f, 0.6f);
-        glUniform3f(lightDiffuseStrengthLoc, 0.9f, 0.9f, 0.9f);
-        glUniform3f(lightSpecularStrengthLoc, 1.0f, 1.0f, 1.0f);
-
-        //光源位置
-        GLint myLightPosLoc = glGetUniformLocation(myProgram.program,"lightPos");
-        glUniform3f(myLightPosLoc,1.0f,0.0f,4.0f); //
+        glUniform3f(lightAmbientLoc, 0.6f, 0.6f, 0.6f);
+        glUniform3f(lightDiffuseLoc, 0.9f, 0.9f, 0.9f);
+        glUniform3f(lightSpecularLoc, 1.0f, 1.0f, 1.0f);
         
         //镜面反射
         GLint myViewPosLoc = glGetUniformLocation(myProgram.program,"viewPos");
         glUniform3f(myViewPosLoc,0.0,0.0f,3.0f); //
         
-        //光照颜色
-        GLint lightColorLoc = glGetUniformLocation(myProgram.program,"lightColor");
-        glUniform3f(lightColorLoc,1.0f,1.0f,1.0f); //白光
+        //光照方向
+        GLint directionPos = glGetUniformLocation(myProgram.program, "light.direction");
+        glUniform3f(directionPos, -0.2f, -1.0f, -0.3f);
+
         
-        
-        for(GLuint i = 0; i < 10; i++)
+        for(GLuint i = 0; i < cubePositionsCount; i++)
         {
             model = glm::translate(model, cubePositions[i]);
             GLfloat angle = 20.0f * i;

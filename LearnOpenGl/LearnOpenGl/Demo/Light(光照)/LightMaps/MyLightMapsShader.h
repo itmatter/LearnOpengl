@@ -59,9 +59,9 @@ static char *myLightMapsFragmentShaderSrc = SHADER(
     //光照强度
     struct Light {
         vec3 position;
-        vec3 ambientStrength;//环境光照强度
-        vec3 diffuseStrength;//漫反射光照强度
-        vec3 specularStrength;//镜面反射光照强度
+        vec3 ambient;//环境光照
+        vec3 diffuse;//漫反射光照
+        vec3 specular;//镜面反射光照
     };
     uniform Light light;
 
@@ -79,7 +79,7 @@ static char *myLightMapsFragmentShaderSrc = SHADER(
     {
         //环境光ambient
         //环境颜色 = 光源颜色 × 环境光照强度 × 贴图
-        vec3 ambient = lightColor * light.ambientStrength * vec3(texture(material.diffuse, TexCoords));
+        vec3 ambient = lightColor * light.ambient * vec3(texture(material.diffuse, TexCoords));
 
         //漫反射diffuse
         //DiffuseFactor = max(0, dot(N, L))
@@ -87,7 +87,7 @@ static char *myLightMapsFragmentShaderSrc = SHADER(
         vec3 norm = normalize(Normal);
         vec3 lightDir = normalize(lightPos - FragPos);
         float diffuseFactor = max(dot(norm, lightDir),0.0);
-        vec3 diffuse = lightColor * diffuseFactor * light.diffuseStrength * vec3(texture(material.diffuse, TexCoords));
+        vec3 diffuse = lightColor * diffuseFactor * light.diffuse * vec3(texture(material.diffuse, TexCoords));
     
         //镜面反射specular
         //R=reflect(L, N)
@@ -96,7 +96,7 @@ static char *myLightMapsFragmentShaderSrc = SHADER(
         vec3 viewDir = normalize(viewPos - FragPos);
         vec3 reflectDir = reflect(-lightDir , norm);
         float specularFactor = pow(max(dot(viewDir, reflectDir),0.0),material.shininess);
-        vec3 specular = lightColor * specularFactor * light.specularStrength * vec3(texture(material.specular, TexCoords));
+        vec3 specular = lightColor * specularFactor * light.specular * vec3(texture(material.specular, TexCoords));
 
         //最终片段颜色：环境颜色+漫反射颜色+镜面反射颜色
         vec3 result = ambient + diffuse + specular;
