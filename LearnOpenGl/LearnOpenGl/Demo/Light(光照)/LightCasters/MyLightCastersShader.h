@@ -53,54 +53,83 @@ static char *myLightCastersFragmentShaderSrc = SHADER(
         sampler2D specular;
         float shininess;//镜面反射散射因子(半径).
     };
-    uniform Material material;//材质
 
     //光照强度
     struct Light {
-        // vec3 position; // 现在不在需要光源位置了，因为它是无限远的
-        vec3 direction;
+        vec3 position;//光源位置
+        vec3 direction;//光源方向
         vec3 ambient;//环境光照
         vec3 diffuse;//漫反射光照
         vec3 specular;//镜面反射光照
+    
+        //衰减
+        float constant; //常量
+        float linear;//一次项
+        float quadratic;//二次项
+        
+        //聚光
+        float cutOff;
+        float outerCutOff;
+
     };
-    uniform Light light;
 
     in vec3 Normal;
     in vec3 FragPos;
     in vec2 TexCoords;
-
+                                                      
     uniform vec3 viewPos;//镜面反射
+    uniform Material material;//材质
+    uniform Light light;
+
 
     out vec4 color;
                                                                
     void main()
     {
     
-        vec3 lightDir = normalize(-light.direction);
+//        vec3 lightDir = normalize(-light.direction);
+        vec3 lightDir = normalize(light.position - FragPos);
     
-        //环境光ambient
-        //环境颜色 = 环境光照 × 贴图
-        vec3 ambient =  light.ambient * vec3(texture(material.diffuse, TexCoords));
-
-        //漫反射diffuse
-        //DiffuseFactor = max(0, dot(N, L))
-        //漫反射颜色 = 漫反射因子(diffuseFactor) × 漫反射光照 × 贴图
-        vec3 norm = normalize(Normal);
-        float diffuseFactor = max(dot(norm, lightDir),0.0);
-        vec3 diffuse =  diffuseFactor * light.diffuse * vec3(texture(material.diffuse, TexCoords));
+        //聚光角度
+        float theta = dot(lightDir, normalize(-light.direction));
+        //羽化(如果使用clamp 就不要用if-else了)
+        float epsilon = light.cutOff - light.outerCutOff;
+        float intensity = clamp((theta - light.outerCutOff) / epsilon,0.0, 1.0);
+       
     
-        //镜面反射specular
-        //R=reflect(L, N)
-        //SpecularFactor = pow(max(dot(R,V),0.0), shininess)
-        //镜面反射颜色 = 镜面反射因子(SpecularFactor) × 镜面光照 × 贴图
-        vec3 viewDir = normalize(viewPos - FragPos);
-        vec3 reflectDir = reflect(-lightDir , norm);
-        float specularFactor = pow(max(dot(viewDir, reflectDir),0.0),material.shininess);
-        vec3 specular = specularFactor * light.specular * vec3(texture(material.specular, TexCoords));
+//        if(theta > light.cutOff) // 执行光照计算.
+//        {
+            //环境光ambient
+            //环境颜色 = 环境光照 × 贴图
+            vec3 ambient = light.ambient * vec3(texture(material.diffuse, TexCoords));
 
-        //最终片段颜色：环境颜色+漫反射颜色+镜面反射颜色
-        vec3 result = ambient + diffuse + specular;
-        color = vec4(result , 1.0f);
+            //漫反射diffuse
+            //DiffuseFactor = max(0, dot(N, L))
+            //漫反射颜色 = 漫反射因子(diffuseFactor) × 漫反射光照 × 贴图
+            vec3 norm = normalize(Normal);
+            float diffuseFactor = max(dot(norm, lightDir),0.0);
+            vec3 diffuse = diffuseFactor * light.diffuse * vec3(texture(material.diffuse, TexCoords)) ;
+
+            //镜面反射specular
+            //R=reflect(L, N)
+            //SpecularFactor = pow(max(dot(R,V),0.0), shininess)
+            //镜面反射颜色 = 镜面反射因子(SpecularFactor) × 镜面光照 × 贴图
+            vec3 viewDir = normalize(viewPos - FragPos);
+            vec3 reflectDir = reflect(-lightDir , norm);
+            float specularFactor = pow(max(dot(viewDir, reflectDir),0.0),material.shininess);
+            vec3 specular = specularFactor * light.specular * vec3(texture(material.specular, TexCoords)) ;
+
+        
+            float distance = length(light.position - FragPos);
+            float attenuation = 1.0f / (light.constant + light.linear*distance +light.quadratic*(distance*distance));
+        
+            //最终片段颜色：环境颜色+漫反射颜色+镜面反射颜色
+            vec3 result = ambient * attenuation + diffuse * attenuation * intensity + specular * attenuation* intensity;
+            color = vec4(result , 1.0f);
+//        } else {
+//            //使用环境光，使得场景不至于完全黑暗
+//            color = vec4(light.ambient * vec3(texture(material.diffuse, TexCoords)), 1.0f);
+//        }
     }
 );
 

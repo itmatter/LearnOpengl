@@ -9,6 +9,9 @@
 #ifndef MyLightCasters_hpp
 #define MyLightCasters_hpp
 
-int runMyLightCastersCube();
+
+namespace MyLightCasters {
+    int runMyLightCastersCube();
+}
 
 #endif /* MyLightCasters_hpp */

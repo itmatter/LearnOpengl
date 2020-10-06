@@ -964,10 +964,10 @@
 		0439C774252B03FC006E9280 /* LightCasters */ = {
 			isa = PBXGroup;
 			children = (
-				0439C775252B0426006E9280 /* MyLightCasters.cpp */,
-				0439C776252B0426006E9280 /* MyLightCasters.hpp */,
 				0439C779252B042B006E9280 /* MyLightCastersShader.h */,
 				0439C77A252B0432006E9280 /* MyLightCastersVertices.h */,
+				0439C776252B0426006E9280 /* MyLightCasters.hpp */,
+				0439C775252B0426006E9280 /* MyLightCasters.cpp */,
 			);
 			path = LightCasters;
 			sourceTree = "<group>";

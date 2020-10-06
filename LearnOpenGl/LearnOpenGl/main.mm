@@ -31,8 +31,7 @@ int main(int argc, const char * argv[]) {
 //    return runMyLightCube();
 //    return runMyMaterialCube();
 //    return runMyLightMapsCube();
-    
-    return runMyLightCastersCube();
+    return MyLightCasters::runMyLightCastersCube();
     
     return 0;
 }

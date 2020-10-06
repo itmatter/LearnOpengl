@@ -25,27 +25,27 @@ enum Camera_Movement {
 };
 
 //默认相机值
-const GLfloat YAW        = -90.0f;
-const GLfloat PITCH      =  0.0f;
-const GLfloat SPEED      =  3.0f;
-const GLfloat SENSITIVTY =  0.25f;
-const GLfloat ZOOM       =  45.0f;
+const GLfloat YAW        = -90.0f;  //航向
+const GLfloat PITCH      =  0.0f;   //俯仰
+const GLfloat SPEED      =  3.0f;   //速度
+const GLfloat SENSITIVTY =  0.25f;  //灵敏度
+const GLfloat ZOOM       =  45.0f;  //缩放
 
 
 //一个抽象的相机类，处理输入并计算在OpenGL中使用的对应的Eular Angles，Vectors和Matrices
 class Camera
 {
 public:
-    // Camera Attributes
+    // 摄影机属性
     glm::vec3 Position;
     glm::vec3 Front;
     glm::vec3 Up;
     glm::vec3 Right;
     glm::vec3 WorldUp;
-    // Eular Angles
+    // 欧拉角
     GLfloat Yaw;
     GLfloat Pitch;
-    // Camera options
+    // 相机选项
     GLfloat MovementSpeed;
     GLfloat MouseSensitivity;
     GLfloat Zoom;
@@ -59,6 +59,7 @@ public:
         this->Pitch = pitch;
         this->updateCameraVectors();
     }
+    
     // Constructor with scalar values
     Camera(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat upX, GLfloat upY, GLfloat upZ, GLfloat yaw, GLfloat pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVTY), Zoom(ZOOM)
     {
