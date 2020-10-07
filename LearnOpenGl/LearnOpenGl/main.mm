@@ -20,6 +20,7 @@
 #include "MyMaterial.hpp"
 #include "MyLightMaps.hpp"
 #include "MyLightCasters.hpp"
+#include "MyMultipleLightSources.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -31,7 +32,9 @@ int main(int argc, const char * argv[]) {
 //    return runMyLightCube();
 //    return runMyMaterialCube();
 //    return runMyLightMapsCube();
-    return MyLightCasters::runMyLightCastersCube();
+//    return MyLightCasters::runMyLightCastersCube();
+    
+    return MyMultipleLightSources::runMyMultipleLightSourcesCube();
     
     return 0;
 }
