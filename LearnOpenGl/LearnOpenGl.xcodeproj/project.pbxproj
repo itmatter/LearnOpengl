@@ -318,6 +318,11 @@
 		BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
 		BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
 		BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
+		BDB997452531FC0600D73285 /* libassimp.5.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB997442531FC0600D73285 /* libassimp.5.0.0.dylib */; };
+		BDB997492531FD7800D73285 /* MyMeshDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB997472531FD7800D73285 /* MyMeshDemo.cpp */; };
+		BDB9974A2531FD7800D73285 /* MyMeshDemo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB997482531FD7800D73285 /* MyMeshDemo.hpp */; };
+		BDB9975125321F3D00D73285 /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB9974F25321F3D00D73285 /* Mesh.h */; };
+		BDB997552532211100D73285 /* MeshModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB997532532211100D73285 /* MeshModel.h */; };
 		BDBB7C062520E09D009AC0EA /* FileManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C042520E09D009AC0EA /* FileManager.h */; };
 		BDBB7C072520E09D009AC0EA /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C052520E09D009AC0EA /* FileManager.m */; };
 		BDBB7C152520EFEC009AC0EA /* FileManager_CPlus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C132520EFEC009AC0EA /* FileManager_CPlus.cpp */; };
@@ -852,10 +857,19 @@
 		BD4AD963250FAC9200C7984C /* ShaderSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderSources.hpp; sourceTree = "<group>"; };
 		BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigAndRun.cpp; sourceTree = "<group>"; };
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
+		BD6FCA7725334D1800B73B1E /* GLHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLHeader.h; sourceTree = "<group>"; };
 		BD97D749251121520056AA58 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		BDB997442531FC0600D73285 /* libassimp.5.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.0.0.dylib; path = ../../../../../usr/local/Cellar/assimp/5.0.1/lib/libassimp.5.0.0.dylib; sourceTree = "<group>"; };
+		BDB997472531FD7800D73285 /* MyMeshDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMeshDemo.cpp; sourceTree = "<group>"; };
+		BDB997482531FD7800D73285 /* MyMeshDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMeshDemo.hpp; sourceTree = "<group>"; };
+		BDB9974B25321B4100D73285 /* MyMeshShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMeshShader.h; sourceTree = "<group>"; };
+		BDB9974F25321F3D00D73285 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		BDB997532532211100D73285 /* MeshModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshModel.h; sourceTree = "<group>"; };
+		BDB99757253339D100D73285 /* drill.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; path = drill.fbx; sourceTree = "<group>"; };
+		BDB99758253339D100D73285 /* drill.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = drill.obj; sourceTree = "<group>"; };
 		BDBB7C042520E09D009AC0EA /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		BDBB7C052520E09D009AC0EA /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		BDBB7C0C2520E448009AC0EA /* ObjectInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectInterface.h; sourceTree = "<group>"; };
@@ -905,6 +919,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDB997452531FC0600D73285 /* libassimp.5.0.0.dylib in Frameworks */,
 				BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */,
 				BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */,
 				BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */,
@@ -1467,8 +1482,11 @@
 		04C6C86E25189BA5003760D6 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				BDB99756253339BE00D73285 /* 3DSources */,
+				BDE5B412250FB5F8002DBC07 /* ImgSources */,
 				BD4AD947250A76EE00C7984C /* Common */,
 				0439C758252996C4006E9280 /* Math */,
+				BDB997432531FBC100D73285 /* ModelLoading(模型加载) */,
 				0439C75125271A18006E9280 /* Light(光照) */,
 				BD4AD95A250FA9BD00C7984C /* GetStart(入门) */,
 			);
@@ -1598,7 +1616,6 @@
 			isa = PBXGroup;
 			children = (
 				BDBB7C0D2520E4BD009AC0EA /* FileManagerC++ */,
-				BDE5B412250FB5F8002DBC07 /* ImgSources */,
 				BDFD3C3525091EF00059A0CD /* Program */,
 				BDFD3C3425091EEB0059A0CD /* Shader */,
 			);
@@ -1638,6 +1655,14 @@
 			path = ConfigDemo;
 			sourceTree = "<group>";
 		};
+		BD6FCA7625334CF600B73B1E /* OpenGl Header File */ = {
+			isa = PBXGroup;
+			children = (
+				BD6FCA7725334D1800B73B1E /* GLHeader.h */,
+			);
+			path = "OpenGl Header File";
+			sourceTree = "<group>";
+		};
 		BDA85EBC2504BE60003F7D84 = {
 			isa = PBXGroup;
 			children = (
@@ -1670,6 +1695,7 @@
 		BDA85ECF2504BEB5003F7D84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BDB997442531FC0600D73285 /* libassimp.5.0.0.dylib */,
 				04C6C86C25189973003760D6 /* libglfw.3.2.dylib */,
 				BD43514A2504C2CA005F69E0 /* 3.3.2 */,
 				BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */,
@@ -1677,6 +1703,36 @@
 				BDA85ED02504BEB6003F7D84 /* OpenGL.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDB997432531FBC100D73285 /* ModelLoading(模型加载) */ = {
+			isa = PBXGroup;
+			children = (
+				BD6FCA7625334CF600B73B1E /* OpenGl Header File */,
+				BDB997462531FCC800D73285 /* Mesh */,
+			);
+			path = "ModelLoading(模型加载)";
+			sourceTree = "<group>";
+		};
+		BDB997462531FCC800D73285 /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				BDB9974F25321F3D00D73285 /* Mesh.h */,
+				BDB997532532211100D73285 /* MeshModel.h */,
+				BDB9974B25321B4100D73285 /* MyMeshShader.h */,
+				BDB997482531FD7800D73285 /* MyMeshDemo.hpp */,
+				BDB997472531FD7800D73285 /* MyMeshDemo.cpp */,
+			);
+			path = Mesh;
+			sourceTree = "<group>";
+		};
+		BDB99756253339BE00D73285 /* 3DSources */ = {
+			isa = PBXGroup;
+			children = (
+				BDB99757253339D100D73285 /* drill.fbx */,
+				BDB99758253339D100D73285 /* drill.obj */,
+			);
+			path = 3DSources;
 			sourceTree = "<group>";
 		};
 		BDBB7C002520DF91009AC0EA /* Util */ = {
@@ -1839,8 +1895,10 @@
 				04683BAD2519A60B00025F09 /* matrix_int4x3_sized.hpp in Headers */,
 				04683C092519A60C00025F09 /* matrix_transform.hpp in Headers */,
 				04683C112519A60C00025F09 /* color_space.hpp in Headers */,
+				BDB9975125321F3D00D73285 /* Mesh.h in Headers */,
 				04683BF22519A60C00025F09 /* setup.hpp in Headers */,
 				BDE5B431250FCD73002DBC07 /* stb_image_resize.h in Headers */,
+				BDB997552532211100D73285 /* MeshModel.h in Headers */,
 				04683B922519A60B00025F09 /* vector_bool2_precision.hpp in Headers */,
 				0439C75C252996DF006E9280 /* MyMathDemo.hpp in Headers */,
 				04683BEC2519A60C00025F09 /* _vectorize.hpp in Headers */,
@@ -1980,6 +2038,7 @@
 				04683BA02519A60B00025F09 /* matrix_double4x4.hpp in Headers */,
 				04683C4D2519A60C00025F09 /* scalar_multiplication.hpp in Headers */,
 				04683BE72519A60C00025F09 /* _fixes.hpp in Headers */,
+				BDB9974A2531FD7800D73285 /* MyMeshDemo.hpp in Headers */,
 				04683BFE2519A60C00025F09 /* type_mat4x2.hpp in Headers */,
 				04683C0C2519A60C00025F09 /* quaternion.hpp in Headers */,
 				04683C542519A60C00025F09 /* compatibility.hpp in Headers */,
@@ -2207,6 +2266,7 @@
 				0439C76E252A2D72006E9280 /* MyLightMaps.cpp in Sources */,
 				0439C75B252996DF006E9280 /* MyMathDemo.cpp in Sources */,
 				BDE5B42E250FCD73002DBC07 /* stb_vorbis.c in Sources */,
+				BDB997492531FD7800D73285 /* MyMeshDemo.cpp in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				04D34FA9252DA5DC00F80351 /* MyMultipleLightSources.cpp in Sources */,
@@ -2364,6 +2424,8 @@
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/include,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/assimp/5.0.1/include,
+					/usr/local/Cellar/assimp/5.0.1/lib,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2373,6 +2435,7 @@
 					"$(PROJECT_DIR)/OpenGLLib/glew/2.1.0_1/lib",
 					"$(PROJECT_DIR)/OpenGLLib/glfw/3.2.1/lib",
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/assimp/5.0.1/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2396,6 +2459,8 @@
 					/usr/local/Cellar/glew/2.1.0_1/lib,
 					/usr/local/Cellar/glfw/3.3.2/include,
 					/usr/local/Cellar/glfw/3.3.2/lib,
+					/usr/local/Cellar/assimp/5.0.1/include,
+					/usr/local/Cellar/assimp/5.0.1/lib,
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2405,6 +2470,7 @@
 					"$(PROJECT_DIR)/OpenGLLib/glew/2.1.0_1/lib",
 					"$(PROJECT_DIR)/OpenGLLib/glfw/3.2.1/lib",
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/assimp/5.0.1/lib,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.learnOpenGl.lg.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";

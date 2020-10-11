@@ -21,6 +21,7 @@
 #include "MyLightMaps.hpp"
 #include "MyLightCasters.hpp"
 #include "MyMultipleLightSources.hpp"
+#include "MyMeshDemo.hpp"
 
 int main(int argc, const char * argv[]) {
     
@@ -33,8 +34,8 @@ int main(int argc, const char * argv[]) {
 //    return runMyMaterialCube();
 //    return runMyLightMapsCube();
 //    return MyLightCasters::runMyLightCastersCube();
+//    return MyMultipleLightSources::runMyMultipleLightSourcesCube();
     
-    return MyMultipleLightSources::runMyMultipleLightSourcesCube();
-    
+    return MyMeshDemo::runMyMeshCube();
     return 0;
 }
