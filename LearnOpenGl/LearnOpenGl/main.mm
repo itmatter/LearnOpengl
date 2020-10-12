@@ -16,7 +16,6 @@
 #include "MyCoordinateCube.hpp"
 #include "MyCamera.hpp"
 #include "MyLight.hpp"
-#include "MyMathDemo.hpp"
 #include "MyMaterial.hpp"
 #include "MyLightMaps.hpp"
 #include "MyLightCasters.hpp"

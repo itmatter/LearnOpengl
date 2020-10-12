@@ -129,7 +129,7 @@ namespace MyMeshDemo {
         MyProgram myProgram = MyProgram(myMeshVertexShaderStr, myMeshFragmentShaderSrc);
         glEnable(GL_DEPTH_TEST);
       
-        MeshModel ourModel("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/3DSources/drill.obj");
+        MeshModel ourModel("/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/3DSources/drill.obj");
 
         //进行绘制
         while(!glfwWindowShouldClose(window)){

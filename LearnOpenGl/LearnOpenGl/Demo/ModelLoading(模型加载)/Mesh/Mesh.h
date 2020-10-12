@@ -1,3 +1,4 @@
+
 //
 //  Mesh.hpp
 //  LearnOpenGl
@@ -23,15 +24,14 @@ using namespace std;
 
 
 
+//顶点数据结构 3 3 2
 struct Vertex {
-    // Position
-    glm::vec3 Position;
-    // Normal
-    glm::vec3 Normal;
-    // TexCoords
-    glm::vec2 TexCoords;
+    glm::vec3 Position;//顶点位置
+    glm::vec3 Normal;//法线
+    glm::vec2 TexCoords;//纹理
 };
 
+//纹理
 struct Texture {
     GLuint id;
     string type;
@@ -40,10 +40,9 @@ struct Texture {
 
 class Mesh {
 public:
-    /*  Mesh Data  */
-    vector<Vertex> vertices;
-    vector<GLuint> indices;
-    vector<Texture> textures;
+    vector<Vertex> vertices;//顶点数据的容器
+    vector<GLuint> indices;//索引的容器
+    vector<Texture> textures;//纹理的容器
 
     /*  Functions  */
     // Constructor
@@ -52,7 +51,6 @@ public:
         this->vertices = vertices;
         this->indices = indices;
         this->textures = textures;
-        // Now that we have all the required data, set the vertex buffers and its attribute pointers.
         this->setupMesh();
     }
 
@@ -76,6 +74,7 @@ public:
             number = ss.str();
             // Now set the sampler to the correct texture unit
             glUniform1i(glGetUniformLocation(program.program, (name + number).c_str()), i);
+            
             // And finally bind the texture
             glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
         }
@@ -110,17 +109,12 @@ private:
         glGenBuffers(1, &this->EBO);
 
         glBindVertexArray(this->VAO);
-        // Load data into vertex buffers
         glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
-        // A great thing about structs is that their memory layout is sequential for all its items.
-        // The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
-        // again translates to 3/2 floats which translates to a byte array.
         glBufferData(GL_ARRAY_BUFFER, this->vertices.size() * sizeof(Vertex), &this->vertices[0], GL_STATIC_DRAW);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indices.size() * sizeof(GLuint), &this->indices[0], GL_STATIC_DRAW);
 
-        // Set the vertex attribute pointers
         // Vertex Positions
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*)0);
