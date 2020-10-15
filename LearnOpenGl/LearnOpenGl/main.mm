@@ -20,10 +20,10 @@
 #include "MyLightMaps.hpp"
 #include "MyLightCasters.hpp"
 #include "MyMultipleLightSources.hpp"
-#include "MyMeshDemo.hpp"
+#include "MyModelLoadingDemo.hpp"
 
 int main(int argc, const char * argv[]) {
-    
+
 //    return runMyOpenGlWindow();
 //    return runMyTextureOpenGlWindow();
 //    return runMyTransform();
@@ -34,7 +34,8 @@ int main(int argc, const char * argv[]) {
 //    return runMyLightMapsCube();
 //    return MyLightCasters::runMyLightCastersCube();
 //    return MyMultipleLightSources::runMyMultipleLightSourcesCube();
-    
-    return MyMeshDemo::runMyMeshCube();
+
+    return runMyModelLoadingDemo();
     return 0;
 }
+

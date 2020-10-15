@@ -334,15 +334,20 @@
 		BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD4AD95D250FAA8A00C7984C /* MyTextures.cpp */; };
 		BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD95E250FAA8A00C7984C /* MyTextures.hpp */; };
 		BD63C62A2504DA5600DB43B4 /* ConfigAndRun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */; };
+		BD87D83925389AE500C7B678 /* MyModelLoadingDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD87D83725389AE500C7B678 /* MyModelLoadingDemo.cpp */; };
+		BD87D83A25389AE500C7B678 /* MyModelLoadingDemo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD87D83825389AE500C7B678 /* MyModelLoadingDemo.hpp */; };
+		BD87D83E25389CCF00C7B678 /* MyModelLoadingCommonHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = BD87D83D25389CCF00C7B678 /* MyModelLoadingCommonHeader.h */; };
+		BD87D84025389FDA00C7B678 /* camera.h in Headers */ = {isa = PBXBuildFile; fileRef = BD87D83F25389FDA00C7B678 /* camera.h */; };
 		BDA85EC92504BE60003F7D84 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = BDA85EC82504BE60003F7D84 /* main.mm */; };
 		BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA85ED02504BEB6003F7D84 /* OpenGL.framework */; };
 		BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351472504BFB4005F69E0 /* libglfw.3.3.dylib */; };
 		BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
 		BDB997452531FC0600D73285 /* libassimp.5.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDB997442531FC0600D73285 /* libassimp.5.0.0.dylib */; };
-		BDB997492531FD7800D73285 /* MyMeshDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDB997472531FD7800D73285 /* MyMeshDemo.cpp */; };
-		BDB9974A2531FD7800D73285 /* MyMeshDemo.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDB997482531FD7800D73285 /* MyMeshDemo.hpp */; };
-		BDB9975125321F3D00D73285 /* Mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB9974F25321F3D00D73285 /* Mesh.h */; };
-		BDB997552532211100D73285 /* MeshModel.h in Headers */ = {isa = PBXBuildFile; fileRef = BDB997532532211100D73285 /* MeshModel.h */; };
+		BDBB6B992538909E00E3945F /* shader.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBB6B982538906300E3945F /* shader.h */; };
+		BDBB6B9D253890C400E3945F /* model.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBB6B9C253890C400E3945F /* model.h */; };
+		BDBB6B9F253891D000E3945F /* mesh.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBB6B9E253891CD00E3945F /* mesh.h */; };
+		BDBB6BA6253894F600E3945F /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; };
+		BDBB6BA7253894F600E3945F /* libGLEW.2.1.0.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = BD4351452504BF94005F69E0 /* libGLEW.2.1.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		BDBB7C1E2520F3B2009AC0EA /* MyCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BDBB7C1C2520F3B2009AC0EA /* MyCamera.cpp */; };
 		BDBB7C1F2520F3B2009AC0EA /* MyCamera.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BDBB7C1D2520F3B2009AC0EA /* MyCamera.hpp */; };
 		BDE5B402250FB2DA002DBC07 /* VertexSources.hpp in Headers */ = {isa = PBXBuildFile; fileRef = BD4AD961250FAC0B00C7984C /* VertexSources.hpp */; };
@@ -365,6 +370,17 @@
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		BDBB6BA8253894F600E3945F /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BDBB6BA7253894F600E3945F /* libGLEW.2.1.0.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -872,18 +888,20 @@
 		BD4AD963250FAC9200C7984C /* ShaderSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ShaderSources.hpp; sourceTree = "<group>"; };
 		BD63C6282504DA5600DB43B4 /* ConfigAndRun.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigAndRun.cpp; sourceTree = "<group>"; };
 		BD63C6292504DA5600DB43B4 /* ConfigAndRun.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigAndRun.hpp; sourceTree = "<group>"; };
-		BD6FCA7725334D1800B73B1E /* GLHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLHeader.h; sourceTree = "<group>"; };
+		BD87D83725389AE500C7B678 /* MyModelLoadingDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyModelLoadingDemo.cpp; sourceTree = "<group>"; };
+		BD87D83825389AE500C7B678 /* MyModelLoadingDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyModelLoadingDemo.hpp; sourceTree = "<group>"; };
+		BD87D83D25389CCF00C7B678 /* MyModelLoadingCommonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModelLoadingCommonHeader.h; sourceTree = "<group>"; };
+		BD87D83F25389FDA00C7B678 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
+		BD87D8412538A0FB00C7B678 /* myModelLoadingShader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = myModelLoadingShader.vs; sourceTree = "<group>"; };
+		BD87D8422538A12500C7B678 /* myModelLoadingShader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = myModelLoadingShader.fs; sourceTree = "<group>"; };
 		BD97D749251121520056AA58 /* smile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smile.png; sourceTree = "<group>"; };
 		BDA85EC52504BE60003F7D84 /* LearnOpenGl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearnOpenGl; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA85EC82504BE60003F7D84 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		BDA85ED02504BEB6003F7D84 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		BDB997442531FC0600D73285 /* libassimp.5.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libassimp.5.0.0.dylib; path = ../../../../../usr/local/Cellar/assimp/5.0.1/lib/libassimp.5.0.0.dylib; sourceTree = "<group>"; };
-		BDB997472531FD7800D73285 /* MyMeshDemo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMeshDemo.cpp; sourceTree = "<group>"; };
-		BDB997482531FD7800D73285 /* MyMeshDemo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMeshDemo.hpp; sourceTree = "<group>"; };
-		BDB9974B25321B4100D73285 /* MyMeshShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMeshShader.h; sourceTree = "<group>"; };
-		BDB9974F25321F3D00D73285 /* Mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
-		BDB997532532211100D73285 /* MeshModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeshModel.h; sourceTree = "<group>"; };
-		BDB99757253339D100D73285 /* drill.fbx */ = {isa = PBXFileReference; lastKnownFileType = file; path = drill.fbx; sourceTree = "<group>"; };
+		BDBB6B982538906300E3945F /* shader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shader.h; sourceTree = "<group>"; };
+		BDBB6B9C253890C400E3945F /* model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = model.h; sourceTree = "<group>"; };
+		BDBB6B9E253891CD00E3945F /* mesh.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mesh.h; sourceTree = "<group>"; };
 		BDBB7C182520F304009AC0EA /* dizhuan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dizhuan.jpg; sourceTree = "<group>"; };
 		BDBB7C1A2520F399009AC0EA /* MyCameraShader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCameraShader.hpp; sourceTree = "<group>"; };
 		BDBB7C1B2520F3A7009AC0EA /* MyCameraVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyCameraVertices.hpp; sourceTree = "<group>"; };
@@ -910,6 +928,7 @@
 				BDB540A52520DCFA00E09376 /* libGLEW.2.1.0.dylib in Frameworks */,
 				BDB540A42520DCE700E09376 /* libglfw.3.3.dylib in Frameworks */,
 				BDB540A32520DCD000E09376 /* OpenGL.framework in Frameworks */,
+				BDBB6BA6253894F600E3945F /* libGLEW.2.1.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1652,14 +1671,6 @@
 			path = ConfigDemo;
 			sourceTree = "<group>";
 		};
-		BD6FCA7625334CF600B73B1E /* OpenGl Header File */ = {
-			isa = PBXGroup;
-			children = (
-				BD6FCA7725334D1800B73B1E /* GLHeader.h */,
-			);
-			path = "OpenGl Header File";
-			sourceTree = "<group>";
-		};
 		BDA85EBC2504BE60003F7D84 = {
 			isa = PBXGroup;
 			children = (
@@ -1704,29 +1715,23 @@
 		BDB997432531FBC100D73285 /* ModelLoading(模型加载) */ = {
 			isa = PBXGroup;
 			children = (
-				BD6FCA7625334CF600B73B1E /* OpenGl Header File */,
-				BDB997462531FCC800D73285 /* Mesh */,
+				BD87D83F25389FDA00C7B678 /* camera.h */,
+				BDBB6B982538906300E3945F /* shader.h */,
+				BDBB6B9C253890C400E3945F /* model.h */,
+				BDBB6B9E253891CD00E3945F /* mesh.h */,
+				BD87D8412538A0FB00C7B678 /* myModelLoadingShader.vs */,
+				BD87D8422538A12500C7B678 /* myModelLoadingShader.fs */,
+				BD87D83D25389CCF00C7B678 /* MyModelLoadingCommonHeader.h */,
+				BD87D83825389AE500C7B678 /* MyModelLoadingDemo.hpp */,
+				BD87D83725389AE500C7B678 /* MyModelLoadingDemo.cpp */,
 			);
 			path = "ModelLoading(模型加载)";
-			sourceTree = "<group>";
-		};
-		BDB997462531FCC800D73285 /* Mesh */ = {
-			isa = PBXGroup;
-			children = (
-				BDB9974F25321F3D00D73285 /* Mesh.h */,
-				BDB997532532211100D73285 /* MeshModel.h */,
-				BDB9974B25321B4100D73285 /* MyMeshShader.h */,
-				BDB997482531FD7800D73285 /* MyMeshDemo.hpp */,
-				BDB997472531FD7800D73285 /* MyMeshDemo.cpp */,
-			);
-			path = Mesh;
 			sourceTree = "<group>";
 		};
 		BDB99756253339BE00D73285 /* 3DSources */ = {
 			isa = PBXGroup;
 			children = (
 				04AE00BB2534441000F7A9ED /* drill.obj */,
-				BDB99757253339D100D73285 /* drill.fbx */,
 			);
 			path = 3DSources;
 			sourceTree = "<group>";
@@ -1867,6 +1872,7 @@
 				04AE05692534445E00F7A9ED /* stb_divide.h in Headers */,
 				04AE04A72534445E00F7A9ED /* matrix_relational.hpp in Headers */,
 				04AE04632534445E00F7A9ED /* vector_bool1.hpp in Headers */,
+				BDBB6B992538909E00E3945F /* shader.h in Headers */,
 				04AE04E52534445E00F7A9ED /* matrix_double3x3.hpp in Headers */,
 				BD4AD960250FAA8A00C7984C /* MyTextures.hpp in Headers */,
 				04AE048A2534445E00F7A9ED /* matrix_float3x2.hpp in Headers */,
@@ -1895,7 +1901,6 @@
 				04AE05392534445E00F7A9ED /* io.hpp in Headers */,
 				04AE04DE2534445E00F7A9ED /* matrix_double3x2.hpp in Headers */,
 				04AE048C2534445E00F7A9ED /* quaternion_common.hpp in Headers */,
-				BDB9975125321F3D00D73285 /* Mesh.h in Headers */,
 				04AE04DC2534445E00F7A9ED /* matrix_uint4x3.hpp in Headers */,
 				04AE04B42534445E00F7A9ED /* matrix_double2x2.hpp in Headers */,
 				04AE05342534445E00F7A9ED /* optimum_pow.hpp in Headers */,
@@ -1909,7 +1914,6 @@
 				04AE057D2534445E00F7A9ED /* khrplatform.h in Headers */,
 				04AE04A82534445E00F7A9ED /* vector_integer.hpp in Headers */,
 				04AE04AE2534445E00F7A9ED /* matrix_double4x4.hpp in Headers */,
-				BDB997552532211100D73285 /* MeshModel.h in Headers */,
 				04AE04C82534445E00F7A9ED /* matrix_uint2x2_sized.hpp in Headers */,
 				04AE056B2534445E00F7A9ED /* stb_dxt.h in Headers */,
 				04AE04C52534445E00F7A9ED /* matrix_int4x4_sized.hpp in Headers */,
@@ -2004,7 +2008,6 @@
 				04AE05572534445E00F7A9ED /* matrix_major_storage.hpp in Headers */,
 				04AE04832534445E00F7A9ED /* matrix_int3x3_sized.hpp in Headers */,
 				04AE05682534445E00F7A9ED /* stb_rect_pack.h in Headers */,
-				BDB9974A2531FD7800D73285 /* MyMeshDemo.hpp in Headers */,
 				04AE04D52534445E00F7A9ED /* matrix_uint4x2.hpp in Headers */,
 				04AE04722534445E00F7A9ED /* scalar_common.hpp in Headers */,
 				04AE054A2534445E00F7A9ED /* wrap.hpp in Headers */,
@@ -2026,6 +2029,7 @@
 				04AE05232534445E00F7A9ED /* reciprocal.hpp in Headers */,
 				04AE04652534445E00F7A9ED /* vector_float1_precision.hpp in Headers */,
 				04AE04642534445E00F7A9ED /* matrix_int3x2_sized.hpp in Headers */,
+				BD87D83A25389AE500C7B678 /* MyModelLoadingDemo.hpp in Headers */,
 				04AE04E22534445E00F7A9ED /* vector_double3.hpp in Headers */,
 				04AE04682534445E00F7A9ED /* matrix_float2x2.hpp in Headers */,
 				04AE04D32534445E00F7A9ED /* matrix_int3x3.hpp in Headers */,
@@ -2036,6 +2040,8 @@
 				04AE04F72534445E00F7A9ED /* _noise.hpp in Headers */,
 				04AE05502534445E00F7A9ED /* matrix_decompose.hpp in Headers */,
 				04AE04992534445E00F7A9ED /* scalar_ulp.hpp in Headers */,
+				BD87D84025389FDA00C7B678 /* camera.h in Headers */,
+				BD87D83E25389CCF00C7B678 /* MyModelLoadingCommonHeader.h in Headers */,
 				04AE04542534445E00F7A9ED /* mat4x3.hpp in Headers */,
 				04AE04512534445E00F7A9ED /* vec2.hpp in Headers */,
 				04AE04FE2534445E00F7A9ED /* type_mat3x2.hpp in Headers */,
@@ -2099,6 +2105,7 @@
 				04AE054D2534445E00F7A9ED /* color_space.hpp in Headers */,
 				04AE04752534445E00F7A9ED /* matrix_double4x2_precision.hpp in Headers */,
 				04AE05172534445E00F7A9ED /* matrix_transform.hpp in Headers */,
+				BDBB6B9F253891D000E3945F /* mesh.h in Headers */,
 				04AE051A2534445E00F7A9ED /* quaternion.hpp in Headers */,
 				04AE05382534445E00F7A9ED /* type_trait.hpp in Headers */,
 				04AE04AF2534445E00F7A9ED /* scalar_uint_sized.hpp in Headers */,
@@ -2122,6 +2129,7 @@
 				04AE04C72534445E00F7A9ED /* vector_common.hpp in Headers */,
 				04AE04DD2534445E00F7A9ED /* matrix_double3x3_precision.hpp in Headers */,
 				04AE047B2534445E00F7A9ED /* quaternion_float_precision.hpp in Headers */,
+				BDBB6B9D253890C400E3945F /* model.h in Headers */,
 				04AE04612534445E00F7A9ED /* vector_relational.hpp in Headers */,
 				04AE05202534445E00F7A9ED /* noise.hpp in Headers */,
 				04AE046C2534445E00F7A9ED /* matrix_float4x4.hpp in Headers */,
@@ -2147,9 +2155,10 @@
 			buildConfigurationList = BDA85ECC2504BE60003F7D84 /* Build configuration list for PBXNativeTarget "LearnOpenGl" */;
 			buildPhases = (
 				BDFD3C312506977E0059A0CD /* Headers */,
-				BDA85EC12504BE60003F7D84 /* Sources */,
 				BDA85EC22504BE60003F7D84 /* Frameworks */,
 				BDA85EC32504BE60003F7D84 /* CopyFiles */,
+				BDBB6BA8253894F600E3945F /* Embed Libraries */,
+				BDA85EC12504BE60003F7D84 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -2199,9 +2208,9 @@
 			files = (
 				04C6C8752518AA8B003760D6 /* MyTransform.cpp in Sources */,
 				BD4AD95F250FAA8A00C7984C /* MyTextures.cpp in Sources */,
+				BD87D83925389AE500C7B678 /* MyModelLoadingDemo.cpp in Sources */,
 				BDA85EC92504BE60003F7D84 /* main.mm in Sources */,
 				0439C76E252A2D72006E9280 /* MyLightMaps.cpp in Sources */,
-				BDB997492531FD7800D73285 /* MyMeshDemo.cpp in Sources */,
 				04D5F5B0251B4948007E43ED /* MyCoordinate.cpp in Sources */,
 				BDFD3C2225067D820059A0CD /* MyOpenglWindow.cpp in Sources */,
 				04AE05012534445E00F7A9ED /* glm.cpp in Sources */,

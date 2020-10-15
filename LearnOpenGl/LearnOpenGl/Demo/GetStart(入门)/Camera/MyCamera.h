@@ -1,13 +1,13 @@
 //
-//  Camera.h
+//  MyCamera.h
 //  LearnOpenGl
 //
 //  Created by 李礼光 on 2020/9/28.
 //  Copyright © 2020 liguang. All rights reserved.
 //  
 
-#ifndef Camera_h
-#define Camera_h
+#ifndef MyCamera_h
+#define MyCamera_h
 
 // GL Includes
 #include "glad.h"
@@ -17,7 +17,7 @@
 
 
 //为摄像机移动定义几个可能的选项。 用作抽象以远离特定于窗口系统的输入法
-enum Camera_Movement {
+enum MyCamera_Movement {
     FORWARD,
     BACKWARD,
     LEFT,
@@ -33,7 +33,7 @@ const GLfloat ZOOM       =  45.0f;  //缩放
 
 
 //一个抽象的相机类，处理输入并计算在OpenGL中使用的对应的Eular Angles，Vectors和Matrices
-class Camera
+class MyCamera
 {
 public:
     // 摄影机属性
@@ -51,7 +51,7 @@ public:
     GLfloat Zoom;
 
     // Constructor with vectors
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), GLfloat yaw = YAW, GLfloat pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVTY), Zoom(ZOOM)
+    MyCamera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), GLfloat yaw = YAW, GLfloat pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVTY), Zoom(ZOOM)
     {
         this->Position = position;
         this->WorldUp = up;
@@ -61,7 +61,7 @@ public:
     }
     
     // Constructor with scalar values
-    Camera(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat upX, GLfloat upY, GLfloat upZ, GLfloat yaw, GLfloat pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVTY), Zoom(ZOOM)
+    MyCamera(GLfloat posX, GLfloat posY, GLfloat posZ, GLfloat upX, GLfloat upY, GLfloat upZ, GLfloat yaw, GLfloat pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVTY), Zoom(ZOOM)
     {
         this->Position = glm::vec3(posX, posY, posZ);
         this->WorldUp = glm::vec3(upX, upY, upZ);
@@ -77,7 +77,7 @@ public:
     }
 
     // Processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
-    void ProcessKeyboard(Camera_Movement direction, GLfloat deltaTime)
+    void ProcessKeyboard(MyCamera_Movement direction, GLfloat deltaTime)
     {
         GLfloat velocity = this->MovementSpeed * deltaTime;
         if (direction == FORWARD)
@@ -139,4 +139,4 @@ private:
     }
 };
 
-#endif /* Camera_h */
+#endif /* MyCamera_h */

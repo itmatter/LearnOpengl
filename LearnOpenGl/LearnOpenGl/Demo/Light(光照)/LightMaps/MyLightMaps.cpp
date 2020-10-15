@@ -37,6 +37,9 @@ int runMyLightMapsCube() {
         printf("window 创建失败");
     }
     glfwMakeContextCurrent(window);
+    
+    
+    
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     //切换为纹理着色器程序

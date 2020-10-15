@@ -44,7 +44,6 @@ static char *myLightFragmentShaderSrc = SHADER(
     uniform vec3 objectColor;//物体颜色
     uniform vec3 lightColor;//光照颜色
     uniform vec3 lightPos;//光源位置
-                                               
     uniform vec3 viewPos;//镜面反射
 
     out vec4 color;
@@ -68,7 +67,6 @@ static char *myLightFragmentShaderSrc = SHADER(
         float spec = pow(max(dot(viewDir, reflectDir),0.0),64);//最大值32次幂
         vec3 specular = specularStrength * spec * lightColor;//镜面反射
 
-    
         vec3 result = (ambient + diffuse + specular) * objectColor;
         color = vec4(result , 1.0f);
     }

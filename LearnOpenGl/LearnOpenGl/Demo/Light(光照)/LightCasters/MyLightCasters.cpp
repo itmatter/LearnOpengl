@@ -7,14 +7,17 @@
 //
 
 #include <iostream>
+
 #include "MyLightCasters.hpp"
 #include "MyProgram.hpp"
 #include "MyLightCastersShader.h"
 #include "MyLightCastersVertices.h"
+#include "MyCamera.h"
+
+
 #include "glm.hpp"
 #include "matrix_transform.hpp"
 #include "type_ptr.hpp"
-#include "MyCamera.h"
 
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_STATIC
@@ -32,7 +35,7 @@ namespace MyLightCasters {
     const GLuint WIDTH = 800, HEIGHT = 600;
 
     // Camera
-    Camera  camera(glm::vec3(0.0f, 0.0f, 3.0f));
+    MyCamera  camera(glm::vec3(0.0f, 0.0f, 3.0f));
     GLfloat lastX  =  WIDTH  / 2.0;
     GLfloat lastY  =  HEIGHT / 2.0;
     bool    keys[1024];
