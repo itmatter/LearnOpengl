@@ -72,7 +72,11 @@ public:
         const char* vShaderCode = vertexCode.c_str();
         const char * fShaderCode = fragmentCode.c_str();
         
-        
+        buildAndComplieShader(vShaderCode, fShaderCode, geometryPath, geometryCode.c_str());
+
+    }
+    
+    void buildAndComplieShader(const char* vShaderCode, const char * fShaderCode , const char* geometryPath, const char * geometryCode) {
         // 2. compile shaders
         unsigned int vertex, fragment;
         
@@ -93,7 +97,7 @@ public:
         unsigned int geometry;
         if(geometryPath != nullptr)
         {
-            const char * gShaderCode = geometryCode.c_str();
+            const char * gShaderCode = geometryCode;
             geometry = glCreateShader(GL_GEOMETRY_SHADER);
             glShaderSource(geometry, 1, &gShaderCode, NULL);
             glCompileShader(geometry);
@@ -101,7 +105,7 @@ public:
         }
         
         
-        // shader Program
+        // 程序加载着色器程序
         ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
@@ -116,9 +120,7 @@ public:
         glDeleteShader(fragment);
         if(geometryPath != nullptr)
             glDeleteShader(geometry);
-
     }
-    
     
     
     

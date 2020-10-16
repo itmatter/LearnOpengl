@@ -143,7 +143,7 @@ private:
 
             vertices.push_back(vertex);
         }
-        // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
+        // 现在遍历每个网格面（一个面是其三角形的网格）并检索相应的顶点索引。
         for(unsigned int i = 0; i < mesh->mNumFaces; i++)
         {
             aiFace face = mesh->mFaces[i];
@@ -151,34 +151,30 @@ private:
             for(unsigned int j = 0; j < face.mNumIndices; j++)
                 indices.push_back(face.mIndices[j]);
         }
-        // process materials
+        
+        // 材质
         aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
-        // we assume a convention for sampler names in the shaders. Each diffuse texture should be named
-        // as 'texture_diffuseN' where N is a sequential number ranging from 1 to MAX_SAMPLER_NUMBER.
-        // Same applies to other texture as the following list summarizes:
-        // diffuse: texture_diffuseN
-        // specular: texture_specularN
-        // normal: texture_normalN
-
         
+        //我们假定着色器中采样器名称的约定。 每个漫反射纹理应命名为“ texture_diffuseN”，其中N是一个从1到MAX_SAMPLER_NUMBER的序列号。
+        //同样适用于其他纹理，如以下列表所示：
+        //扩散：texture_diffuseN
+        //镜面反射：texture_specularN
+        //正常：texture_normalN
         
-        
-        
-        
-        // 1. diffuse maps
+        // 1. 漫返射贴图
         vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
-        // 2. specular maps
+        // 2. 镜面高光贴图
         vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
-        // 3. normal maps
+        // 3. 法线贴图
         std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
         textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
         // 4. height maps
         std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
         textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
         
-        // return a mesh object created from the extracted mesh data
+        // 返回从提取的网格数据创建的网格对象
         return Mesh(vertices, indices, textures);
     }
 
@@ -186,8 +182,7 @@ private:
     
     
     
-    // checks all material textures of a given type and loads the textures if they're not loaded yet.
-    // the required info is returned as a Texture struct.
+    //检查给定类型的所有材质纹理，如果尚未加载，则加载该纹理。 所需的信息作为Texture结构返回。
     vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
     {
         vector<Texture> textures;

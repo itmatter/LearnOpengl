@@ -6,11 +6,8 @@
 //  Copyright © 2020 liguang. All rights reserved.
 //
 
-
 #include "MyModelLoadingDemo.hpp"
 #include "MyModelLoadingCommonHeader.h"
-#include "MyProgram.hpp"
-
 
 #include "shader.h"
 #include "camera.h"
@@ -36,7 +33,6 @@ bool firstMouse_M = true;
 // timing
 float deltaTime_T = 0.0f;
 float lastFrame_F = 0.0f;
-
 
 int runMyModelLoadingDemo() {
 
@@ -77,11 +73,11 @@ int runMyModelLoadingDemo() {
 
     
 
-    // build and compile shaders
+    // 加载着色器程序, Shader里面的方法是直接通过打开文件的形式, 与之前的
     // -------------------------
     Shader ourShader("/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.vs", "/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.fs");
 
-    // load models
+    // 加载模型
     // -----------
     Model ourModel("/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/3DSources/drill.obj");
 
@@ -94,18 +90,14 @@ int runMyModelLoadingDemo() {
         deltaTime_T = currentFrame - lastFrame_F;
         lastFrame_F = currentFrame;
 
-        // input
-        // -----
         processInput(window);
-
-        // render
-        // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // don't forget to enable shader before setting uniforms
         ourShader.use();
 
+        //================================================
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 400.0f);
         glm::mat4 view = camera.GetViewMatrix();
@@ -118,41 +110,18 @@ int runMyModelLoadingDemo() {
         model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));    // it's a bit too big for our scene, so scale it down
         ourShader.setMat4("model", model);
         ourModel.Draw(ourShader);
+        //================================================
 
 
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
+    //程序销毁
     glfwTerminate();
     return 0;
 }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
+ 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow *window)

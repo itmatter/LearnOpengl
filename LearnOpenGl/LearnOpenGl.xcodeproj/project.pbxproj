@@ -855,6 +855,8 @@
 		04C6C8722518AA69003760D6 /* MyTransformVertices.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTransformVertices.hpp; sourceTree = "<group>"; };
 		04C6C8732518AA8B003760D6 /* MyTransform.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTransform.cpp; sourceTree = "<group>"; };
 		04C6C8742518AA8B003760D6 /* MyTransform.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTransform.hpp; sourceTree = "<group>"; };
+		04CDBEBF253983DE002A6626 /* sofa_chair_.mtl */ = {isa = PBXFileReference; lastKnownFileType = text; path = sofa_chair_.mtl; sourceTree = "<group>"; };
+		04CDBEC0253983DF002A6626 /* sofa_chair_.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = sofa_chair_.obj; sourceTree = "<group>"; };
 		04D34FA7252DA5DC00F80351 /* MyMultipleLightSources.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyMultipleLightSources.cpp; sourceTree = "<group>"; };
 		04D34FA8252DA5DC00F80351 /* MyMultipleLightSources.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyMultipleLightSources.hpp; sourceTree = "<group>"; };
 		04D34FAB252DA5E200F80351 /* MyMultipleLightSourcesShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMultipleLightSourcesShader.h; sourceTree = "<group>"; };
@@ -1732,6 +1734,8 @@
 			isa = PBXGroup;
 			children = (
 				04AE00BB2534441000F7A9ED /* drill.obj */,
+				04CDBEC0253983DF002A6626 /* sofa_chair_.obj */,
+				04CDBEBF253983DE002A6626 /* sofa_chair_.mtl */,
 			);
 			path = 3DSources;
 			sourceTree = "<group>";

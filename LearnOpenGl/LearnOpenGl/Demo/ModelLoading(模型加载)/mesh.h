@@ -84,17 +84,14 @@ public:
         }
         
         
-        
         //光照强度
         GLint lightAmbientLoc = glGetUniformLocation(shader.ID, "light.ambient");
         GLint lightDiffuseLoc = glGetUniformLocation(shader.ID, "light.diffuse");
         GLint lightSpecularLoc = glGetUniformLocation(shader.ID, "light.specular");
 
-        glUniform3f(lightAmbientLoc, 0.6f, 0.6f, 0.6f);
-        glUniform3f(lightDiffuseLoc, 0.9f, 0.9f, 0.9f);
+        glUniform3f(lightAmbientLoc, 0.2f, 0.2f, 0.2f);
+        glUniform3f(lightDiffuseLoc, 0.5f, 0.5f, 0.5f);
         glUniform3f(lightSpecularLoc, 1.0f, 1.0f, 1.0f);
-        
-        
         
         
         // draw mesh

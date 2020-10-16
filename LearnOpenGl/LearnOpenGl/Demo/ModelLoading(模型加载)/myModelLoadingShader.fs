@@ -20,9 +20,6 @@ uniform Light light;
 
 void main()
 {
-//    FragColor = texture(texture_diffuse1, TexCoords);
-
-        
     //环境光ambient
     //环境颜色 = 光源颜色 × 环境光照强度 × 贴图
     vec3 ambient = vec3(1.0f,1.0f,1.0f) * light.ambient ;
@@ -47,5 +44,13 @@ void main()
     //最终片段颜色：环境颜色+漫反射颜色+镜面反射颜色
     vec3 result = ambient + diffuse + specular;
     color = vec4(result , 1.0f);
-    
 }
+
+//#version 330 core
+//out vec4 FragColor;
+//in vec2 TexCoords;
+//uniform sampler2D texture_diffuse1;
+//void main()
+//{
+//    FragColor = texture(texture_diffuse1, TexCoords);
+//}
