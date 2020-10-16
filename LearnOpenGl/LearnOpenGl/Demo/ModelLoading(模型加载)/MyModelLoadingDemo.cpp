@@ -79,11 +79,11 @@ int runMyModelLoadingDemo() {
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.vs", "/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.fs");
+    Shader ourShader("/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.vs", "/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/ModelLoading(模型加载)/myModelLoadingShader.fs");
 
     // load models
     // -----------
-    Model ourModel("/Users/lumi/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/3DSources/drill.obj");
+    Model ourModel("/Users/liliguang/Desktop/LearnOpengl/LearnOpenGl/LearnOpenGl/Demo/3DSources/drill.obj");
 
 
     while (!glfwWindowShouldClose(window))

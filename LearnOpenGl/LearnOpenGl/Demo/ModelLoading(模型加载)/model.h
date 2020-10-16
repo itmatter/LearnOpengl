@@ -160,6 +160,11 @@ private:
         // specular: texture_specularN
         // normal: texture_normalN
 
+        
+        
+        
+        
+        
         // 1. diffuse maps
         vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
@@ -177,6 +182,10 @@ private:
         return Mesh(vertices, indices, textures);
     }
 
+    
+    
+    
+    
     // checks all material textures of a given type and loads the textures if they're not loaded yet.
     // the required info is returned as a Texture struct.
     vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
@@ -212,6 +221,13 @@ private:
 };
 
 
+
+
+
+
+
+
+//加载纹理
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
 {
     string filename = string(path);
